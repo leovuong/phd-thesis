@@ -1,0 +1,111 @@
+$if(has-frontmatter)$
+\frontmatter
+$endif$
+
+
+\begin{titlepage}
+  \begin{spacing}{1}
+    \null\vfil
+    \pagenumbering{gobble} 
+    \begin{flushleft}%
+      $if(thesis.title)${\LARGE \sffamily $thesis.title$ \par}$else${\vskip 1cm}$endif$
+      \vspace*{1cm}
+      $if(thesis.subtitle)${\Large\sffamily $thesis.subtitle$ \par}$else${\vskip 1cm}$endif$
+      \vskip 2cm%
+      $if(thesis.author)${\large \lineskip .75em \begin{tabular}[t]{c} {\Huge $thesis.author$} \end{tabular}\par}$else${\vskip 1cm}$endif$
+      \rule{\linewidth}{1mm} \par
+      \vskip 1cm%
+      {\large TESI DOCTORAL UPF / Year $if(thesis.date)$$thesis.date$\\[2cm]}$else${\vskip 1cm \\[2cm]}$endif$
+      {\normalsize THESIS SUPERVISOR}\par
+      $if(thesis.supervisor)${\large $thesis.supervisor$\par}$else${\vskip 1cm}$endif$
+      $if(thesis.department)${\large $thesis.department$\par}$else${\vskip 1cm}$endif$
+      \vspace{2cm}
+      \centering
+      \includegraphics[width=5cm]{$logo$}
+    \end{flushleft}\par
+    \afterpage{\blankpage}
+  \end{spacing}
+\end{titlepage}
+\newpage
+
+
+\begin{spacing}{1.5}
+
+%----------------------------------------------
+%   Dedication
+%----------------------------------------------
+
+$if(thesis.dedication)$
+\clearpage
+ \begin{flushleft}%
+  \thispagestyle{empty}
+  \vspace*{\stretch{1}}
+  \normalsize\itshape\raggedleft{$thesis.dedication$}
+  \vspace*{\stretch{2}}
+\end{flushleft}
+\clearpage
+$endif$
+
+\pagenumbering{Roman} 
+
+\clearpage
+~
+\thispagestyle{empty}
+\clearpage
+
+%----------------------------------------------
+%   Acknowledgements
+%----------------------------------------------
+
+$if(thesis.acknowledgements)$
+\clearpage
+\chapter*{\sffamily Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\vspace*{\baselineskip}
+\normalsize{$thesis.acknowledgements$}
+\clearpage
+~
+$endif$
+
+\thispagestyle{empty}
+
+%----------------------------------------------
+%   Abstract (English)
+%----------------------------------------------
+
+$if(thesis.abstract-english)$
+\clearpage
+\section*{\sffamily Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\normalsize{$thesis.abstract-english$}
+\vspace*{\baselineskip}
+\clearpage
+$endif$
+
+%----------------------------------------------
+%   Abstract (Catalan)
+%----------------------------------------------
+
+$if(thesis.abstract-catalan)$
+\clearpage
+\section*{\sffamily Resum}
+\normalsize{$thesis.abstract-catalan$}
+\afterpage{\blankpage}
+\clearpage
+$endif$
+
+
+%----------------------------------------------
+%   Preface
+%----------------------------------------------
+
+$if(thesis.preface)$
+\clearpage
+\chapter*{\sffamily Preface}
+\addcontentsline{toc}{chapter}{Preface}
+\vspace*{\baselineskip}
+\normalsize{$thesis.preface$}
+\clearpage
+$endif$
+
+\end{spacing}
