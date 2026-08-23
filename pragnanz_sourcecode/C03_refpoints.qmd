@@ -1,0 +1,120 @@
+# What good is goodness? The effects of reference points on discrimination and categorization of shapes {#sec-refpoints}
+\chaptermark{Reference points, categorization, and discrimination}
+\addthumb{Chapter 3}{\Huge{\textbf{\arabic{chapter}}}}{white}{gray} \thispagestyle{empty}
+
+::: {.content-visible when-format="html"}
+<script>document.getElementById("tocimage").src="chapterfigs/3.jpg";</script>
+:::
+
+\setcounter{footnote}{0}
+\vspace{3mm}
+
+::: {.content-visible when-format="html"}
+**Van Geert, E., & Wagemans, J. (under review). What good is goodness? The effects of reference points on discrimination and categorization of shapes. Preprint available from: [https://doi.org/10.31234/osf.io/6x75c](https://doi.org/10.31234/osf.io/6x75c)**
+
+<a type="button" href="https://doi.org/10.31234/osf.io/6x75c" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="ai ai-psyarxiv ai-xl"></i> Preprint</a>
+<a type="button" href="https://elinevg.github.io/interactivefigs_referencepoints/" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="fa-solid fa-images fa-lg"></i> Interactive figures</a>
+<a type="button" href="https://doi.org/10.17605/osf.io/ugcd8" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="ai ai-osf ai-xl"></i> Materials, data, and code</a>
+
+<small>@garner1974 posed the question "What good is goodness?" in the second chapter of his book *'The Processing of Information and Structure'*.</small>
+
+<h2>Abstract</h2>
+:::
+
+\setstretch{1.2}
+<small>Earlier research reported a category boundary effect on perception: Differences between stimuli belonging to the same category are perceived as smaller than differences between stimuli belonging to different categories even when the physical dissimilarity between the stimuli in the pairs is the same. In this paper, we propose that the existence of reference points (i.e., exemplars that serve as a point of comparison) can explain the occurrence of the category boundary effect as well as the directional asymmetries in within-category pairs.
+  We investigated how reference points influence categorization and discrimination performance, using three different tasks: categorization, successive discrimination, and similarity judgment. We used both recognizable and non-recognizable morph figures as stimuli, assuming that recognizable series have clearer reference points. We replicated the overall category boundary effect for both discrimination and similarity and show the effect’s dependence on the strength of the reference points involved. The general category boundary effect is not a proper category boundary effect, however: rather than the type of stimulus pair presented (i.e., within- or between-category) one needs to take into account the distance from the reference points for each of the individual stimuli in the pair to actually predict discrimination performance and similarity judgments.
+  These results provide evidence that reference points on a dimension and their strength have tangible consequences for how we perceive, categorize, and react to stimuli on that dimension. Moreover, our findings remind us of the danger of averaging without looking at underlying data patterns, and of the gains that can be made by seriously exploring consistent variability in extensive data sets.</small>
+
+::: {.content-visible when-format="html"}
+<h2>Reference points, categorization, and discrimination</h2>
+:::
+
+::: {.content-visible when-format="pdf"}
+\vfill
+\noindent
+**Van Geert, E., & Wagemans, J. (under review). What good is goodness? The effects of reference points on discrimination and categorization of shapes. Preprint available from: [https://doi.org/10.31234/osf.io/6x75c](https://doi.org/10.31234/osf.io/6x75c)**
+
+
+\noindent
+\ffbox{\href{https://doi.org/10.31234/osf.io/6x75c}{\small{Preprint}}}
+\ffbox{\href{https://elinevg.github.io/interactivefigs_referencepoints/}{\small{Interactive figures}}}
+\ffbox{\href{https://doi.org/10.17605/osf.io/ugcd8}{\small{Materials, data, and code}}}
+\setstretch{1.5}
+
+\clearpage
+
+\section*{What good is goodness? The effects of reference points on discrimination and categorization of shapes\footnote{Garner (1974) posed the question "What good is goodness?" in the second chapter of his book \textit{'The Processing of Information and Structure'}.}}
+\sectionmark{Reference points, categorization, and discrimination}
+:::
+
+```{r}
+#| label: load_packages
+#| message: false
+#| warning: false
+
+# Load papaja
+library(papaja) # if not installed: devtools::install_github("crsh/papaja")
+
+# List of packages used in analysis
+packagelist <- c("tidyverse", "lubridate", "parallel", "rstan", "tidybayes", "modelr", "ggimage", "ggthemes", "grid", "ggiraph", "cowplot", "patchwork", "brms", "here", "glue", "readxl") 
+
+# Install packages if not already installed
+invisible(lapply(packagelist, function(package){if ( !package %in% rownames(installed.packages())) {install.packages(package)}} ))
+
+# Load required packages
+invisible(lapply(packagelist, library, character.only = T, quietly = T))
+
+# r_refs("r-references.bib")
+
+theme_set(theme_cowplot())
+```
+
+```{r}
+#| label: define_constants
+
+bluecolors <- c("#119ABE", "#143560", "#74D8F3", "#69696F", "#D7D7D9", "#A0A0A4")
+
+# reds: https://www.color-hex.com/color/d73027
+# blues: https://www.color-hex.com/color/4575b4
+```
+
+
+```{r}
+#| label: loadpackages_readdata
+#| child: "03_chapters/00_readdata.Rmd"
+
+```
+
+<!-- Introduction -->
+```{r}
+#| child: "03_chapters/01_intro.Rmd"
+
+```
+
+<!-- Methods -->
+```{r}
+#| child: "03_chapters/02_methods.Rmd"
+
+```
+
+<!-- Results -->
+```{r}
+#| child: "03_chapters/03_results.Rmd"
+
+```
+
+<!-- Discussion -->
+```{r}
+#| child: "03_chapters/04_discussion.Rmd"
+
+```
+
+## Open and reproducible practices statement
+This manuscript was written in R Markdown using the papaja package [@R-papaja] with code for data analysis integrated into the text. The data, materials, and analysis and manuscript code for the experiment are available at [https://doi.org/10.17605/osf.io/ugcd8](https://doi.org/10.17605/osf.io/ugcd8).
+
+```{r}
+rm(list = ls())
+```
+
+\clearpage \thispagestyle{empty} \stopthumb

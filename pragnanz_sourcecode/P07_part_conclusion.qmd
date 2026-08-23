@@ -1,0 +1,26 @@
+# Discussion {#sec-partconclusion}
+
+::: {.content-visible when-format="pdf"}
+\thispagestyle{empty}
+\setstretch{1.0}
+\vspace{-14mm}
+\textcolor{gray}{\hspace*{11cm}\small{\copyright \ \ Joris Snaet}} 
+
+\noindent
+\begin{center}
+\textbf{To come to better psychological organizations, we find a \textit{balance} \\ between what we already know and the new input we receive.}
+\end{center}
+\setstretch{1.5}
+
+\clearpage \thispagestyle{empty}
+:::
+
+::: {.content-visible when-format="html"}
+<center> 
+<img style = "margin-bottom:-60px; width:100%;" src="chapterfigs/7.jpg">
+
+<span style = "margin-left: 550px; margin-top: 0px; font-size: 11pt;">&copy; Joris Snaet</span>
+</br><span style = "margin-top: -50px;"><b>To come to better psychological organizations, we find a *balance* between</br>what we already know and the new input we receive.</b></span>
+</center>
+:::
+

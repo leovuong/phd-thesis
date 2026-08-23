@@ -1,0 +1,146 @@
+# Same stimulus, same temporal context, different percept? Individual differences in hysteresis and adaptation when perceiving multistable dot lattices {#sec-rrdotlattices}
+::: {.content-visible when-format="pdf"}
+\chaptermark{Individual differences in hysteresis and adaptation}
+:::
+\addthumb{Chapter 4}{\Huge{\textbf{\arabic{chapter}}}}{white}{gray} \thispagestyle{empty}
+
+::: {.content-visible when-format="html"}
+<script>document.getElementById("tocimage").src="chapterfigs/4.jpg";</script>
+:::
+
+\setcounter{footnote}{0}
+\vspace{3mm}
+
+::: {.content-visible when-format="html"}
+**Van Geert, E., Moors, P., Haaf, J. M., & Wagemans, J. (2022). Same stimulus, same temporal context, different percept? Individual differences in hysteresis and adaptation when perceiving multistable dot lattices. *i-Perception*, *13*(4). [https://doi.org/10.1177/20416695221109300](https://doi.org/10.1177/20416695221109300)**
+
+<a type="button" href="https://doi.org/10.1177/20416695221109300" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="ai ai-open-access ai-xl"></i> Paper</a>
+<a type="button" href="https://doi.org/10.31234/osf.io/d78z2" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="ai ai-psyarxiv ai-xl"></i> Postprint</a>
+<a type="button" href="https://doi.org/10.17605/OSF.IO/QMGCA" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="ai ai-preregistered ai-xl"></i> Preregistration</a>
+<a type="button" href="https://doi.org/10.17605/OSF.IO/WAE6K" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="ai ai-osf ai-xl"></i> Materials, data, and code</a>
+
+<h2>Abstract</h2>
+:::
+
+\setstretch{1.2}
+<small>How we perceptually organize a visual stimulus depends not only on the stimulus itself, but also on the temporal and spatial context in which the stimulus is presented and on the individual processing the stimulus and context. Earlier research found both attractive and repulsive context effects in perception: tendencies to organize visual input similarly to preceding context stimuli (i.e., hysteresis, attraction) co-exist with tendencies that repel the current percept from the organization that is most dominant in these contextual stimuli (i.e., adaptation, repulsion). These processes have been studied mostly on a group level [e.g.,  @schwiedrzik2014]. Using a Bayesian hierarchical model comparison approach, the present study (N = 75) investigated whether consistent individual differences exist in these attractive and repulsive temporal context effects, with multistable dot lattices as stimuli. In addition, the temporal stability of these individual differences in context effects was investigated, and it was studied how the strength of these effects related to the strength of individual biases for absolute orientations. The results demonstrate that large individual differences in the size of attractive and repulsive context effects exist. Furthermore, these individual differences are highly consistent across timepoints (one to two weeks apart). Although *almost everyone* showed both effects in the expected direction, *not every* single individual did. In sum, the study reveals differences in how individuals combine previous input and experience with current input in their perception, and more generally, this teaches us that different individuals can perceive identical stimuli differently, even within a similar context.</small>
+
+<!-- **Keywords:** hysteresis, adaptation, individual differences, perceptual organization, multistable perception, serial dependencies, context effects, attraction, repulsion -->
+
+::: {.content-visible when-format="pdf"}
+\vfill
+\noindent
+**Van Geert, E., Moors, P., Haaf, J. M., & Wagemans, J. (2022). Same stimulus, same temporal context, different percept? Individual differences in hysteresis and adaptation when perceiving multistable dot lattices. *i-Perception*, *13*(4). [https://doi.org/10.1177/20416695221109300](https://doi.org/10.1177/20416695221109300)**
+
+\noindent
+\ffbox{\href{https://doi.org/10.1177/20416695221109300}{\small{Paper}}}
+\ffbox{\href{https://doi.org/10.31234/osf.io/d78z2}{\small{Postprint}}}
+\ffbox{\href{https://doi.org/10.17605/OSF.IO/QMGCA}{\small{Preregistration}}}
+\ffbox{\href{https://doi.org/10.17605/OSF.IO/WAE6K}{\small{Materials, data, and code}}}
+\setstretch{1.5}
+
+\clearpage
+
+\section*{Same stimulus, same temporal context, different percept? Individual differences in hysteresis and adaptation when perceiving multistable dot lattices}
+\sectionmark{Individual differences in hysteresis and adaptation}
+:::
+
+::: {.content-visible when-format="html"}
+<h2>Individual differences in hysteresis and adaptation</h2>
+:::
+
+```{r}
+#| label: load_packages
+#| message: false
+#| warning: false
+
+# List of packages used in analysis
+packagelist <- c("tidyverse", "here", "devtools", "knitr", "patchwork", "kableExtra", "lubridate", "glue", "cowplot", "brms", "tidybayes", "ggforce", "ggstance", "parallel", "rstan", "ellipse") 
+
+# Install packages if not already installed
+invisible(lapply(packagelist, function(package){if ( !package %in% rownames(installed.packages())) {install.packages(package)}} ))
+
+# Load required CRAN packages
+invisible(lapply(packagelist, library, character.only = T, quietly = T))
+
+# Load papaja
+library(papaja) # if not installed: devtools::install_github("crsh/papaja")
+
+theme_set(theme_cowplot())
+
+# Use several cores in parallel
+ncores = detectCores()
+rstan_options(auto_write = TRUE)  # to avoid recompilation of unchanged Stan programs
+options(mc.cores = parallel::detectCores()) # for execution on a local, multicore CPU with excess RAM
+```
+
+```{r}
+#| label: define_constants
+
+DIAG_MAXIMUM <- 0.40
+
+MODELFOLDER <- "N_75"
+MODELDATE <- "2022-02-19"
+MODELDATE2 <- "2022-03-07"
+```
+
+```{r}
+#| label: add_functions
+
+# Necessary functions
+rad2deg <- function(rad) {(rad * 180) / (pi)}
+deg2rad <- function(deg) {(deg * pi) / (180)}
+
+logit2prob <- function(logit){
+  odds <- exp(logit)
+  prob <- odds / (1 + odds)
+  return(prob)
+}
+
+scientificnotation <- function(n) {
+  output <- format(n, scientific = TRUE) #Transforms the number into scientific notation
+  value <- round(as.numeric(sub("e+.*", "", output)),0)
+  exponent <- as.numeric(sub(".*e", "", output))
+  output <- paste0(value, "\\times10^{", exponent, "}")
+  output
+}
+```
+
+```{r}
+#| label: loadpackages_readdata
+#| child: "04_chapters/00_readdata.Rmd"
+
+```
+
+<!-- Introduction -->
+```{r}
+#| child: "04_chapters/01_intro.Rmd"
+
+```
+
+<!-- Methods -->
+```{r}
+#| child: "04_chapters/02_methods.Rmd"
+
+```
+
+<!-- Results -->
+```{r}
+#| child: "04_chapters/03_results.Rmd"
+
+```
+
+<!-- Discussion -->
+```{r}
+#| child: "04_chapters/04_discussion.Rmd"
+
+```
+
+## Open and reproducible practices statement
+This manuscript was written in R Markdown using the papaja package [@R-papaja] with code for data analysis integrated into the text. The data, materials, and analysis and manuscript code for the experiment are available at [https://doi.org/10.17605/osf.io/wae6k](https://doi.org/10.17605/osf.io/wae6k). The preregistration for this experiment is available at [https://doi.org/10.17605/osf.io/qmgca](https://doi.org/10.17605/osf.io/qmgca).
+
+```{r}
+rm(list = ls())
+```
+
+\clearpage \thispagestyle{empty} \stopthumb

@@ -1,0 +1,11 @@
+# References {.unnumbered}
+<!-- \addthumb{Appendix A}{\Huge{\textbf{\Alph{chapter}}}}{white}{gray} -->
+
+\setstretch{1.0}
+::: {#refs}
+:::
+
+\clearpage \thispagestyle{empty} \stopthumb
+
+\renewcommand\chaptername{Appendix}
+\setstretch{1.5}

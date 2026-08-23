@@ -1,0 +1,325 @@
+# Context dependence of leveling and sharpening {#sec-appsimplcompl}
+\addthumb{Appendix F}{\Huge{\textbf{\Alph{chapter}}}}{white}{gray}
+
+::: {.content-visible when-format="html"}
+<script>document.getElementById("tocimage").src="chapterfigs/5.jpg";</script>
+:::
+
+```{r}
+#| label: load_packages
+#| message: false
+#| warning: false
+#| output: false
+
+# Load papaja
+library(papaja) # if not installed: devtools::install_github("crsh/papaja")
+
+# List of packages used in analysis
+packagelist <- c("knitr", "tidyverse", "brms", "here", "cowplot", "gghalves", "htmltools", "ggdist", "parallel", "rstan", "tidybayes", "patchwork", "ggstance")
+
+# Install packages if not already installed
+invisible(lapply(packagelist, function(package){if ( !package %in% rownames(installed.packages())) {install.packages(package)}} ))
+
+# Load required packages
+invisible(lapply(packagelist, library, character.only = T, quietly = T))
+ 
+# r_refs("r-references.bib")
+
+theme_set(theme_cowplot())
+
+# create invlogit function
+invlogit <- function(x){ exp(x) / (1 + exp(x)) }
+
+memory.limit(size = 1600000000000)
+```
+
+```{r}
+#| label: loadpackages_readdata
+#| child: "06_chapters/00_readdata.Rmd"
+
+```
+
+```{r, child = here("06_chapters", "XX_preprocessing_drawings.Rmd")}
+
+```
+
+```{r}
+my_citations_full <- cite_r(file = "06_chapters/r-references.bib", footnote = FALSE)
+```
+
+## Supplementary Methods
+
+### Additional information on stimulus construction 
+<!-- Specification of values on feature dimensions and selection of target stimuli -->
+To calculate the specific values on the two feature dimensions, the following steps were taken.
+First, the length between the minimum and maximum value of the dimension which has
+the least space to vary relative to the border of the canvas, i.e. the available length, was
+determined. To compute the available length, a predefined margin was multiplied by two
+and subtracted from the total length of the dimension which had the least space to vary.
+This margin was necessary to allow for the sharpening of a dimension. It was defined as
+one-fifth of the total length. This first step could be mathematically defined as follows:
+$$availableLength = totalLength - \frac{2*totalLength}{5}$$
+
+Second, the size of the steps between the four values of a dimension was computed and
+centered around their midpoint^[Due to rounding errors, the size of the steps between the different values on a feature dimension was not always exactly equal, especially for the feature dimensions with minor variability. In addition, when constructing the stimuli, some errors were made in the minimum or maximum value for the dimension with minor variability for designs 5 (maximum value dimension 1 in series B 28.25 instead of 28.75), 16 (minimum value dimension 1 in series B 30 instead of 31.2), and 22 (minimum value dimension 1 in series B 23.8 instead of 21.2 and maximum value dimension 1 in series B 31.2 instead of 28.8).]. The largest steps were defined as one-third of the available
+length, i.e., $$step_{largest} = \frac{availableLength}{3}$$ whereas the smallest steps were defined as one-fourth of the largest steps^[For designs 1, 2, and 6, one of the feature dimensions was bidirectional, which required the step size to be added at both sides of the figure. Therefore, in these designs, the smallest steps were one out of two or one out of eight of the largest steps available concurrently for the other feature dimension in the figure. When comparing major and minor variability for the same feature dimension across the A and B series, the ratio of one out of four is correct.], i.e., $$step_{smallest} = \frac{step_{largest}}{4}$$
+
+Third, these steps were randomly paired per series. For instance, a stimulus in series A could have had the second largest value of the largest steps assigned to the first dimension, and the smallest value of the smallest steps assigned to the second dimension. Fourth, the values of the dimensions of the basic shapes that were not varied, were defined as the mean of the varied dimension of the other basic shape containing a variable dimension.
+Because of the nature of the task, for both series, only two out of four stimuli could serve as the target, namely those with the maximum and minimum value on the dimension with the largest variability. Because of the random pairing of values on the dimensions with largest and smallest variability, the value of the target on the dimension with minor variability could either have a minimum or maximum value as well (i.e., an extreme value), or could be a value in-between (i.e., a non-extreme value).
+
+### R packages used
+As indicated in the Methods section, for all our analyses we used `r my_citations_full`.
+
+### Preprocessing of drawing data
+To be able to analyze the drawing data, rather extensive preprocessing was required. 
+First, shapes that were located outside of the drawing canvas (with an additional margin of 5 units added) were removed from the drawing data. This resulted in the removal of 215 shapes, coming from 171 of the 13032 drawings. We then counted the number of shapes of each type on the canvas and excluded drawings that had an incorrect number of rectangles or triangles (`r n_excluded_incorrectfigs` of `r n_total_incorrectfigs` drawings, `r perc_excluded_incorrectfigs`%).   
+Second, we determined which drawn shape contained which of the relevant feature dimensions, based on the relative horizontal or vertical position (depending on the design in question) of the two drawn shapes on the canvas. If an equal horizontal or vertical position of the two drawn shapes made it impossible to determine which drawn shape contained which feature dimension, the drawing was excluded from analyses (`r n_excluded_samedim` of `r n_total_samedim` drawings, `r perc_excluded_samedim`%).
+
+Third, for the 20 out of 24 designs containing background figures, the position of the drawn shapes relative to the background figures was checked (specific exclusion criteria were design-dependent). In this way, `r n_excluded_wrongplace` additional drawings were excluded (`r perc_excluded_wrongplace`%). This check also identified `r n_adapt_bgfigure` drawings where the background figure was interpreted as a different shape than was intended, which were excluded from analyses as well (`r n_excluded_adapt` out of `r n_total_adapt` drawings, `r perc_excluded_adapt`%). 
+
+Fourth, for the four designs without background figure(s), the relative placement of the drawn shapes was checked. Following this check, `r n_excluded_wrongplacenobg` drawings were excluded (`r perc_excluded_wrongplacenobg`%).
+
+Fifth, the orientation and the point location of the shapes was scrutinized, and the value for the point location was adapted when needed (i.e., because of a combination of mirroring and orientation parameters of the drawn shapes). This step excluded `r n_excluded_wrongori` additional drawings (`r perc_excluded_wrongori`%). In total, `r n_allexcluded_wrongori` out of `r n_total_incorrectfigs` drawings were excluded so far (`r perc_allexcluded_wrongori`%).
+
+After excluding drawings not surviving the checks above, some of the absolute feature dimension values for the drawings needed rescaling: the values for drawings without background shapes (i.e., drawings for designs 2, 4, 5, and 18) and the values for drawings where the background shape was not necessarily used for scaling (i.e., drawings for designs 1 and 6). More specifically, we rescaled the drawings in such a way that the height or width of the drawn shape for which this feature was not varied served as a reference for the drawn shape in which this dimension was varied, so that the ratio between the two heights or widths was kept constant. This rescaling was needed to be able to compare the drawn feature values with the target values on each dimension.^[One downside of this rescaling procedure is that the height and/or width of the two drawn shapes becomes dependent, potentially indirectly leading to dependent feature values on both dimensions. The rescaling can also lead to feature values relative to the available drawing space that are smaller than -1 or larger than 1. We therefore also conducted the analyses with exclusion of these six designs, which led to slightly smaller but similar qualitative and quantitative results as presented in the main text (see @fig-summaryfig-sharp-quali-rel-conceptdim-id-we and @fig-summaryfig-sharp-quant-rel-conceptdim-id-we).] 
+
+Although the rescaled absolute drawn values can be used directly for qualitative comparisons across designs (i.e., proportion of times a feature was leveled or sharpened in each context and variability condition), an additional standardization was needed to make quantitative comparisons across designs possible. All feature values were therefore divided by the available range for leveling and sharpening combined. In this relative measure, a value of one indicates use of all available space to draw the feature, with values ranging from zero to one (or larger than one if the feature was drawn larger than the available space). 
+
+Due to a programming error in the online experiment for the first wave of data collection, information concerning which figure served as target in a particular trial (i.e., minimum or maximum on the major feature dimension) was not saved, for `r n_targetletter_unknown` out of `r n_targetletter_total` drawings (`r perc_targetletter_unknown`%). We therefore defined the extreme value that was closest to the drawn value on the major feature dimension as the target value on the major dimension, and in that way also determined the target value on the minor feature dimension. This is a conservative assumption that can only diminish the effect size of our results, as for those drawings for which no actual target information was available, it minimized leveling and sharpening for the major feature dimension (i.e., to one side of the mean value on the major feature dimension). To estimate the accuracy of this target assignment method, we compared assumed targets with actual targets for the part of the sample for which target information was saved. In this part of the sample (`r n_targetletter_known` drawings), an incorrect target was assigned for `r n_targetletter_knownincorrect` drawings (`r perc_targetletter_knownincorrect`%), and no target could be assigned for `r n_targetletter_knownunsure` drawings (`r perc_targetletter_knownunsure`%) because the drawn value was equally far from both targets or because target assignment differed when either the absolute or the relative values were taken into account.
+
+Drawings for which no actual target information was available and in which a different target was assumed depending on whether the absolute or relative values were taken into account and/or drawings in which the value on the major feature dimension was equally far from the minimum and maximum target value (making it impossible to retrieve the target value on the minor feature dimension) were excluded from analyses (`r n_targetletter_unsure` of `r n_targetletter_total` drawings, `r round(perc_targetletter_unsure,4)`%).
+As the wrong figure (with an in-between value rather than an extreme value on the major feature dimension) was mistakenly assigned as minimum target for series B of design 5 in the close context, all drawings of design 5 in series B where the minimum target was assigned were excluded, both those presented in close and far context (`r n_excluded_wrongtargetc5` of `r n_total_wrongtargetc5` drawings, `r perc_excluded_wrongtargetc5`%).
+
+### Bayesian hierarchical model implementation details
+#### Qualitative data
+We fitted a hierarchical Bayesian logistic regression model to the proportion of times a dimension was sharpened, with context, variability, and their interaction as fixed effects and feature dimension and participant ID as random effects for both intercept and slopes:
+
+\begin{align*}
+\begin{split}
+sharpening \sim & \:Intercept + context + variability + context:variability \\
+& + (1 + context + variability + context:variability \; || \; conceptdim) \\
+& + (1 + context + variability + context:variability \; || \; pp\_id)
+\end{split}
+\end{align*}
+
+As priors, we specified a normal distribution with a mean of zero and a standard deviation of 2 for the intercept, a normal distribution with a mean of zero and a standard deviation of 2 for the slopes, and an inverse gamma distribution for the standard deviations, with an alpha parameter of 2 and a beta parameter of 1. We used 4 chains consisting of 8000 iterations, with 4000 warmup iterations per chain.
+
+We fitted models with the same specifications for the traditional and the alternative definitions of sharpening, as well as for the definition of being in target range, leveling, and sharpening including a neutral category. Regarding the latter, in the model for sharpening, the neutral category and the leveling responses were collapsed, in the model for leveling the neutral category and the sharpening responses were collapsed, and in the model for being in the target range the leveling and sharpening responses were collapsed.
+
+#### Quantitative data
+We fitted a hierarchical Bayesian Gaussian regression model to the signed difference between the drawn and target value (values relative to the available drawing space for the feature dimension in question), with context, variability, and their interaction as fixed effects and feature dimension and participant ID as random effects for both intercept and slopes:
+
+\begin{align*}
+\begin{split}
+rel\_targetdiff \sim & \:Intercept + context + variability + context:variability \\
+& + (1 + context + variability + context:variability \; || \; conceptdim) \\
+& + (1 + context + variability + context:variability \; || \; pp\_id)
+\end{split}
+\end{align*}
+
+As priors, we specified a normal distribution with a mean of zero and a standard deviation of 2 for the intercept, a normal distribution with a mean of zero and a standard deviation of 2 for the slopes, and an inverse gamma distribution for the standard deviations, with an alpha parameter of 2 and a beta parameter of 1. We used 4 chains consisting of 8000 iterations, with 4000 warmup iterations per chain.
+
+## Supplementary Results
+### Additional qualitative results for the traditional interpretation of leveling and sharpening (binarized; relative values)
+When inspecting the standard deviations for the feature dimension random effects (see @fig-posteriors-sharp-quali-rel-conceptdim-id), it becomes clear that the estimated variability between feature dimensions is larger for the differences between the variability conditions than for the context effect: Whereas for almost all feature dimensions, the estimated sharpening probability was higher in the close than in the far context, not all feature dimensions showed a higher sharpening probability in the major variability condition (see @fig-conceptdimslopes-sharp-quali-rel-conceptdim-id). That the highest density continuous intervals are wider for the effect of context than for the differences between the variability conditions is potentially a consequence of the difference in the number of trials per condition involved in the comparison: for a context comparison, maximally 12 trials per condition per participant, whereas for a variability or extremeness comparison, maximally 24 trials per condition per participant were involved. 
+The estimated variability between feature dimensions was higher than the estimated variability between participants (see also @fig-idslopes-sharp-quali-rel-conceptdim-id), which is potentially also a consequence of the limited number of data points per participant in comparison to the number of data points per feature dimension.  
+
+```{r fig-posteriors-sharp-quali-rel-conceptdim-id, fig.cap = "<small>Posterior distributions of fixed effects and standard deviations of random effects for concept and dimension combined, for the qualitative model (binarized; based on relative feature values).</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "posteriors_sharp_quali_rel_conceptdim_id.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "posteriors_sharp_quali_rel_conceptdim_id.png"))
+}
+```
+
+```{r fig-conceptdimslopes-sharp-quali-rel-conceptdim-id, fig.cap = "<small>Slopes for the intercept, the effect of context, the effect of a minor extreme feature value compared to a major extreme feature value, and the effect of a minor non-extreme feature value compared to a major extreme feature value on the proportion of times a feature was sharpened, with sharpening defined as a drawn value equal to the target value or more extreme, per feature dimension. Mean and 95% highest density continuous intervals are shown. The blue line indicates the average mean value across feature dimensions. The dashed black line indicates a value of zero. *Note.* The very wide intervals for some feature dimensions are the consequence of those feature dimensions not being present in the relevant condition, e.g., no minor variability (extreme) condition, for that feature dimension.</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "conceptdimslopes_sharp_quali_rel_conceptdim_id.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "conceptdimslopes_sharp_quali_rel_conceptdim_id.png"))
+}
+```
+
+```{r fig-idslopes-sharp-quali-rel-conceptdim-id, fig.cap = "<small>Slopes for the intercept, the effect of context, the effect of a minor extreme feature value compared to a major extreme feature value, and the effect of a minor non-extreme feature value compared to a major extreme feature value on the proportion of times a feature was sharpened, with sharpening defined as a drawn value equal to the target value or more extreme, per participant. Mean and 95% highest density continuous intervals are shown. The blue line indicates the average mean value across participants. The dashed black line indicates a value of zero.</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "idslopes_sharp_quali_rel_conceptdim_id.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "idslopes_sharp_quali_rel_conceptdim_id.png"))
+}
+```
+
+@fig-summaryfig-sharp-quali-abs-conceptdim-id shows the results for the equivalent qualitative model of sharpening based on the absolute rather than the relative feature values. @fig-summaryfig-sharp-quali-rel-conceptdim-id-we shows the results for the qualitative model of sharpening based on the relative feature values, but with exclusion of concepts 1, 2, 4, 5, 6, and 18.
+
+```{r fig-summaryfig-sharp-quali-abs-conceptdim-id, fig.cap = "<small>Results of the qualitative model of sharpening, defined as a drawn value equal to the target or more extreme, based on the absolute feature values.</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "summaryfig_sharp_quali_abs_conceptdim_id.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "summaryfig_sharp_quali_abs_conceptdim_id.png"))
+}
+```
+
+```{r fig-summaryfig-sharp-quali-rel-conceptdim-id-we, fig.cap = "<small>Results of the qualitative model of sharpening, defined as a drawn value equal to the target or more extreme, based on the relative feature values, with exclusion of concepts 1, 2, 4, 5, 6, and 18.</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "summaryfig_sharp_quali_rel_conceptdim_id_WITHEXCLUSION.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "summaryfig_sharp_quali_rel_conceptdim_id_WITHEXCLUSION.png"))
+}
+```
+
+### Qualitative results for the alternative interpretation of leveling and sharpening (binarized; relative values)
+In @fig-posteriorpred-sharp-quali-rel-meantarget-conceptdim-id, sharpening is defined as a drawn value closer to the target value than to the feature dimension's mean. Defining sharpening in this manner, increased the differences between the three variability conditions and decreased the size of the context effect. The results stayed in the expected direction, however: sharpening was more likely for the major variability dimension than for the minor variability dimensions, and there was a tendency for sharpening to be more common in the close than in the far context. Furthermore, also using this definition of sharpening, there was much more variability in the percentage of sharpening across feature dimensions in the minor variability conditions than in the major variability condition.
+
+@fig-paircompcontext-sharp-quali-rel-meantarget-conceptdim-id, @fig-paircompvar-sharp-quali-rel-meantarget-conceptdim-id, and @fig-paircompextr-sharp-quali-rel-meantarget-conceptdim-id give the posterior estimates from the model per context and variability condition, and compare the slope strengths across conditions for the effects of context, variability, and extremeness, respectively. In the major variability condition, the posterior probability of the proportion of sharpening in the close context to be larger than in the far context was 93%. Even though the direction of the effect was highly probable in the expected direction, given this alternative definition of leveling and sharpening, the context effect was very limited in size (see @fig-paircompcontext-sharp-quali-rel-meantarget-conceptdim-id). 
+
+The effect of *variability*, however, was very large given this alternative interpretation of leveling and sharpening (see @fig-paircompvar-sharp-quali-rel-meantarget-conceptdim-id). In all posterior samples, the probability for an extreme value on the major feature dimension to be sharpened was larger than for an extreme value on a minor feature dimension. Given that the model is a good approximation of the data, the data provide evidence for a clear effect of variability in both the close and far context conditions. 
+
+Also the effect of being one of the *extrema* on the feature dimension was very large given this alternative interpretation of leveling and sharpening (see @fig-paircompextr-sharp-quali-rel-meantarget-conceptdim-id). In all posterior samples, the probability for an extreme value on the minor feature dimension to be sharpened was larger than for a non-extreme value on a minor feature dimension. Given that the model is a good approximation of the data, the data provide evidence for a clear effect of extremeness in both the close and far context conditions. 
+
+```{r, child = here("06_chapters", "quali_compl_model_relvalues_meantarget_id.Rmd")}
+
+```
+
+```{r fig-posteriorpred-sharp-quali-rel-meantarget-conceptdim-id, fig.cap = "<small>Distribution of percentage of times a feature dimension was sharpened, per context and variability condition, with feature dimensions as individual data points. The black point and intervals indicate mean and 66% and 95% highest density continuous intervals for the data distribution. The grey intervals indicate the 66% and 95% highest density continuous intervals for the posterior predictive distribution, based on the qualitative model of sharpening as binary variable using the relative feature values. In addition, the white interval indicates the 95% highest density continuous interval for the mean posterior prediction.</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "posteriorpred_sharp_quali_rel_meantarget_conceptdim_id.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "posteriorpred_sharp_quali_rel_meantarget_conceptdim_id.png"))
+}
+```
+
+```{r fig-paircompcontext-sharp-quali-rel-meantarget-conceptdim-id, fig.cap = "<small>(a) Posterior distribution for the probability of drawing a feature equal to the target value or more extreme, separately for each context and variability condition. (b) Estimated context effect in each variability condition. Mean, 66%, and 95% highest density continuous intervals are shown. The text also indicates the mean estimated difference with its 95% highest density continuous interval, as well as the posterior probability of the percentage of sharpening being higher in the close than in the far context, given a particular variability condition.</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "paircompcontext_sharp_quali_rel_meantarget_conceptdim_id.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "paircompcontext_sharp_quali_rel_meantarget_conceptdim_id.png"))
+}
+```
+
+```{r fig-paircompvar-sharp-quali-rel-meantarget-conceptdim-id, fig.cap = "<small>(a) Posterior distribution for the probability of drawing a feature equal to the target value or more extreme, separately for the major (extreme) and minor (extreme) variability and context conditions. (b) Estimated variability effect in each context condition. Mean, 66%, and 95% highest density continuous intervals are shown. The text also indicates the mean estimated difference with its 95% highest density continuous interval, as well as the posterior probability of the percentage of sharpening being higher in case the feature exhibits major compared to minor variability, given a particular context condition.</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "paircompvar_sharp_quali_rel_meantarget_conceptdim_id.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "paircompvar_sharp_quali_rel_meantarget_conceptdim_id.png"))
+}
+```
+
+```{r fig-paircompextr-sharp-quali-rel-meantarget-conceptdim-id, fig.cap = "<small>(a) Posterior distribution for the probability of drawing a feature equal to the target value or more extreme, separately for the minor (extreme) and minor (non-extreme) variability and context conditions. (b) Estimated variability effect in each context condition. Mean, 66%, and 95% highest density continuous intervals are shown. The text also indicates the mean estimated difference with its 95% highest density continuous interval, as well as the posterior probability of the percentage of sharpening being higher in case the feature value is one of the extrema on the dimension, given a particular context condition.</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "paircompextr_sharp_quali_rel_meantarget_conceptdim_id.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "paircompextr_sharp_quali_rel_meantarget_conceptdim_id.png"))
+}
+```
+
+Just as in the models using the other interpretations of leveling and sharpening, the estimated variability between feature dimensions was larger for the differences between the variability and extremeness conditions than for the context effect (see @fig-posteriors-sharp-quali-rel-meantarget-conceptdim-id), and the estimated variability between feature dimensions was higher than the estimated variability between participants, which is potentially also a consequence of the limited number of data points per participant in comparison to the number of data points per feature dimension. 
+
+```{r fig-posteriors-sharp-quali-rel-meantarget-conceptdim-id, fig.cap = "<small>Posterior distributions of fixed effects and standard deviations of random effects for concept and dimension combined, for the qualitative model, using the alternative interpretation of sharpening as a drawn value closer to the target value than to the mean value on the dimension (binarized; based on relative feature values).</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "posteriors_sharp_quali_rel_meantarget_conceptdim_id.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "posteriors_sharp_quali_rel_meantarget_conceptdim_id.png"))
+}
+```
+
+@fig-summaryfig-sharp-quali-abs-meantarget-conceptdim-id shows the results for the equivalent qualitative model of sharpening based on the absolute rather than the relative feature values.
+
+```{r fig-summaryfig-sharp-quali-abs-meantarget-conceptdim-id, fig.cap = "<small>Results of the qualitative model of sharpening, defined as a drawn value closer to the target than to the mean, based on the absolute feature values.</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "summaryfig_sharp_quali_abs_meantarget_conceptdim_id.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "summaryfig_sharp_quali_abs_meantarget_conceptdim_id.png"))
+}
+```
+
+### Additional quantitative results
+When inspecting the standard deviations for the feature dimension random effects (see @fig-posteriors-sharp-quant-rel-conceptdim-id), the estimated variability between feature dimensions was slightly larger for the differences between the variability conditions than for the context effect, but the difference in variability seemed less outspoken than in the qualitative analysis (see also @fig-conceptdimslopes-sharp-quant-rel-conceptdim-id).
+As in the other models, the estimated variability between feature dimensions was higher than the estimated variability between participants (see also @fig-idslopes-sharp-quant-rel-conceptdim-id).
+
+```{r fig-posteriors-sharp-quant-rel-conceptdim-id, fig.cap = "<small>Posterior distributions of fixed effects and standard deviations of random effects for concept and dimension combined, for the quantitative model (based on relative feature values).</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "posteriors_sharp_quant_rel_conceptdim_id.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "posteriors_sharp_quant_rel_conceptdim_id.png"))
+}
+```
+
+```{r fig-conceptdimslopes-sharp-quant-rel-conceptdim-id, fig.cap = "<small>Slopes for the intercept, the effect of context, the effect of a minor extreme feature value compared to a major extreme feature value, and the effect of a minor non-extreme feature value compared to a major extreme feature value on drawing a feature equal to the target value or more extreme, per feature dimension. Mean and 95% highest density continuous intervals are shown. The blue line indicates the average mean value across feature dimensions. The dashed black line indicates a value of zero. *Note.* The very wide intervals for some feature dimensions are the consequence of those feature dimensions not being present in the relevant condition, e.g., no minor variability (extreme) condition for that feature dimension.</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "conceptdimslopes_sharp_quant_rel_conceptdim_id.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "conceptdimslopes_sharp_quant_rel_conceptdim_id.png"))
+}
+```
+
+```{r fig-idslopes-sharp-quant-rel-conceptdim-id, fig.cap = "<small>Slopes for the intercept, the effect of context, the effect of a minor extreme feature value compared to a major extreme feature value, and the effect of a minor non-extreme feature value compared to a major extreme feature value on drawing a feature equal to the target value or more extreme, per participant. Mean and 95% highest density continuous intervals are shown. The blue line indicates the average mean value across participants. The dashed black line indicates a value of zero.</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "idslopes_sharp_quant_rel_conceptdim_id.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "idslopes_sharp_quant_rel_conceptdim_id.png"))
+}
+```
+
+@fig-summaryfig-sharp-quant-rel-conceptdim-id-we shows the results for the quantitative model of sharpening based on the relative feature values, but with exclusion of concepts 1, 2, 4, 5, 6, and 18.
+
+```{r fig-summaryfig-sharp-quant-rel-conceptdim-id-we, fig.cap = "<small>Results of the quantitative model of sharpening, defined as a drawn value equal to the target or more extreme, based on the relative feature values, with exclusion of concepts 1, 2, 4, 5, 6, and 18.</small>"}
+
+if (knitr::is_latex_output()) {
+include_graphics(here("06_figs", "summaryfig_sharp_quant_rel_conceptdim_id_WITHEXCLUSION.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here( "06_figs", "summaryfig_sharp_quant_rel_conceptdim_id_WITHEXCLUSION.png"))
+}
+```
+
+\clearpage
+
+## Supplemental videos 
+
+In the [HTML version](https://elinevg.github.io/pragnanz/A06_app_simplcompl.html#supplemental-videos) of this Appendix, you can find screen recordings of some components that were part of this study (cf. @fig-videossimplcompl).
+
+```{r videossimplcompl, fig.align='center', results = 'asis'}
+if (knitr::is_html_output()) {htmltools::includeHTML("A06_videos_simplcompl.html")}
+```
+
+```{r}
+#| label: fig-videossimplcompl
+#| fig-cap: <small>Screen recordings of some components that were part of this study.</small>
+#| out-width: !expr "ifelse(knitr::is_html_output(), '0%', '90%')"
+
+if (knitr::is_latex_output()) {
+include_graphics(path = here( "06_figs", "videos_simplcompl.png"))
+}
+if (knitr::is_html_output()) {
+include_graphics(path = here( "figs", "examplefig.png"))
+}
+```
+
+\clearpage \thispagestyle{empty} \stopthumb

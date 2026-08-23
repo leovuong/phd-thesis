@@ -1,0 +1,4 @@
+# Dissemination {#sec-appdissemination}
+\addthumb{Appendix B}{\Huge{\textbf{\Alph{chapter}}}}{white}{gray}
+
+**ADD OVERVIEW OF PUBLICATIONS AND OTHER DISSEMINATION**

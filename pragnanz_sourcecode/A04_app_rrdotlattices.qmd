@@ -1,0 +1,369 @@
+# Individual differences in hysteresis and adaptation {#sec-apprrdotlattices}
+\addthumb{Appendix D}{\Huge{\textbf{\Alph{chapter}}}}{white}{gray}
+
+::: {.content-visible when-format="html"}
+<script>document.getElementById("tocimage").src="chapterfigs/4.jpg";</script>
+:::
+
+```{r}
+#| label: load_packages
+#| message: false
+#| warning: false
+
+# List of packages used in analysis
+packagelist <- c("tidyverse", "here", "devtools", "knitr", "patchwork", "kableExtra", "lubridate", "glue", "cowplot", "brms", "tidybayes", "ggforce", "ggstance", "parallel", "rstan", "ellipse") 
+
+# Install packages if not already installed
+invisible(lapply(packagelist, function(package){if ( !package %in% rownames(installed.packages())) {install.packages(package)}} ))
+
+# Load required CRAN packages
+invisible(lapply(packagelist, library, character.only = T, quietly = T))
+
+# Load papaja
+library(papaja) # if not installed: devtools::install_github("crsh/papaja")
+
+theme_set(theme_cowplot())
+
+# Use several cores in parallel
+ncores = detectCores()
+rstan_options(auto_write = TRUE)  # to avoid recompilation of unchanged Stan programs
+options(mc.cores = parallel::detectCores()) # for execution on a local, multicore CPU with excess RAM
+```
+
+```{r}
+my_citations_full <- cite_r(file = "04_chapters/r-references.bib", footnote = FALSE)
+```
+
+## R packages used
+As indicated in the Methods section, for all our analyses we used `r my_citations_full`.
+
+## Supplementary Figures
+<!-- average results on probability scale for the first and second lattice -->
+```{r}
+#| child: "04_chapters/fig-avgdata-prop.Rmd"
+#| eval: false
+```
+
+```{r}
+#| label: fig-avgprop
+#| fig-cap: "<small>(a) Mean response to the first stimulus dependent on aspect ratio (percentage). The probability of responding 0&deg; to the first stimulus decreases with aspect ratio (|a|/|b|). The value of aspect ratio increases with increasing distance in the 0&deg;-orientation, leading to more 90&deg; responses. (b) Mean response to the second stimulus dependent on aspect ratio (percentage). The probability of responding 0&deg; to the second stimulus increases with aspect ratio (|a|/|b|; i.e., adaptation effect), and increases when the first stimulus was perceived as 0&deg; rather than 90&deg; (i.e., hysteresis effect). Dots indicate observed values. In addition, mean posterior predictions and their 95% highest density continuous intervals are shown.</small>"
+if (knitr::is_latex_output()) {
+include_graphics(here("04_figs", "avgprop.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here("04_figs", "avgprop.svg"))
+}
+```
+
+<!-- individual results on probability scale for the first and second lattice -->
+```{r}
+#| child: "04_chapters/fig-indivdata-prop.Rmd"
+#| eval: false
+```
+
+```{r}
+#| label: fig-indivprop
+#| fig-cap: "<small>(a) Mean individual responses to the first stimulus dependent on aspect ratio (percentage). The probability of responding 0&deg; to the first stimulus decreases with aspect ratio (|a|/|b|). The value of aspect ratio increases with increasing distance in the 0&deg;-orientation, leading to more 90&deg; responses. Dots indicate observed values. In addition, mean posterior predictions and their 95% highest density continuous intervals are shown. Plots for participants with the smallest and largest estimated proximity effect are indicated in red. (b) Mean individual responses to the second stimulus dependent on aspect ratio (percentage). The probability of responding 0&deg; to the second stimulus increases with aspect ratio (|a|/|b|; i.e., adaptation effect), and increases when the first stimulus was perceived as 0&deg; rather than 90&deg; (i.e., hysteresis effect). Dots indicate observed values. In addition, mean posterior predictions and their 95% highest density continuous intervals are shown. Plots for participants with the smallest and largest estimated hysteresis effect are indicated in blue, participants with the smallest and largest estimated adaptation effect are indicated in red.</small>"
+
+if (knitr::is_latex_output()) {
+include_graphics(here("04_figs", "indivprop.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here("04_figs", "indivprop.svg"))
+}
+```
+
+<!-- ALTLOGIT average results on logit scale for the first and second lattice -->
+```{r}
+#| child: "04_chapters/fig-avgdata-altlogit.Rmd"
+#| eval: false
+```
+
+```{r}
+#| label: fig-altavglogit
+#| fig-cap: "<small>(a) Mean response to the first stimulus dependent on aspect ratio (logit as used by Gepshtein \\& Kubovy, 2005, and Schwiedrzik et al., 2014). The probability of responding 0&deg; to the first stimulus decreases with aspect ratio (|a|/|b|). The value of aspect ratio increases with increasing distance in the 0&deg;-orientation, leading to more 90&deg; responses. (b) Mean response to the second stimulus dependent on aspect ratio [logit as used by @gepshtein2005 and @schwiedrzik2014]. The probability of responding 0&deg; to the second stimulus increases with aspect ratio (|a|/|b|; i.e., adaptation effect), and increases when the first stimulus was perceived as 0&deg; rather than 90&deg; (i.e., hysteresis effect). Dots indicate observed values. In addition, mean posterior predictions and their 95% highest density continuous intervals are shown.</small>"
+#| 
+if (knitr::is_latex_output()) {
+include_graphics(here("04_figs", "altavglogit.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here("04_figs", "altavglogit.svg"))
+}
+```
+
+<!-- ALTLOGIT individual results on logit scale for the first and second lattice -->
+```{r}
+#| child: "04_chapters/fig-indivdata-altlogit.Rmd"
+#| eval: false
+```
+
+```{r}
+#| label: fig-altindivlogit
+#| fig-cap: "<small>(a) Mean individual responses to the first stimulus dependent on aspect ratio (logit as used by Gepshtein \\& Kubovy, 2005, and Schwiedrzik et al., 2014). The probability of responding 0&deg; to the first stimulus decreases with aspect ratio (|a|/|b|). The value of aspect ratio increases with increasing distance in the 0&deg;-orientation, leading to more 90&deg; responses. Dots indicate observed values. In addition, mean posterior predictions and their 95% highest density continuous intervals are shown. Plots for participants with the smallest and largest estimated proximity effect are indicated in red. (b) Mean individual responses to the second stimulus dependent on aspect ratio [logit as used by @gepshtein2005 and @schwiedrzik2014]. The probability of responding 0&deg; to the second stimulus increases with aspect ratio (|a|/|b|; i.e., adaptation effect), and increases when the first stimulus was perceived as 0&deg; rather than 90&deg; (i.e., hysteresis effect). Dots indicate observed values. In addition, mean posterior predictions and their 95% highest density continuous intervals are shown. Plots for participants with the smallest and largest estimated hysteresis effect are indicated in blue, participants with the smallest and largest estimated adaptation effect are indicated in red.</small>"
+
+if (knitr::is_latex_output()) {
+include_graphics(here("04_figs", "altindivlogit.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here("04_figs", "altindivlogit.svg"))
+}
+```
+
+```{r}
+#| child: "04_chapters/fig-avgdata-logit-bothsessions.Rmd"
+#| eval: false
+```
+
+```{r}
+#| label: fig-avglogitbothsessions
+#| fig-cap: "<small>(a) Mean response to the first stimulus dependent on aspect ratio (logit), for both the first and the second session. The probability of responding 0&deg; to the first stimulus decreases with aspect ratio (|a|/|b|). The value of aspect ratio increases with increasing distance in the 0&deg;-orientation, leading to more 90&deg; responses. (b) Mean response to the second stimulus dependent on aspect ratio (logit), for both the first and the second session. The probability of responding 0&deg; to the second stimulus increases with aspect ratio (|a|/|b|; i.e., adaptation effect), and increases when the first stimulus was perceived as 0&deg; rather than 90&deg; (i.e., hysteresis effect). Dots indicate observed values. In addition, mean posterior predictions and their 95% highest density continuous intervals are shown.</small>"
+if (knitr::is_latex_output()) {
+include_graphics(here("04_figs", "avglogitbothsessions.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here("04_figs", "avglogitbothsessions.svg"))
+}
+```
+
+```{r}
+#| child: "04_chapters/fig-indivdata-logit-bothsessions.Rmd"
+#| eval: false
+```
+
+```{r}
+#| label: fig-indivlogitL1bothsessions
+#| fig-cap: "<small>Mean individual responses to the first stimulus dependent on aspect ratio (logit), for both the first and the second session. The probability of responding 0&deg; to the first stimulus decreases with aspect ratio (|a|/|b|). The value of aspect ratio increases with increasing distance in the 0&deg;-orientation, leading to more 90&deg; responses. Dots indicate observed values. In addition, mean posterior predictions and their 95% highest density continuous intervals are shown. Plots for participants with the smallest and largest estimated proximity effect are indicated in green.</small>"
+
+if (knitr::is_latex_output()) {
+include_graphics(here("04_figs", "indivlogitL1bothsessions.pdf"))
+  }
+if (knitr::is_html_output()) {
+include_graphics(here("04_figs", "indivlogitL1bothsessions.svg"))
+  }
+```
+
+```{r}
+#| label: fig-indivlogitL2bothsessions
+#| fig-cap: "<small>Mean individual responses to the second stimulus dependent on aspect ratio (logit), for both the first and the second session. The probability of responding 0&deg; to the second stimulus increases with aspect ratio (|a|/|b|; i.e., adaptation effect), and increases when the first stimulus was perceived as 0&deg; rather than 90&deg; (i.e., hysteresis effect). Dots indicate observed values. In addition, mean posterior predictions and their 95% highest density continuous intervals are shown. Plots for participants with the smallest and largest estimated hysteresis effect are indicated in blue, participants with the smallest and largest estimated adaptation effect are indicated in red.</small>"
+
+if (knitr::is_latex_output()) {
+include_graphics(here("04_figs", "indivlogitL2bothsessions.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here("04_figs", "indivlogitL2bothsessions.svg"))
+}
+```
+
+```{r}
+#| child: "04_chapters/fig-avgdata-prop-bothsessions.Rmd"
+#| eval: false
+```
+
+```{r}
+#| label: fig-avgpropbothsessions
+#| fig-cap: "<small>(a) Mean response to the first stimulus dependent on aspect ratio (percentage), for both the first and the second session. The probability of responding 0&deg; to the first stimulus decreases with aspect ratio (|a|/|b|). The value of aspect ratio increases with increasing distance in the 0&deg;-orientation, leading to more 90&deg; responses. (b) Mean response to the second stimulus dependent on aspect ratio (probability), for both the first and the second session. The probability of responding 0&deg; to the second stimulus increases with aspect ratio (|a|/|b|; i.e., adaptation effect), and increases when the first stimulus was perceived as 0&deg; rather than 90&deg; (i.e., hysteresis effect). Dots indicate observed values. In addition, mean posterior predictions and their 95% highest density continuous intervals are shown.</small>"
+
+if (knitr::is_latex_output()) {
+include_graphics(here("04_figs", "avgpropbothsessions.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here("04_figs", "avgpropbothsessions.svg"))
+}
+```
+
+```{r}
+#| child: "04_chapters/fig-indivdata-prop-bothsessions.Rmd"
+#| eval: false
+```
+
+```{r}
+#| label: fig-indivpropL1bothsessions
+#| fig-cap: "<small>Mean individual responses to the first stimulus dependent on aspect ratio (percentage), for both the first and the second session. The probability of responding 0&deg; to the first stimulus decreases with aspect ratio (|a|/|b|). The value of aspect ratio increases with increasing distance in the 0&deg;-orientation, leading to more 90&deg; responses. Dots indicate observed values. In addition, mean posterior predictions and their 95% highest density continuous intervals are shown. Plots for participants with the smallest and largest estimated proximity effect are indicated in green.</small>"
+
+if (knitr::is_latex_output()) {
+  include_graphics(here("04_figs", "indivpropL1bothsessions.pdf"))
+}
+if (knitr::is_html_output()) {
+  include_graphics(here("04_figs", "indivpropL1bothsessions.svg"))
+}
+```
+
+```{r}
+#| label: fig-indivpropL2bothsessions
+#| fig-cap: "<small>Mean individual responses to the second stimulus dependent on aspect ratio (percentage), for both the first and the second session. The probability of responding 0&deg; to the second stimulus increases with aspect ratio (|a|/|b|; i.e., adaptation effect), and increases when the first stimulus was perceived as 0&deg; rather than 90&deg; (i.e., hysteresis effect). Dots indicate observed values. In addition, mean posterior predictions and their 95% highest density continuous intervals are shown. Plots for participants with the smallest and largest estimated hysteresis effect are indicated in blue, participants with the smallest and largest estimated adaptation effect are indicated in red.</small>"
+
+if (knitr::is_latex_output()) {
+  include_graphics(here("04_figs", "indivpropL2bothsessions.pdf"))
+}
+if (knitr::is_html_output()) {
+  include_graphics(here("04_figs", "indivpropL2bothsessions.svg"))
+}
+```
+
+```{r}
+#| child: "04_chapters/fig-oribias-pp.Rmd"
+#| eval: false
+```
+
+```{r}
+#| label: fig-oribiaspp
+#| fig-cap: "<small>Visual representation of the absolute orientation bias of an individual, corrected for implausible 90&deg; responses, separately for the first and the second session. The colored oriented line indicates the mean direction of the absolute orientation bias per individual. Also the numeric values for the mean direction (M) and the magnitude (L) of the absolute orientation bias and the number of included trials (N) per individual are given.</small>"
+if (knitr::is_latex_output()) {
+include_graphics(here("04_figs", "oribiaspp.pdf"))
+}
+if (knitr::is_html_output()) {
+include_graphics(here("04_figs", "oribiaspp.svg"))
+}
+```
+
+```{r}
+#| child: "04_chapters/fig-oribias-block.Rmd"
+#| eval: false
+```
+
+```{r}
+#| label: fig-oribiasblock1
+#| fig-cap: "<small>Visual representation of the absolute orientation bias of an individual per block of 60 trials, corrected for implausible 90&deg; responses, separately for the first and the second session (Part 1/10). The colored oriented line indicates the mean direction of the absolute orientation bias per individual per block. Also the numeric values for the mean direction (M) and the magnitude (L) of the absolute orientation bias and the number of included trials (N) per individual per block are given.</small>"
+
+if (knitr::is_latex_output()) {
+  include_graphics(here("04_figs", "oribiasblock1.pdf"))
+}
+if (knitr::is_html_output()) {
+  include_graphics(here("04_figs", "oribiasblock1.svg"))
+}
+```
+
+```{r}
+#| label: fig-oribiasblock2
+#| fig-cap: "<small>Visual representation of the absolute orientation bias of an individual per block of 60 trials, corrected for implausible 90&deg; responses, separately for the first and the second session (Part 2/10). The colored oriented line indicates the mean direction of the absolute orientation bias per individual per block. Also the numeric values for the mean direction (M) and the magnitude (L) of the absolute orientation bias and the number of included trials (N) per individual per block are given.</small>"
+
+if (knitr::is_latex_output()) {
+  include_graphics(here("04_figs", "oribiasblock2.pdf"))
+}
+if (knitr::is_html_output()) {
+  include_graphics(here("04_figs", "oribiasblock2.svg"))
+}
+```
+
+```{r}
+#| label: fig-oribiasblock3
+#| fig-cap: "<small>Visual representation of the absolute orientation bias of an individual per block of 60 trials, corrected for implausible 90&deg; responses, separately for the first and the second session (Part 3/10). The colored oriented line indicates the mean direction of the absolute orientation bias per individual per block. Also the numeric values for the mean direction (M) and the magnitude (L) of the absolute orientation bias and the number of included trials (N) per individual per block are given.</small>"
+
+if (knitr::is_latex_output()) {
+  include_graphics(here("04_figs", "oribiasblock3.pdf"))
+}
+if (knitr::is_html_output()) {
+  include_graphics(here("04_figs", "oribiasblock3.svg"))
+}
+```
+
+```{r}
+#| label: fig-oribiasblock4
+#| fig-cap: "<small>Visual representation of the absolute orientation bias of an individual per block of 60 trials, corrected for implausible 90&deg; responses, separately for the first and the second session (Part 4/10). The colored oriented line indicates the mean direction of the absolute orientation bias per individual per block. Also the numeric values for the mean direction (M) and the magnitude (L) of the absolute orientation bias and the number of included trials (N) per individual per block are given.</small>"
+
+if (knitr::is_latex_output()) {
+  include_graphics(here("04_figs", "oribiasblock4.pdf"))
+}
+if (knitr::is_html_output()) {
+  include_graphics(here("04_figs", "oribiasblock4.svg"))
+}
+```
+
+```{r}
+#| label: fig-oribiasblock5
+#| fig-cap: "<small>Visual representation of the absolute orientation bias of an individual per block of 60 trials, corrected for implausible 90&deg; responses, separately for the first and the second session (Part 5/10). The colored oriented line indicates the mean direction of the absolute orientation bias per individual per block. Also the numeric values for the mean direction (M) and the magnitude (L) of the absolute orientation bias and the number of included trials (N) per individual per block are given.</small>"
+
+if (knitr::is_latex_output()) {
+  include_graphics(here("04_figs", "oribiasblock5.pdf"))
+}
+if (knitr::is_html_output()) {
+  include_graphics(here("04_figs", "oribiasblock5.svg"))
+}
+```
+
+```{r}
+#| label: fig-oribiasblock6
+#| fig-cap: "<small>Visual representation of the absolute orientation bias of an individual per block of 60 trials, corrected for implausible 90&deg; responses, separately for the first and the second session (Part 6/10). The colored oriented line indicates the mean direction of the absolute orientation bias per individual per block. Also the numeric values for the mean direction (M) and the magnitude (L) of the absolute orientation bias and the number of included trials (N) per individual per block are given.</small>"
+
+if (knitr::is_latex_output()) {
+  include_graphics(here("04_figs", "oribiasblock6.pdf"))
+}
+if (knitr::is_html_output()) {
+  include_graphics(here("04_figs", "oribiasblock6.svg"))
+}
+```
+
+```{r}
+#| label: fig-oribiasblock7
+#| fig-cap: "<small>Visual representation of the absolute orientation bias of an individual per block of 60 trials, corrected for implausible 90&deg; responses, separately for the first and the second session (Part 7/10). The colored oriented line indicates the mean direction of the absolute orientation bias per individual per block. Also the numeric values for the mean direction (M) and the magnitude (L) of the absolute orientation bias and the number of included trials (N) per individual per block are given.</small>"
+
+if (knitr::is_latex_output()) {
+  include_graphics(here("04_figs", "oribiasblock7.pdf"))
+}
+if (knitr::is_html_output()) {
+  include_graphics(here("04_figs", "oribiasblock7.svg"))
+}
+```
+
+```{r}
+#| label: fig-oribiasblock8
+#| fig-cap: "<small>Visual representation of the absolute orientation bias of an individual per block of 60 trials, corrected for implausible 90&deg; responses, separately for the first and the second session (Part 8/10). The colored oriented line indicates the mean direction of the absolute orientation bias per individual per block. Also the numeric values for the mean direction (M) and the magnitude (L) of the absolute orientation bias and the number of included trials (N) per individual per block are given.</small>"
+
+if (knitr::is_latex_output()) {
+  include_graphics(here("04_figs", "oribiasblock8.pdf"))
+}
+if (knitr::is_html_output()) {
+  include_graphics(here("04_figs", "oribiasblock8.svg"))
+}
+```
+
+```{r}
+#| label: fig-oribiasblock9
+#| fig-cap: "<small>Visual representation of the absolute orientation bias of an individual per block of 60 trials, corrected for implausible 90&deg; responses, separately for the first and the second session (Part 9/10). The colored oriented line indicates the mean direction of the absolute orientation bias per individual per block. Also the numeric values for the mean direction (M) and the magnitude (L) of the absolute orientation bias and the number of included trials (N) per individual per block are given.</small>"
+
+if (knitr::is_latex_output()) {
+  include_graphics(here("04_figs", "oribiasblock9.pdf"))
+}
+if (knitr::is_html_output()) {
+  include_graphics(here("04_figs", "oribiasblock9.svg"))
+}
+```
+
+```{r}
+#| label: fig-oribiasblock10
+#| fig-cap: "<small>Visual representation of the absolute orientation bias of an individual per block of 60 trials, corrected for implausible 90&deg; responses, separately for the first and the second session (Part 10/10). The colored oriented line indicates the mean direction of the absolute orientation bias per individual per block. Also the numeric values for the mean direction (M) and the magnitude (L) of the absolute orientation bias and the number of included trials (N) per individual per block are given.</small>"
+
+if (knitr::is_latex_output()) {
+  include_graphics(here("04_figs", "oribiasblock10.pdf"))
+}
+if (knitr::is_html_output()) {
+  include_graphics(here("04_figs", "oribiasblock10.svg"))
+}
+```
+
+\clearpage
+
+## Supplemental videos
+
+In the [HTML version](https://elinevg.github.io/pragnanz/A04_app_rrdotlattices.html#supplemental-videos) of this Appendix, you can find screen recordings of some trials for each task that was part of this study (cf. @fig-videosrrdotlattices).
+
+```{r videosrrdotlattices, fig.align='center', results = 'asis'}
+if (knitr::is_html_output()) {htmltools::includeHTML("A04_videos_rrdotlattices.html")}
+```
+
+```{r}
+#| label: fig-videosrrdotlattices
+#| fig-cap: <small>Screen recordings of some trials for the absolute orientation bias, experimental, and control tasks that were part of this study.</small>
+#| out-width: !expr "ifelse(knitr::is_html_output(), '0%', '100%')"
+
+if (knitr::is_latex_output()) {
+include_graphics(path = here( "04_figs", "videos_rrdotlattices.png"))
+}
+if (knitr::is_html_output()) {
+include_graphics(path = here( "figs", "examplefig.png"))
+}
+```
+
+\clearpage \thispagestyle{empty} \stopthumb
+<!-- ## References Appendix -->
+<!-- <div id = "refs"></div> -->

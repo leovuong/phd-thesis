@@ -1,0 +1,25 @@
+# Introduction {#sec-partintroduction}
+
+::: {.content-visible when-format="pdf"}
+\thispagestyle{empty}
+\setstretch{1.0}
+\vspace{-14mm}
+\textcolor{gray}{\hspace*{13cm}\small{\copyright \ \ Joris Snaet}} 
+
+\noindent
+\begin{center}
+\textbf{How we perceive things depends on how we \textit{organize} \\ the incoming visual stimulation in a specific context.}
+\end{center}
+\setstretch{1.5}
+:::
+
+::: {.content-visible when-format="html"}
+<center> 
+<img style = "margin-bottom:-60px; width:100%;" src="chapterfigs/1.jpg">
+
+<span style = "margin-left: 600px; margin-top: 0px; font-size: 11pt;">&copy; Joris Snaet</span>
+</br><span style = "margin-top: -50px;"><b>How we perceive things depends on how we *organize*</br>the incoming visual stimulation in a specific context.</b></span>
+</center>
+:::
+
+\clearpage \thispagestyle{empty}

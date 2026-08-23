@@ -1,0 +1,102 @@
+\usepackage[eventxtindent={14pt},oddtxtexdent={8pt}, width={40pt}]{thumbs}
+% \usepackage[eventxtindent={20pt},oddtxtexdent={12pt}, width={50pt}]{thumbs}
+\usepackage{pdfpages}
+\usepackage{fourier}
+\usepackage{awesomebox}
+\usepackage{ragged2e}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{lscape}
+\newcommand{\blandscape}{\begin{landscape}}
+\newcommand{\elandscape}{\end{landscape}}
+\usepackage{setspace} 
+\usepackage{multirow}
+\definecolor{my-blue}{HTML}{4582B4}
+\definecolor{linkblue}{HTML}{3A8BE5} %{54BDED}{1EC4E9}
+\definecolor{grey}{HTML}{F8F8F8}
+\definecolor{niceblue}{HTML}{006ca1}
+\definecolor{dodgerblue}{HTML}{1E90FF}
+\usepackage{caption}
+\captionsetup[figure]{font={stretch=1,footnotesize}}
+\usepackage[all]{nowidow}
+
+\usepackage{scrlayer-scrpage}
+\ihead{}
+\lehead{\large\MakeUppercase\leftmark} %\large
+\rohead{\large\MakeUppercase\rightmark} %\large
+\cfoot*{\Large\pagemark} %\Large
+
+\usepackage[none]{hyphenat} 
+\usepackage{copyrightbox}
+\setlength{\parskip}{0pt}
+% \setlength{\parindent}{17pt}
+% \nointerlineskip
+% \setlength{\baselineskip}{16.5pt}
+% \setlength{\intextsep}{0pt}
+
+\usepackage{tcolorbox}
+
+\newtcolorbox{blackbox}{
+  colback=white,
+  colframe=black,
+  boxsep=5pt,
+  arc=10pt}
+
+\newcommand{\forceindent}{\leavevmode{\parindent=25pt\indent}}
+
+\let\paragraph\oldparagraph
+\let\subparagraph\oldsubparagraph
+\usepackage{titlesec}
+
+\titleclass{\part}{top}
+
+\titleformat{\part}[display]
+{\centering\Huge\bfseries\color{black}}
+{\partname\ \thepart}
+{0pt}
+{\Huge\color{black}}
+[{\vspace{40pt}\includegraphics[width=15cm]{chapterfigs/\thepart.jpg}}]
+\titlespacing*{\part}{0pt}{0pt}{20pt}
+
+\titleclass{\chapter}{top}
+
+\titleformat{\chapter}[display]
+{\huge\bfseries}
+{\chaptername\ \thechapter}
+{0pt}
+{\Huge\raggedright\vspace{-10pt}}
+\titlespacing*{\chapter}{0pt}{0pt}{10pt}
+
+\titlespacing*{\section}{0pt}{*0}{*0}
+\titlespacing*{\subsection}{0pt}{*0}{*0}
+\titlespacing*{\subsubsection}{0pt}{*0}{*0}
+\titlespacing*{\paragraph}{0pt}{*0}{*0}
+\titlespacing*{\subparagraph}{0pt}{*0}{*0}
+
+\setlength{\abovecaptionskip}{0pt plus 5pt}
+\usepackage[titles]{tocloft}
+\newcommand*{\enableboldchapterintoc}{%
+  \addtocontents{toc}{\string\renewcommand{\protect\cftchapfont}{\protect\normalfont\protect\bfseries}}
+  \addtocontents{toc}{\string\renewcommand{\protect\cftchappagefont}{\protect\normalfont\protect\bfseries}}
+  \addtocontents{toc}{\string\renewcommand{\protect\cftchapleader}{\protect\bfseries\protect\cftdotfill{\protect\cftsecdotsep}}}% dot leaders in bold
+}
+\newcommand*{\disableboldchapterintoc}{%
+  \addtocontents{toc}{\string\renewcommand{\protect\cftchappagefont}{\protect\normalfont}}
+  \addtocontents{toc}{\string\renewcommand{\protect\cftchapfont}{\protect\normalfont}}
+  \addtocontents{toc}{\string\renewcommand{\protect\cftchapleader}{\protect\normalfont\protect\cftdotfill{\protect\cftsecdotsep}}}% 
+}
+
+\makeatletter
+  \def\@pnumwidth{2em}
+\makeatother
+
+\newcommand{\ffbox}[1]{%
+  {% open a group for a local setting
+   \setlength{\fboxsep}{-2\fboxrule}% the rule will be inside the box boundary
+   \fcolorbox{black}{white}{\hspace{2mm}\strut#1\hspace{2mm}}% print the box, with some padding at the left and right black
+  }% close the group %linkblue for online pdf
+}
+
+\frontmatter

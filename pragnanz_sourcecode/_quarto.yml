@@ -1,0 +1,250 @@
+project:
+  title: "Prägnanz"
+  type: book
+  preview:
+    browser: true
+
+execute: 
+  echo: false
+  message: false
+  warning: false
+  
+# language:
+#   section-title-abstract: 'Reference & License info'
+#   title-block-modified: 'DOI'
+  
+book:
+  title: "Prägnanz in visual perception and aesthetic appreciation"
+  subtitle: "Interactions between stimulus, person, and context"
+  author:
+    - name: Eline Van Geert
+      orcid: 0000-0002-7848-5998
+  image: chapterfigs/0.jpg
+  cover-image: chapterfigs/0.jpg
+  # description: "hello2"
+  # doi: 0000
+  # tools
+  site-url: https://elinevg.github.io/pragnanz
+  # crossref: 
+  #   chapters: true
+  # number-sections: true
+  output-file: "doctoralthesis_EVG"
+  favicon: chapterfigs/favicon.jpg
+  search: 
+    location: sidebar
+
+  # affiliation: 'KU Leuven, Belgium'
+  date: "March 30, 2023" #February 5
+  # date-modified: today
+  # abstract: "Van Geert, E. (2023). *Prägnanz in visual perception and aesthetic appreciation: Interactions between stimulus, person, and context.* [Doctoral dissertation, KU Leuven]. **DATABASE & URL**"
+  # publisher: "KU Leuven"
+  # publisher-place: "Leuven, Belgium"
+  # event-date: 10/05/2023
+  # event-place: 'Leuven, Belgium'
+  language: 'en'
+  # license: 'CC-BY'
+  # note: 'note'
+  # number-of-pages: 350
+  # url: 'xxx'
+  reader-mode: true
+  # google-analytics: 
+  
+  sidebar:
+    # title: "Prägnanz in visual perception and aesthetic appreciation"
+    style: "docked"
+    search: true
+    border: false
+    background: 'white'
+    logo: chapterfigs/0.jpg
+    # items: 
+    #   - text: "Basics"
+    #     contents: 
+    #       - index.qmd
+  # downloads: [pdf]
+  navbar:
+    title: "Prägnanz in visual perception and aesthetic appreciation"
+    logo: chapterfigs/kuleuven_thesis.png
+    background: '#F8F8F8'
+    pinned: true
+
+    right:
+      - icon: file-pdf
+        href: doctoralthesis_EVG.pdf
+        aria-label: pdf
+
+      - text: "{{< ai osf size=1x >}}"
+        href: https://doi.org/10.17605/OSF.IO/7RSYF
+        aria-label: osf
+
+      - icon: person-circle
+        menu:
+        - text: 'More about the author:'
+        - icon: envelope-fill
+          text: 'E-mail address'
+          href: mailto:eline.vangeert@kuleuven.be
+          aria-label: mail
+        - text: '{{< ai orcid size=lg >}} ORCID profile'
+          href: https://orcid.org/0000-0002-7848-5998
+          aria-label: orcid
+        - icon: globe2
+          text: 'Personal website'
+          href: http://evg.ulyssis.be/evg/
+          aria-label: website
+        - text: '{{< ai google-scholar size=lg >}} Google scholar profile'
+          href: https://scholar.google.be/citations?user=3DEqVBsAAAAJ&hl=en
+          aria-label: scholar
+        - icon: mastodon
+          text: 'Mastodon profile'
+          href: https://fosstodon.org/@ElineVG
+          aria-label: mastodon
+        - icon: twitter
+          text: 'Twitter profile'
+          href: https://twitter.com/eline__vg
+          aria-label: twitter
+
+      - icon: share
+        menu:
+        - text: 'Share this thesis:'
+        - icon: envelope-fill
+          text: 'E-mail'
+          href: mailto:?subject=Check out this thesis on Prägnanz!&body=Check out this link url
+          aria-label: mail
+        - icon: mastodon
+          text: 'Mastodon'
+          href: https://fosstodon.org/@ElineVG
+          aria-label: mastodon
+        - icon: twitter
+          text: 'Twitter'
+          href: https://twitter.com/intent/tweet?url=|url|
+          aria-label: twitter
+        - icon: facebook
+          text: 'Facebook'
+          href: https://www.facebook.com/sharer/sharer.php?u=|url|
+          aria-label: facebook
+        - icon: linkedin
+          text: 'LinkedIn'
+          href: https://www.linkedin.com/sharing/share-offsite/?url=|url|
+          aria-label: linkedin
+
+
+  # repo-url: https://github.com/ElineVG/pragnanz
+
+  # sharing: [twitter, facebook, linkedin]
+  
+  twitter-card: true
+    # title: "Prägnanz in visual perception and aesthetic appreciation"
+    # image: figs/coverfig.jpg
+  # open-graph: true
+  page-footer:
+    left:
+      - text: '&copy; 2023 Eline Van Geert &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'
+    center:
+      - text: '<div style = "padding-top: 6px; margin-left: -200px;">created using <a href="https://quarto.org/">Quarto</a></div>'
+    right:
+      - text: '<div style = "padding-top: 6px; ">More about the author:</div><link rel="stylesheet" href="/css/academicons.min.css"/>
+  <script defer src="/js/brands.js"></script><script defer src="/js/solid.js"></script><script defer src="/js/fontawesome.js"></script>'
+      - icon: envelope-fill
+        text: '<i class="fa-solid fa-envelope fa-lg"></i>'
+        href: mailto:eline.vangeert@kuleuven.be
+        aria-label: mail
+      - text: '{{< ai orcid size=lg >}}'
+        href: https://orcid.org/0000-0002-7848-5998
+        aria-label: orcid
+      - icon: globe2
+        text: '<i class="fa-solid fa-globe fa-lg"></i>'
+        href: http://evg.ulyssis.be/evg/
+        aria-label: website
+      - icon: file-earmark-text
+        text: '{{< ai google-scholar size=lg >}}'
+        href: https://scholar.google.be/citations?user=3DEqVBsAAAAJ&hl=en
+        aria-label: scholar
+      - icon: mastodon
+        text: '<i class="fa-brands fa-mastodon fa-lg"></i>'
+        href: https://fosstodon.org/@ElineVG
+        aria-label: mastodon
+      - icon: twitter
+        text: '<i class="fa-brands fa-twitter fa-lg"></i>'
+        href: https://twitter.com/eline__vg
+        aria-label: twitter
+
+
+  chapters:
+    # - index.qmd
+    - part: "Preface"
+      chapters:
+        - index.qmd
+        - XX_summary.qmd
+        - XX_samenvatting.qmd
+        - XX_thanks.qmd
+    - part: P01_part_introduction.qmd
+      chapters:
+        - C01_introduction.qmd
+    - part: P02_part_review.qmd
+      chapters:
+      - C02_review.qmd
+    - part: P03_part_robustsens.qmd
+      chapters:
+        - C03_refpoints.qmd
+    - part: P04_part_hystadapt.qmd
+      chapters:
+        - C04_rrdotlattices.qmd
+        - C05_efficientbayesianmodel.qmd
+    - part: P05_part_simplcompl.qmd
+      chapters:
+        - C06_simplcompl.qmd
+    - part: P06_part_ordcompl.qmd
+      chapters:
+        - C07_octatoolbox.qmd
+    - part: P07_part_conclusion.qmd
+      chapters:
+        - C08_conclusion.qmd
+    - A01_references.qmd
+  appendices:
+  - A03_app_refpoints.qmd
+  - A04_app_rrdotlattices.qmd
+  - A05_app_efficientbayesianmodel.qmd
+  - A06_app_simplcompl.qmd
+  - A07_app_octatoolbox.qmd
+
+bibliography: [references_thesis.bib]
+csl: C:/Users/u0090621/Desktop/thesis_EVG/apa-no-disambiguation.csl
+
+format:
+  html:
+    theme: cosmo
+    toc-title: '<img id = "tocimage" src = "chapterfigs/0.jpg" style = "width:150px;margin-bottom:-10px;"><span style = "margin-left: 90px; margin-top: 0px; font-size: 6pt;">&copy; Joris Snaet</span>'
+    reader-mode: true
+    urlcolor: '#3A8BE5' #dodgerblue 
+    linkcolor: '#3A8BE5' #dodgerblue 
+    citecolor: '#3A8BE5' #dodgerblue 
+    link-external-newwindow: true
+    link-external-icon: false
+    cover-image: chapterfigs/0.jpg
+  pdf:
+    pdf-engine: pdflatex
+    documentclass: book
+    indent: true
+    # papersize: a4paper ##
+    fontsize: '11'
+    linestretch: 1.5
+    # whitespace: none
+    colorlinks: false ## false
+    # urlcolor: linkblue
+    # linkcolor: linkblue
+    # citecolor: linkblue
+    geometry: 
+      # - margin=1in
+      - inner=2.79cm
+      - outer=2.29cm
+      - top=4.7625cm
+      - bottom=4.7625cm
+      - headheight=0.75cm
+      - headsep=1.5cm
+      - footskip=2.5cm
+      - paperwidth=8.5in #215.9mm
+      - paperheight=12.75in #323.85mm
+      - height=228.6mm
+    template-partials: 
+      - before-body.tex
+    include-in-header: 
+      - preamble.tex

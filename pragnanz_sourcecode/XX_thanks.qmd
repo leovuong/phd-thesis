@@ -1,0 +1,83 @@
+::: {.content-visible when-format="html"}
+
+# Dankwoord - Thanks {.unnumbered}
+
+<!-- ::: {.content-visible when-format="pdf"} -->
+<!-- ![&copy; Joris Snaet](chapterfigs/dank.jpg){width=95%}\ -->
+<!-- :::  -->
+<!-- ::: {.content-visible when-format="html"} -->
+![&copy; Joris Snaet](chapterfigs/dank.jpg){width=75%}
+<!-- ::: {.content-visible when-format="pdf"} -->
+<!-- \setstretch{1.0} -->
+<!-- \vspace{-14mm} -->
+<!-- \textcolor{gray}{\hspace*{11cm}\small{\copyright \ \ Joris Snaet}}  -->
+
+<!-- \noindent -->
+<!-- \begin{center} -->
+<!-- \textbf{"If I have seen further, it is by standing on the shoulders of giants." \\ -- Isaac Newton (1676)} -->
+<!-- \end{center} -->
+<!-- \setstretch{1.5} -->
+<!-- ::: -->
+
+<!-- ::: {.content-visible when-format="html"} -->
+<center> 
+<!-- <img style = "margin-bottom:-60px; width:100%;" src="chapterfigs/7.jpg"> -->
+
+<span style = "margin-left: 550px; margin-top: 0px; font-size: 11pt;">&copy; Joris Snaet</span>
+</br><span style = "margin-top: -50px;"><b>"If I have seen further, it is by standing on the shoulders of giants."</br>-- Isaac Newton (1676)</b></span>
+</center>
+<!-- ::: -->
+
+<!-- Bedanken: -->
+De voorbije vijfenhalf jaar heb ik aan mijn doctoraat gebouwd, met als centrale vraag waarom we de dingen waarnemen zoals we ze waarnemen. Daarbij gaat het niet enkel om het puur visuele waarnemen, maar ook over waarnemen of perceptie in de bredere zin, over hoe we naar de werkelijkheid kijken, die vorm geven, organiseren, en interpreteren. Zoals ook blijkt uit de titel van mijn doctoraat zie ik daarbij een belangrijke rol voor interacties tussen aspecten van de binnenkomende stimulatie, de persoon (mezelf als waarnemer en onderzoeker), en de context (mijn persoonlijke omgeving zowel als mijn onderzoeksomgeving). Zonder die specifieke persoonlijke en academische context had dit doctoraat er ongetwijfeld anders uitgezien, of was het er misschien zelfs niet geweest. Ik heb het gevoel dat het werken aan dit doctoraat me verder heeft gebracht, zowel in mijn kijk op de menselijke psychologie als in mijn kijk op en omgang met de wetenschappelijke wereld. En als ik werkelijk verder heb kunnen kijken, dan is dat omdat ik op de vele schouders mocht staan die mij hebben ondersteund. Zoals Isaac Newton (1676) het zei: "If I have seen further, it is by standing on the shoulders of giants." Hieronder mijn woorden van dank voor die vele unieke en prachtige mensen die mij hebben ondersteund.
+
+*Johan* - Bedankt om van bij de start in mij te geloven en mij de tijd en ruimte te bieden om mijn eigen weg in de onderzoekswereld te banen. Onder jouw begeleiding heb ik me onder andere kunnen bekwamen in theoretische topics en in open en reproduceerbare onderzoekspraktijken, twee van mijn persoonlijke stokpaardjes. Voor de onvoorwaardelijke steun die je mij hebt geboden en voor je onwrikbare geloof in mijn kwaliteiten en groeimogelijkheden ben ik je voor altijd dankbaar. Het is dat geloof en de daarbijhorende aanmoediging en steun die ik nodig had om verder te komen dan ik zelf mogelijk achtte. Zonder de onnoemelijk vele kansen die je mij hebt geboden en nog steeds biedt, stond ik niet waar ik nu sta.
+
+*Pieter* - Je stimuleerde mijn drive om effectief iets te willen veranderen aan de status quo in academia, door zelf het goede voorbeeld te geven en mij aan te moedigen hetzelfde te doen. Dankzij jou zette ik bijvoorbeeld mee mijn schouders onder de universiteitsbrede ReproducibiliTea journal club die we opstartten aan KU Leuven. Dat je wat meer relaxed en down to earth bent is iets wat ik heel erg in je bewonder, en waar ik nog veel van kan leren. Op een bepaald moment zei je dat de studie die ik voor ogen had "een doctoraat op zich" was, en dat advies om niet te veel tegelijk te willen doen is er één waar ik vaak aan terugdenk. 
+<!--was ik op de hoogte van interessante winter schools, startte ik een samenwerking met Dr. Julia Haaf,  gaf ik infosessies aan de masterstudenten over goede onderzoekspraktijken, en organiseerde ik mijn eerste symposium ooit (op BAPS over het belang van theorie in de psychologie en de implicaties voor de replicatiecrisis), en--> 
+
+*Prof. Dr. Wolf Vanpaemel, Prof. Dr. Floris de Lange, Prof. Dr. Vebjørn Ekroll, Dr. Aenne Brielmann* - Thank you for being in my doctoral examination committee, for taking the time to read my dissertation, and for providing helpful and constructive feedback. I also want to thank all members of my mid-term advisory committee for their questions and suggestions.
+
+*Julia, Steven, Nori, Rong, Jonas, Yaniv, Elisabeth, and all my other past, present, or future collaborators* - Thank you for your feedback on my work, for exchanging ideas with me, for collaborating with me in the past or present, and/or having agreed to collaborate with me in the near future. I am looking forward to bring our shared projects to a success.
+
+*Agna* - Mama van het GestaltReVision labo, bedankt om al die jaren onze steun en toeverlaat te zijn. Je hebt me niet alleen administratief en praktisch ondersteund, maar was ook begaan met het meer persoonlijke en emotionele welzijn van elk van ons. Bedankt om al die jaren een baken van vertrouwen te zijn voor alle onderzoekers binnen het GestaltReVision team.
+
+*Christophe* - Onze IT guy, je hebt niet alleen mijn eerste experiment geprogrammeerd, door je enthousiasme voor Python en je motiverende en interactieve lessenreeks heb ik zelf ook de Pythonmicrobe te pakken gekregen. Verder zou de Order & Complexity Toolbox for Aesthetics er zonder jou ook helemaal anders uitgezien hebben! Bedankt voor al je wetenschappelijke bijdrages aan mijn werk, alsook voor je niet-wetenschappelijke bijdrages aan de hartelijke sfeer op het werk.
+
+*Kirsten* - Bedankt om me in het laatste jaar van mijn doctoraat praktisch en administratief te ondersteunen. Hoe vaak ik ook langskwam met vragen, je was telkens bereid om me verder te helpen waar mogelijk.
+
+*Jaana, Nathalie, en Lisa* - Ik ben samen met jullie aan dit PhD avontuur begonnen. We hebben het alle vier op heel andere manieren aangepakt, en dat ging voor geen enkel van ons zonder slag of stoot. Jullie hebben me doen inzien hoe belangrijk een goede work-life balance is, en hoe kwetsbaar we als doctoraatsstudenten zijn voor allerlei vormen van druk (druk die we onszelf opleggen, maar ook druk van buitenaf). Ik heb er zelfs een song over geschreven! Bedankt voor de fijne start samen, en voor de inzichten die jullie me hebben gebracht. <!--Jaana, jou wil ook graag bedanken voor de leuke ukelelejams die we samen hadden, en omdat je me er regelmatig aan herinnert dat het tijd is om nog eens af te spreken!-->
+
+*Lore, Charlotte, Ben, Claudia, Thiago, Sander, Miguel, Jan and Ans, Anne-Sofie, Chris, Elisabeth, Eleftheria, Laurie-Anne, Nofar, Boris, Nicole, Derya, Yaniv, Lisa, Gonzalo, Maarten, Tjerkje, Linda, Joan, and all other members of the GestaltReVision lab that I had the pleasure knowing* - Thank you for being such wonderful labmates. Each of you contributed a unique part to what the lab has become, and has inspired me in different ways. Elisabeth en Eleftheria, jullie motivatie en inzet om aan open en reproduceerbaar onderzoek te doen geeft mij hoop voor de toekomst. Bedankt ook voor jullie luisterend oor wanneer ik daar nood aan had. <!--Ik kijk er alvast naar uit om binnen een paar jaar jullie eigen verdediging bij te wonen!-->Chris, thank you for proofreading some of the articles part of my PhD and for improving their readability!
+
+*Nathan, Hanne, Brenda, Anne-Merel, Brendan, Marleen, Sofie, and everyone else I forgot to mention here* - Thank you for contributing to the pleasant broader research environment of Brain & Cognition. Hanne, bedankt voor je focus op het belang van goede wetenschap. Ik kijk naar je op als onderzoeker en als mens.
+
+*Liesse, Tina, Daniel, and Astrid* - Thank you for conducting your master's internship or thesis under my supervision. You gave me the opportunity to grow as a supervisor and learn from my mistakes (e.g., supervising three interns at the same time)! Tina and Liesse, I am very grateful for your crucial scientific contributions to my work. You pushed my work further than I could have imagined.
+
+*Agnes, Maja, Aline, Sander, and all other members of the Friends of Theory journal club* - Thank you very much for bringing up all those interesting papers, for exchanging your ideas and thoughts on these theoretical topics, for reminding me of the importance of good theory in psychological science, and for sustaining my interest in theoretical topics in psychology.
+
+*Olivia, Natalie, Aline, and all other organizers of the ReprodubiliTea journal clubs at KU Leuven* - Thank you for the time and effort you dedicated to the organization of the journal club, and for all your other efforts to make science more open and reproducible.
+
+*Many others who contributed to my doctoral path* - In addition to the people I have mentioned above, there are many others I would like to thank. Graag wil ik Dhr. Joris Snaet bedanken voor het maken van de prachtige cartoons voor mijn doctoraatsproefschrift. To everyone who participated in my research, thank you very much! Ook aan alle Nederlandstalige deelnemers aan mijn onderzoek, heel erg bedankt! Thank you to the organizers and participants of all the workshops, summer schools, and winter schools that I attended. Participating in these events has been an important part of my development as an open and reproducible researcher. Thank you also to those reviewers who constructively pushed me further and helped me improve my manuscripts. I would also like to thank the Research Foundation - Flanders (FWO) for the financial support they provided me for four and a half years. Furthermore, I am grateful to Max Wertheimer, Kurt Koffka, Wolfgang Köhler, Wolfgang Metzger, Rudolf Arnheim, Edwin Rausch, Angelika Hüppe, and many others for their foundational and inspiring work on Prägnanz. On a more practical side, I want to thank the developers of the R, Python, and Javascript software and packages. Without them, my PhD would have looked completely different. <!--Special mention here for the creators of Shiny, R Markdown, and Quarto at Posit (formerly RStudio), the creators of papaja (incl. Frederik Aust), the creators of brms (incl. Paul-Christian Bürkner), and the creators of jsPsych (incl. Josh de Leeuw).-->
+
+Naast de mensen die ik in het kader van mijn doctoraat leerde kennen, zijn er ook heel wat mensen uit mijn persoonlijke omgeving die ik graag wil bedanken.
+
+*Alle mensen die mee aan mijn weg als onderzoeker en mens bouwden zelfs voor ik mijn doctoraat startte* - De discipline om hard te werken heb ik op het Sint-Vincentiusinstituut in Dendermonde gekweekt. Bedankt aan alle leerkrachten op mijn middelbare school die in mij geloofden en zo bijgedragen hebben aan de persoon die ik vandaag ben. Ook tijdens mijn bachelor- en masteropleiding psychologie heb ik veel kansen gekregen om me verder te ontwikkelen. Hier wil ik graag het onderzoeksteam o.l.v. Prof. Kuppens bedanken voor mijn leerrijke student-onderzoekerschap, Prof. Francis Tuerlinckx voor het begeleiden van het European Seminar on Quantitative Psychology en voor de mogelijkheid om aan het project dat ik daar startte verder te werken als jobstudent, Prof. Wolf Vanpaemel voor de introductie in het belang van reproduceerbaarheid van onderzoek, en Prof. Vera Hoorens voor de vele mogelijkheden en ondersteuning die ik kreeg tijdens mijn onderzoeksstage (o.a., het uitwerken van mijn eerste preregistratie). A big thank you also to the organizers of the Junior Researcher Programme (JRP) and all inspiring people I met during this experience, either at the summer school, during the project, or during the internship. 
+
+*Kelsey, Stien, Paulien, Sebastiaan, Frederick, Pengqian, and all other Theory & Research students I got to know during my bachelor and master program* - Thank you for all fun moments we spent together, either during studying or in our free time. 
+
+*Jolien, Hanne, Laura, Stéphanie, Maxime, Anaïs, Eline, Sofie, Annika, en Sherin* - Gelukkig zijn er ook nog andere dingen in het leven dan studies of werk. Bedankt voor alle fijne gesprekken, weekendjes, uitstappen of activiteiten die ik samen met jullie mocht beleven! 
+
+*Familie* - Nonkel Pieter, bedankt om me telkens het beste te wensen en me aan te moedigen! Dominiek en Claudine, bedankt om mij zo'n warme welkom te geven in de familie D'hooge. 
+
+*Meter en peter* - Jullie kunnen er spijtig genoeg niet meer bijzijn vandaag. Ik ben heel dankbaar dat ik jullie toch nog zo lang heb mogen kennen. Beiden geloofden jullie heel sterk in mijn kunnen, en ik ben er zeker van dat jullie heel trots op me geweest zouden zijn.
+
+*Mama en papa* - Meer dan iedereen wil ik jullie bedanken voor jullie onvoorwaardelijke steun, het aanhoren van al mijn twijfels en vragen, en het oneindig helpen waar jullie konden. Jullie hebben een immense rol gespeeld in mijn ontwikkeling als mens en als wetenschapper. Ik denk bijvoorbeeld aan de vele musea en wetenschapsexpo's waar jullie me al van jongsaf aan mee naartoe namen. Daarnaast hebben jullie me ook steeds met heel jullie hart ondersteund om mijn eigen interesses te volgen. Was dat Grieks-Latijn? Dan was dat Grieks-Latijn. Was dat psychologie? Dan was dat psychologie. <!--Woorden schieten tekort om aan te geven wat jullie nog steeds voor mij betekenen.-->
+
+*Joachim* - Bedankt om zo'n liefdevolle en ondersteunende partner te zijn. Dankzij jou heb ik geleerd om te genieten van de kleine dingen in het leven, en je staat me bij op alle kleine en grote momenten. Verder heb je als geen ander ervaren hoe stressvol de laatste maanden voor het indienen van mijn doctoraat zijn geweest. Bedankt voor je geduld wanneer ik niet veel tijd had. 
+
+Ik ben me er dus heel bewust van dat ik hier vandaag sta met heel wat privileges: een stimulerende thuisomgeving, een liefhebbende partner, een vormende school, een rots van een promotor, en een motiverende labomgeving. Dankjewel om me elk op jullie manier zo goed te ondersteunen! En ondanks die vele steun die ik van elk van jullie heb gekregen, vind ik dat ik vandaag toch ook mezelf mag bedanken. Dank je, Eline, voor je inzet en doorzettingsvermogen tijdens het hele doctoraatstraject.
+
+::: 
+
+\mainmatter

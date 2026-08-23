@@ -1,0 +1,272 @@
+# Reference points, categorization, and discrimination {#sec-apprefpoints}
+\addthumb{Appendix C}{\Huge{\textbf{\Alph{chapter}}}}{white}{gray}
+
+::: {.content-visible when-format="html"}
+<script>document.getElementById("tocimage").src="chapterfigs/3.jpg";</script>
+:::
+
+```{r}
+#| label: load_packages
+#| message: false
+#| warning: false
+
+# Load papaja
+library(papaja) # if not installed: devtools::install_github("crsh/papaja")
+
+# List of packages used in analysis
+packagelist <- c("knitr", "tidyverse", "lubridate", "parallel", "rstan", "tidybayes", "modelr", "ggimage", "ggthemes", "grid", "ggiraph", "cowplot", "patchwork", "brms", "here", "glue", "readxl") 
+
+# Install packages if not already installed
+invisible(lapply(packagelist, function(package){if ( !package %in% rownames(installed.packages())) {install.packages(package)}} ))
+
+# Load required packages
+invisible(lapply(packagelist, library, character.only = T, quietly = T))
+
+# r_refs("r-references.bib")
+
+theme_set(theme_cowplot())
+```
+
+```{r}
+#| label: define_constants
+
+bluecolors <- c("#119ABE", "#143560", "#74D8F3", "#69696F", "#D7D7D9", "#A0A0A4")
+
+# reds: https://www.color-hex.com/color/d73027
+# blues: https://www.color-hex.com/color/4575b4
+```
+
+```{r}
+my_citations_full <- cite_r(file = "03_chapters/r-references.bib", footnote = FALSE)
+```
+
+## R packages used
+As indicated in the Methods section, for all our analyses we used `r my_citations_full`.
+
+## Bayesian hierarchical model implementation details
+### Categorization responses
+We fitted a hierarchical Bayesian binomial logistic regression model to the categorization response data with morph level as fixed effect, for each morph series separately, and participant ID within each morph series as random effect for both intercept and slope:
+$$ freqB \; | \; trials(n) \sim a + b * morph\_level$$
+$$ a \sim 0 + morph\_series + (1 \; | \; p \; | \; morph\_series:pp\_id)$$
+$$ b \sim 0 + morph\_series + (1 \; | \; p \; | \; morph\_series:pp\_id)$$
+As priors, we specified a normal distribution with a mean of zero and a standard deviation of 1.5 for the intercept and a normal distribution with a mean of zero and a standard deviation of 0.5 for the slope. For the other model parameters, default priors were used.
+We used 4 chains consisting of 8000 iterations, with 4000 warmup iterations per chain.
+
+### Categorization response times
+We fitted a hierarchical Bayesian lognormal regression model to the categorization response time data with morph level and morph level squared as fixed effects, for each morph series separately, and participant ID within each morph series as random effect for both intercept and slopes:
+$$ catRT \sim a + b * morph\_level + c * morph\_level^2$$
+$$ a \sim 0 + morph\_series + (1 \; | \; p \; | \; morph\_series:pp\_id)$$
+$$ b \sim 0 + morph\_series + (1 \; | \; p \; | \; morph\_series:pp\_id)$$
+$$ c \sim 0 + morph\_series + (1 \; | \; p \; | \; morph\_series:pp\_id)$$
+As priors, we specified a normal distribution with a mean of -1 and a standard deviation of 0.5 for the intercept and a normal distribution with a mean of zero and a standard deviation of 0.3 for the slopes. The prior for sigma was specified as a normal distribution with mean 0.4 and standard deviation 0.3, and the priors for the standard deviations of intercept and slopes were specified as a normal distribution with mean 0.3 and standard deviation 0.1.
+We used 4 chains consisting of 8000 iterations, with 4000 warmup iterations per chain.
+
+### Discrimination responses
+To investigate the presence of differences in discrimination sensitivity across stimulus pairs, we fitted a hierarchical Bayesian binomial logistic regression model to the discrimination response data with stepsize as fixed effect, for each morph series separately, and with trial stimuli and participant ID within each morph series as random effects for intercept and participant ID within each morph series as random effect for the slope:
+$$ freqdiff \; | \; trials(n) \sim a + b * stepsize$$
+$$
+\begin{aligned}
+a \sim 0 + morph\_series + (1 \; | \; q \; | \; morph\_series:trial\_stimuli) \\ + (1 \; | \; p \; | \; morph\_series:pp\_id)
+\end{aligned}
+$$
+$$ b \sim 0 + morph\_series + (1 \; | \; p \; | \; morph\_series:pp\_id)$$
+As priors, we specified a normal distribution with a mean of zero and a standard deviation of 1.5 for the intercept and a normal distribution with a mean of zero and a standard deviation of 0.5 for the slope.
+We used 4 chains consisting of 8000 iterations, with 4000 warmup iterations per chain.
+
+@fig-modeldiscCBposteriorpredalltrials shows the empirical proportions and posterior predictive distributions for responding 'different' in the successive discrimination task, per stepsize, trial type, and morph series, averaged across participants. Stepsize indicates the absolute difference in morph level between the two morph stimuli presented in a trial, with a minimum of zero (for same trials) and a maximum of eleven (when both extremes of the morph series are presented). In this supplementary figure, all stepsizes are shown. 
+
+```{r fig-modeldiscCBposteriorpredalltrials, fig.cap = "<small>Proportion of 'different' responses in the successive discrimination task for each stepsize, trial type (i.e., between-category vs. within-category), and morph series separately, averaged across participants. Bars indicate the empirical proportions for responding 'different'. The black dots indicate the mean posterior predictions from the model and the error bars indicate the 95% highest density continuous intervals (HDCI) of the posterior predictive distributions. In this figure, the difference between the darker and the lighter bars (i.e., the category boundary effect: more 'different' responses for between-category compared to within-category pairs, keeping stepsize equal) is on average higher for the recognizable than for the non-recognizable morph series. *Note.* In the [interactive version](https://elinevg.github.io/interactivefigs_referencepoints/appendix.html) of this figure, you can hover over the colored bars to see the exact percentage different responses, the mean and 95% HDCI of the posterior predictive distributions, and the number of trials related to each bar.</small>", out.width = "100%"}
+if (knitr::is_html_output()) {
+  load(file = here("03_figs", "interactivefigs", "discCBE_plot_alltrials.rds"))
+  x
+} else {
+  knitr::include_graphics(here("03_figs", "discCBE_plot_alltrials.png"))
+}
+```
+
+@fig-modeldiscposterior shows the posterior distributions for the intercept (A) and the effect of stepsize (B) on the probability of responding 'different' in the successive discrimination task, for each morph series separately. 
+
+```{r fig-modeldiscposterior, fig.cap = "<small>Posterior distributions for the intercept (A) and the effect of stepsize (B) on the probability of responding 'different' in the successive discrimination task, for each morph series separately, in logodds units. Black dots and intervals indicate the mean, 66%, and 95% highest density continuous interval (HDCI) for each intercept or slope value. The colored dashed vertical lines indicate the estimated mean value per type of morph series (recognizable vs. non-recognizable). In this figure, the estimated effect of stepsize is larger for the recognizable than for the non-recognizable morph series. *Note.* In the [interactive version](https://elinevg.github.io/interactivefigs_referencepoints/appendix.html) of this figure, you can hover over the intervals to see the related mean and 95% HDCI for each distribution.</small>", out.width = "100%"}
+if (knitr::is_html_output()) {
+  load(file = here("03_figs", "interactivefigs", "discresp_posterior.rds"))
+  x
+} else {
+  knitr::include_graphics(here("03_figs", "discresp_posterior.png"))
+}
+
+```
+
+@fig-modeldiscpaircompstepsize shows the estimated pairwise differences between the posterior distributions for the effect of stepsize on responding 'different' in the successive discrimination task, for each of the different recognizable and non-recognizable morph series combinations. 
+
+```{r fig-modeldiscpaircompstepsize, fig.cap = "<small>Estimated pairwise differences between the posterior distributions for the effect of stepsize on the probability of responding 'different' in the successive discrimination task for each of the different recognizable and non-recognizable morph series combinations, in logodds units. Black dots and intervals indicate the mean, 66%, and 95% highest density continuous interval (HDCI) for each slope or difference value. The black vertical line indicates a difference in slope of zero. In this figure, the estimated effect of stepsize is larger for the recognizable than for the non-recognizable morph series. *Note.* In the [interactive version](https://elinevg.github.io/interactivefigs_referencepoints/appendix.html) of this figure, you can hover over the intervals to see the related mean and 95% HDCI for each distribution.</small>", out.width = "100%"}
+if (knitr::is_html_output()) {
+  load(file = here("03_figs", "interactivefigs", "discresp_paircomp_stepsize.rds"))
+  x
+} else {
+  knitr::include_graphics(here("03_figs", "discresp_paircomp_stepsize.png"))
+}
+
+```
+
+To investigate the presence of an overall category boundary effect, we fitted a hierarchical Bayesian binomial logistic regression model to the discrimination response data with stepsize as fixed effect, for each morph series and trial type separately, and with trial stimuli and participant ID within each morph series as random effects for intercept and participant ID within each morph series as random effect for the slope:
+$$ freqdiff \; | \; trials(n) \sim a + b * stepsize$$
+$$
+\begin{aligned}
+a \sim 0 + morph\_series * between\_category + (1 \; | \; q \; | \; morph\_series:trial\_stimuli) \\+ (1 \; | \; p \; | \; morph\_series:pp\_id)
+\end{aligned}
+$$
+$$ b \sim 0 + morph\_series * between\_category + (1 \; | \; p \; | \; morph\_series:pp\_id)$$
+As priors, we specified a normal distribution with a mean of zero and a standard deviation of 1.5 for the intercept and a normal distribution with a mean of zero and a standard deviation of 0.5 for the slope.
+We used 4 chains consisting of 8000 iterations, with 4000 warmup iterations per chain.
+
+@fig-modeldiscposteriorextramodel shows the posterior distributions for the intercept (A), effect of stepsize (B), effect of trial type (C), and interaction between stepsize and trial type (D) on the probability of responding 'different' in the successive discrimination task, for each morph series separately. 
+
+```{r fig-modeldiscposteriorextramodel, fig.cap = "<small>Posterior distributions for the intercept (A), effect of stepsize (B), effect of trial type (C), and interaction between stepsize and trial type (D) on the probability of responding 'different' in the successive discrimination task, for each morph series separately, in logodds units. Black dots and intervals indicate the mean, 66%, and 95% highest density continuous interval (HDCI) for each intercept or slope value. The colored dashed vertical lines indicate the estimated mean value per type of morph series (recognizable vs. non-recognizable). The black vertical line indicates a difference in slope of zero. In this figure, the estimated effect of stepsize is larger for the recognizable than for the non-recognizable morph series (B). The main effect of trial type is larger for the recognizable series car-tortoise and penguin-child than for all non-recognizable morph series (C). The interaction effect between stepsize and trial type is more negative for the recognizable series penguin-child than for all non-recognizable series (D). *Note.* In the [interactive version](https://elinevg.github.io/interactivefigs_referencepoints/appendix.html) of this figure, you can hover over the intervals to see the related mean and 95% HDCI for each distribution.</small>", out.width = "100%"}
+if (knitr::is_html_output()) {
+  load(file = here("03_figs", "interactivefigs", "discresp_posterior_extramodel.rds"))
+  x
+} else {
+  knitr::include_graphics(here("03_figs", "discresp_posterior_extramodel.png"))
+}
+
+```
+
+To investigate the presence of directional asymmetries, we fitted a hierarchical Bayesian binomial logistic regression model to the discrimination response data with stepsize as fixed effect, for each morph series separately, and with ordered trial stimuli and participant ID within each morph series as random effects for intercept and participant ID within each morph series as random effect for the slope:
+$$ freqdiff \; | \; trials(n) \sim a + b * stepsize$$
+$$ 
+\begin{aligned}
+a \sim 0 + morph\_series + (1 \; | \; q \; | \; morph\_series:trial\_stimuli\_ordered) \\+ (1 \; | \; p \; | \; morph\_series:pp\_id)
+\end{aligned}
+$$
+$$ b \sim 0 + morph\_series + (1 \; | \; p \; | \; morph\_series:pp\_id)$$
+As priors, we specified a normal distribution with a mean of zero and a standard deviation of 1.5 for the intercept and a normal distribution with a mean of zero and a standard deviation of 0.5 for the slope.
+We used 4 chains consisting of 8000 iterations, with 4000 warmup iterations per chain.
+
+@fig-modeldiscasymposteriorpred shows the aggregate behavioral data and posterior predictive distributions for responding "different" in the discrimination task, for each morph series, stepsize, and ordered stimulus pair separately. 
+
+```{r fig-modeldiscasymposteriorpred, fig.cap = "<small>Proportion of 'different' responses in the successive discrimination task for each stepsize, ordered stimulus pair, and morph series separately, averaged across participants. Stimulus pairs are ordered per stepsize and from left to right in the morph series as presented in @fig-stimuli. Bars indicate the empirical proportions for responding 'different'. The black dots indicate the mean posterior predictions from the model and the grey error bars indicate the 95% highest density continuous intervals (HDCI) of the posterior predictive distributions. In this figure, no clear directional asymmetries (i.e., differences in discrimination performance based on the presentation order of the stimuli in the pair) are present. *Note.* In the [interactive version](https://elinevg.github.io/interactivefigs_referencepoints/appendix.html) of this figure, you can hover over the colored bars to see the stimuli involved in the pair (in the presented order from left to right), the exact percentage different responses, the mean and 95% HDCI of the posterior predictive distributions, and the number of trials related to each bar.</small>", out.width = "100%"}
+if (knitr::is_html_output()) {
+  load(file = here("03_figs", "interactivefigs", "discasym_plot.rds"))
+  x
+} else {
+  knitr::include_graphics(here("03_figs", "discasym_plot.png"))
+}
+```
+
+### Similarity judgments
+To investigate the presence of differences in perceived similarity across stimulus pairs, we fitted a hierarchical Bayesian linear regression model to the by-participant-standardized similarity judgments with stepsize as fixed effect, for each morph series separately, and with trial stimuli and participant ID within each morph series as random effects for intercept and participant ID within each morph series as random effect for the slope:
+$$ z\_response \sim a + b * stepsize$$
+$$ 
+\begin{aligned}
+a \sim 0 + morph\_series + (1 \; | \; q \; | \; morph\_series:trial\_stimuli) \\+ (1 \; | \; p \; | \; morph\_series:pp\_id)
+\end{aligned}
+$$
+$$ b \sim 0 + morph\_series + (1 \; | \; p \; | \; morph\_series:pp\_id)$$
+As priors, we specified a normal distribution with a mean of zero and a standard deviation of 1.5 for the intercept and a normal distribution with a mean of zero and a standard deviation of 0.5 for the slope.
+We used 4 chains consisting of 8000 iterations, with 4000 warmup iterations per chain.
+
+@fig-modelsimCBposteriorpredalltrials shows the empirical similarity scores and posterior predictive distributions for the similarity judgments, per stepsize, trial type, and morph series, averaged across participants. Stepsize indicates the absolute difference in morph level between the two morph stimuli presented in a trial, with a minimum of zero (for same trials) and a maximum of eleven (when both extremes of the morph series are presented). In this supplementary figure, all stepsizes are shown. 
+
+```{r fig-modelsimCBposteriorpredalltrials, fig.cap = "<small>Standardized similarity scores for each stepsize, trial type (i.e., between-category vs. within-category), and morph series separately, averaged across participants. Grey dots indicate the raw standardized similarity scores. For the conditions that contain less trials, these grey dots are not always clearly visible. The colored dots and error bars indicate the mean posterior predictions from the model and the 95% highest density continuous interval (HDCI) of the posterior predictive distributions. In this figure, the difference between the darker and the lighter intervals (i.e., the category boundary effect: between-category pairs rated as less similar than within-category pairs, keeping stepsize equal) is on average larger for the recognizable than for the non-recognizable morph series. *Note.* In the [interactive version](https://elinevg.github.io/interactivefigs_referencepoints/appendix.html) of this figure, you can hover over the intervals to see the exact similarity score, the mean and 95% HDCI of the posterior predictive distributions, and the number of trials related to each interval.</small>", out.width = "100%"}
+if (knitr::is_html_output()) {
+  load(file = here("03_figs", "interactivefigs", "simCBE_plot_alltrials.rds"))
+  x
+} else {
+  knitr::include_graphics(here("03_figs", "simCBE_plot_alltrials.png"))
+}
+```
+
+@fig-modelsimposterior shows the posterior distributions for the intercept (A) and the effect of stepsize (B) on the standardized similarity judgments, for each morph series separately. 
+
+```{r fig-modelsimposterior, fig.cap = "<small>Posterior distributions for the intercept (A) and the effect of stepsize (B) on the standardized similarity scores, for each morph series separately. Black dots and intervals indicate the mean, 66%, and 95% highest density continuous interval (HDCI) for each intercept or slope value. The colored dashed vertical lines indicate the estimated mean value per type of morph series (recognizable vs. non-recognizable). In this figure, the estimated effect of stepsize is larger (i.e., more different from zero) for the recognizable than for the non-recognizable morph series. *Note.* In the [interactive version](https://elinevg.github.io/interactivefigs_referencepoints/appendix.html) of this figure, you can hover over the intervals to see the related mean and 95% HDCI for each distribution.</small>", out.width = "100%"}
+if (knitr::is_html_output()) {
+  load(file = here("03_figs", "interactivefigs", "simresp_posterior.rds"))
+  x
+} else {
+  knitr::include_graphics(here("03_figs", "simresp_posterior.png"))
+}
+
+```
+
+@fig-modelsimpaircompstepsize shows the estimated pairwise differences between the posterior distributions for the effect of stepsize on the similarity judgments, for each of the different recognizable and non-recognizable morph series combinations. 
+
+```{r fig-modelsimpaircompstepsize, fig.cap = "<small>Estimated pairwise differences between the posterior distributions for the effect of stepsize on the standardized similarity scores for each of the different recognizable and non-recognizable morph series combinations. Black dots and intervals indicate the mean, 66%, and 95% highest density continuous interval (HDCI) for each slope or difference value. The black vertical line indicates a difference in slope of zero. In this figure, the estimated effect of stepsize is larger (i.e., more different from zero) for the recognizable than for the non-recognizable morph series. *Note.* In the [interactive version](https://elinevg.github.io/interactivefigs_referencepoints/appendix.html) of this figure, you can hover over the intervals to see the related mean and 95% HDCI for each distribution.</small>", out.width = "100%"}
+if (knitr::is_html_output()) {
+  load(file = here("03_figs", "interactivefigs", "simresp_paircomp_stepsize.rds"))
+  x
+} else {
+  knitr::include_graphics(here("03_figs", "simresp_paircomp_stepsize.png"))
+}
+
+```
+
+To investigate the presence of an overall category boundary effect, we fitted a hierarchical Bayesian linear regression model to the by-participant-standardized similarity judgments with stepsize as fixed effect, for each morph series and trial type separately, and with trial stimuli and participant ID within each morph series as random effects for intercept and participant ID within each morph series as random effect for the slope:
+$$ z\_response \sim a + b * stepsize$$
+$$ 
+\begin{aligned}
+a \sim 0 + morph\_series * between\_category + (1 \; | \; q \; | \; morph\_series:trial\_stimuli) \\+ (1 \; | \; p \; | \; morph\_series:pp\_id)
+\end{aligned}
+$$
+$$ b \sim 0 + morph\_series * between\_category + (1 \; | \; p \; | \; morph\_series:pp\_id)$$
+As priors, we specified a normal distribution with a mean of zero and a standard deviation of 1.5 for the intercept and a normal distribution with a mean of zero and a standard deviation of 0.5 for the slope.
+We used 4 chains consisting of 8000 iterations, with 4000 warmup iterations per chain.
+
+@fig-modelsimposteriorextramodel shows the posterior distributions for the intercept (A), effect of stepsize (B), effect of trial type (C), and interaction between stepsize and trial type (D) on the standardized similarity judgments, for each morph series separately. 
+
+```{r fig-modelsimposteriorextramodel, fig.cap = "<small>Posterior distributions for the intercept (A), effect of stepsize (B), effect of trial type (C), and interaction between stepsize and trial type (D) on the standardized similarity scores, for each morph series separately. Black dots and intervals indicate the mean, 66%, and 95% highest density continuous interval (HDCI) for each intercept or slope value. The colored dashed vertical lines indicate the estimated mean value per type of morph series (recognizable vs. non-recognizable). The black vertical line indicates a difference in slope of zero. In this figure, the estimated effect of stepsize is larger (i.e., more different from zero) for the recognizable than for the non-recognizable morph series (B). The main effect of trial type is larger (i.e., more different from zero) for the recognizable series car-tortoise and penguin-child than for all non-recognizable morph series (C). The interaction effect between stepsize and trial type is larger (i.e., more different from zero) for the recognizable series watch-seahorse than for all non-recognizable series (D). *Note.* In the [interactive version](https://elinevg.github.io/interactivefigs_referencepoints/appendix.html) of this figure, you can hover over the intervals to see the related mean and 95% HDCI for each distribution.</small>", out.width = "100%"}
+if (knitr::is_html_output()) {
+  load(file = here("03_figs", "interactivefigs", "simresp_posterior_extramodel.rds"))
+  x
+} else {
+  knitr::include_graphics(here("03_figs", "simresp_posterior_extramodel.png"))
+}
+
+```
+
+To investigate the presence of directional asymmetries, we fitted a hierarchical Bayesian linear regression model to the by-participant-standardized similarity judgments with stepsize as fixed effect, for each morph series separately, and with ordered trial stimuli and participant ID within each morph series as random effects for intercept and participant ID within each morph series as random effect for the slope:
+$$ z\_response \sim a + b * stepsize$$
+$$ 
+\begin{aligned}
+a \sim 0 + morph\_series + (1 \; | \; q \; | \; morph\_series:trial\_stimuli\_ordered) \\+ (1 \; | \; p \; | \; morph\_series:pp\_id)
+\end{aligned}
+$$
+$$ b \sim 0 + morph\_series + (1 \; | \; p \; | \; morph\_series:pp\_id)$$
+
+As priors, we specified a normal distribution with a mean of zero and a standard deviation of 1.5 for the intercept and a normal distribution with a mean of zero and a standard deviation of 0.5 for the slope.
+We used 4 chains consisting of 8000 iterations, with 4000 warmup iterations per chain.
+
+@fig-modelsimasymposteriorpred shows the posterior predictive distributions for the standardized similarity judgments, for each morph series, step size and ordered stimulus pair separately. 
+
+```{r fig-modelsimasymposteriorpred, fig.cap = "<small>Posterior predictive distributions for the responses to the successive similarity judgment task, for each morph series, stepsize, and ordered stimulus pair separately. Colored dots and error bars indicate the mean posterior predictions from the model and the 95% highest density continuous intervals of the posterior predictive distributions. In this figure, no clear directional asymmetries (i.e., differences in perceived similarity based on the presentation order of the stimuli in the pair) are present. *Note.* In the [interactive version](https://elinevg.github.io/interactivefigs_referencepoints/appendix.html) of this figure, you can hover over the mean posterior predictions to see the exact percentage different responses and the number of trials related to each data point.</small>", out.width = "100%"}
+if (knitr::is_html_output()) {
+  load(file = here("03_figs", "interactivefigs", "simasym_plot.rds"))
+  x
+} else {
+  knitr::include_graphics(here("03_figs", "simasym_plot.png"))
+}
+```
+
+\clearpage
+
+## Supplemental videos 
+
+In the [HTML version](https://elinevg.github.io/pragnanz/A03_app_refpoints.html#supplemental-videos) of this Appendix, you can find screen recordings of some trials for each task that was part of this study (cf. @fig-videosrefpoints).
+
+```{r videosrefpoints, fig.align='center', results = 'asis'}
+if (knitr::is_html_output()) {htmltools::includeHTML("A03_videos_refpoints.html")}
+```
+
+```{r}
+#| label: fig-videosrefpoints
+#| fig-cap: <small>Screen recordings of some trials for the categorization, discrimination, and similarity judgment tasks that were part of this study.</small>
+#| out-width: !expr "ifelse(knitr::is_html_output(), '0%', '90%')"
+
+if (knitr::is_latex_output()) {
+include_graphics(path = here( "03_figs", "videos_refpoints.png"))
+}
+if (knitr::is_html_output()) {
+include_graphics(path = here( "figs", "examplefig.png"))
+}
+```
+
+\clearpage \thispagestyle{empty} \stopthumb

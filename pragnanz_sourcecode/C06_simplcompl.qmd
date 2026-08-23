@@ -1,0 +1,157 @@
+# Towards the most prägnant Gestalt: Leveling and sharpening as contextually dependent adaptive strategies {#sec-simplcompl}
+::: {.content-visible when-format="pdf"}
+\chaptermark{Context dependence of leveling and sharpening}
+:::
+\addthumb{Chapter 6}{\Huge{\textbf{\arabic{chapter}}}}{white}{gray} \thispagestyle{empty}
+
+::: {.content-visible when-format="html"}
+<script>document.getElementById("tocimage").src="chapterfigs/5.jpg";</script>
+:::
+
+\setcounter{footnote}{0}
+\vspace{3mm}
+
+<!-- ::: {.content-visible when-format="html"} -->
+
+<!-- Eline Van Geert\*^1^, Liesse Frérart\*^1^, & Johan Wagemans^1^ -->
+
+<!-- \* Eline Van Geert and Liesse Frérart contributed equally to this work. -->
+
+<!-- ^1^ Laboratory of Experimental Psychology, Department of Brain and Cognition, KU Leuven -->
+
+<!-- <h2>Author note</h2> -->
+<!-- ::: -->
+
+<!-- ::: {.content-visible when-format="pdf"} -->
+<!-- \section*{Author note} -->
+<!-- ::: -->
+
+<!-- \setstretch{1.0} -->
+<!-- The authors made the following contributions. Eline Van Geert: Conceptualization, Data -->
+<!-- curation, Formal analysis, Funding acquisition, Investigation, Methodology, Project -->
+<!-- administration, Resources, Software, Validation, Visualization, Writing - original draft, Writing - -->
+<!-- review & editing; Liesse Frérart: Conceptualization, Data curation, Formal analysis, -->
+<!-- Investigation, Methodology, Project administration, Resources, Software, Visualization, Writing - -->
+<!-- original draft, Writing - review & editing; Johan Wagemans: Conceptualization, Funding -->
+<!-- acquisition, Methodology, Supervision, Writing - review & editing.  -->
+
+<!-- \setstretch{1.5} -->
+
+::: {.content-visible when-format="html"}
+**Van Geert\*, E., Frérart\*, L., & Wagemans, J. (under review). Towards the most prägnant Gestalt: Leveling and sharpening as contextually dependent adaptive strategies. Preprint available from [https://doi.org/10.31234/osf.io/t3bzw](https://doi.org/10.31234/osf.io/t3bzw)**
+
+\* Eline Van Geert and Liesse Frérart contributed equally to this work.
+
+<a type="button" href="https://doi.org/10.31234/osf.io/t3bzw" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="ai ai-psyarxiv ai-xl"></i> Preprint</a>
+<a type="button" href="https://doi.org/10.17605/osf.io/hqcja" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="ai ai-osf ai-xl"></i> Materials, data, and code</a>
+
+<h2>Abstract</h2>
+:::
+
+\setstretch{1.2}
+<small>Gestalt psychologists posited that we always organize our visual input in the best way possible under the given conditions. Both weakening or removing unnecessary details (i.e., leveling) and exaggerating distinctive features (i.e., sharpening) can contribute to achieve a better organization. When will a feature be leveled or sharpened, however? We investigated whether the importance of a feature for discrimination among alternatives influences which organizational tendency occurs. Participants were simultaneously presented with four figures composed of simple geometrical shapes, and asked to reconstruct one of these figures in such a way that another participant would be able to recognize it among the alternatives. The four figures differed either qualitatively or only quantitatively (i.e., far or close context). Regarding quantitative differences, two feature dimensions were varied, with one manifesting a wider range of variability across the alternatives than the other. In case of a smaller variability range, the target figure was either at the extreme of the range or had an in-between value. As expected, the results indicated that sharpening occurred more often for the feature with an extreme value, for the feature exhibiting more variability, and for the features of figures presented in the close context, than for the feature with a non-extreme value, exhibiting less variability, or in the far context. In line with Metzger's [-@metzger1941] definition of prägnant Gestalts, the essence of a Gestalt is context-dependent, and this will influence whether leveling or sharpening of a feature will lead to the best organization in the specific context.</small> 
+
+
+::: {.content-visible when-format="pdf"}
+\vfill
+\noindent
+**Van Geert\*, E., Frérart\*, L., & Wagemans, J. (under review). Towards the most prägnant Gestalt: Leveling and sharpening as contextually dependent adaptive strategies. Preprint available from** \newline 
+\textbf{\href{https://doi.org/10.31234/osf.io/t3bzw}{https://doi.org/10.31234/osf.io/t3bzw}}
+
+\noindent
+\* Eline Van Geert and Liesse Frérart contributed equally to this work.
+
+\noindent
+\ffbox{\href{https://doi.org/10.31234/osf.io/t3bzw}{\small{Preprint}}}
+\ffbox{\href{https://doi.org/10.17605/osf.io/hqcja}{\small{Materials, data, and code}}}
+\setstretch{1.5}
+
+\clearpage
+
+\section*{Towards the most prägnant Gestalt: Leveling and sharpening as contextually dependent adaptive strategies}
+\sectionmark{Context dependence of leveling and sharpening}
+:::
+
+::: {.content-visible when-format="html"}
+<h2>Context dependence of leveling and sharpening</h2>
+:::
+
+
+```{r}
+#| label: load_packages
+#| message: false
+#| warning: false
+#| output: false
+
+# Load papaja
+library(papaja) # if not installed: devtools::install_github("crsh/papaja")
+
+# List of packages used in analysis
+packagelist <- c("knitr", "tidyverse", "brms", "here", "cowplot", "gghalves", "htmltools", "ggdist", "parallel", "rstan", "tidybayes", "patchwork", "ggstance")
+
+# Install packages if not already installed
+invisible(lapply(packagelist, function(package){if ( !package %in% rownames(installed.packages())) {install.packages(package)}} ))
+
+# Load required packages
+invisible(lapply(packagelist, library, character.only = T, quietly = T))
+ 
+# r_refs("r-references.bib")
+
+theme_set(theme_cowplot())
+
+# create invlogit function
+invlogit <- function(x){ exp(x) / (1 + exp(x)) }
+
+memory.limit(size = 1600000000000)
+```
+
+```{r}
+# Use several cores in parallel
+ncores = detectCores()
+rstan_options(auto_write = TRUE)  # to avoid recompilation of unchanged Stan programs
+options(mc.cores = parallel::detectCores()) # for execution on a local, multicore CPU with excess RAM
+```
+
+```{r, eval = F}
+# read cleaned data
+drawings <- read_delim(here("03_cleandata", "drawingdata_cleaned_12062022.txt"), delim = "|")
+```
+
+```{r}
+#| label: loadpackages_readdata
+#| child: "06_chapters/00_readdata.Rmd"
+
+```
+
+<!-- Introduction -->
+```{r}
+#| child: "06_chapters/01_intro.Rmd"
+
+```
+
+<!-- Methods -->
+```{r}
+#| child: "06_chapters/02_methods.Rmd"
+
+```
+
+<!-- Results -->
+```{r}
+#| child: "06_chapters/03_results.Rmd"
+
+```
+
+<!-- Discussion -->
+```{r}
+#| child: "06_chapters/04_discussion.Rmd"
+
+```
+
+## Open and reproducible practices statement
+This manuscript was written in R Markdown using the papaja package [@R-papaja] with code for data analysis integrated into the text. The data, materials, and analysis and manuscript code for the experiment are available at [https://doi.org/10.17605/osf.io/hqcja](https://doi.org/10.17605/osf.io/hqcja).
+
+```{r}
+rm(list = ls())
+```
+
+\clearpage \thispagestyle{empty} \stopthumb

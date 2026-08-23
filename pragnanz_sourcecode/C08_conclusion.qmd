@@ -1,0 +1,521 @@
+# General discussion {#sec-conclusion}
+\addthumb{Chapter 8}{\Huge{\textbf{\arabic{chapter}}}}{white}{gray} \thispagestyle{empty}
+
+::: {.content-visible when-format="html"}
+```{=html}
+<script>document.getElementById("tocimage").src="chapterfigs/7.jpg";</script>
+```
+:::
+
+@koffka1935 posited the Prägnanz principle as the most important principle to guide research on perceptual organization.
+To advance research on perceptual organization, a more complete view on the meaning of Prägnanz is thus desirable.
+The central aim of this dissertation was to develop a more fine-grained understanding of Prägnanz and its added value for current theories and research on human visual perception and aesthetic appreciation.
+Importantly, the Prägnanz principle does not specify what will happen exactly in each and every specific situation [@rausch1952; @arnheim1987].
+Gestalt psychology, and as a consequence the Prägnanz principle, can be seen as the outcome of concrete research results, but should also be seen as a means towards further discoveries [@wertheimer1924].
+
+<!-- This includes better understanding Prägnanz as a process and as a property, the effectiveness of Prägnanz, the relevance of Prägnanz for other psychological processes and outcomes, and the conditions to which Prägnanz is susceptible. -->
+
+Using Prägnanz and the Prägnanz principle as a generative framework for further research is exactly what I have tried to do in this dissertation.
+Rather than aiming to 'test' the Prägnanz principle (which would assume Prägnanz to be a magical one-fits-all solution), I took the Prägnanz principle as a starting point for concrete research on perceptual organization (and aesthetic appreciation) in the visual modality.
+
+In this General discussion, I first give an overview of the main findings reported in this dissertation.
+Afterwards, I dedicate some space to specifying how the Gestalt view connects to other theories on perception, with a focus on perception as Bayesian inference.
+By doing so, I aim to clarify the added value of a Gestalt perspective for current theories and research on human visual perception, aesthetic appreciation, and beyond.
+
+## Summary of the main findings
+
+<!-- ### Prägnanz in visual perception -->
+
+How do we perceptually and cognitively organize incoming stimulation?
+The Gestalt psychologists answered this question by providing evidence for several specific principles of organization, with the law of Prägnanz as an overarching principle: psychological organization will always be as 'good' as the prevailing conditions allow [@koffka1935]. In [Chapter @sec-pragnanzreview], I reviewed how the Gestalt school further specified this law, by providing answers to (a) what a 'good' psychological organization entails, (b) how the Prägnanz tendency can be realized, and (c) which prevailing conditions need to be taken into account.
+Furthermore, I discussed four main uses of Prägnanz in more detail: (a) Prägnanz as a tendency present in each organizational process, (b) Prägnanz as a property of a Gestalt, (c) Prägnanz steps as internal reference points, and (d) Prägnanz in the context of aesthetic appreciation and artistic practice.
+
+Importantly, Prägnanz is a multifaceted concept indicating the psychological clarity of an experienced overall organization.
+Which factors contribute to this clarity of the experienced organization?
+First of all, at least some unity or regularity needs to be experienced in the overall organization.
+The experienced organization thus needs to be a Gestalt, different from a pure sum of its sensory elements<!--(i.e., a complex)-->.
+In a Gestalt, the different elements mutually support and determine each other: in experience, they are parts of a whole.
+In addition to the necessary requirement of experiencing at least some (1) unity or regularity in the organization, the clarity of an organization increases if it is experienced as (2) autonomous or independent rather than derived, (3) integer or complete rather than disrupted, (4) simple of structure rather than complicated of structure, (5) element rich rather than meager, (6) expressive rather than lacking expressiveness, and/or (7) meaningful rather meaningless.
+From this list of seven Prägnanz aspects, it becomes clear that Prägnanz can increase not only based on figural qualities, but also based on how the form of the organization relates to a semantic content (cf. 6^th^ aspect) and how well the organization can be embedded in the organism's knowledge system (cf. 7^th^ aspect).
+Furthermore, it also shows that Prägnanz can increase both with increasing order (i.e., structure and organization of elements part of a stimulus) and increasing complexity (i.e., quantity and diversity of elements part of a stimulus).
+<!-- elements is not only elements, also relations, etc. -->
+
+How can a perceiving organism then clarify the incoming stimulation, i.e., arrive at the most prägnant overall organization possible given the prevailing conditions?
+<!--If an organization is the clearest possible given the conditions, it will also be the most stable possible: in processes ending in a stable, stationary state, there is a tendency towards minimal structural energy [@kohler1920].--> Gestalt psychology posits two main ways to clarify the incoming stimulation: either make the input more similar to what we already know (i.e., attraction), or make it more different (i.e., repulsion).
+Both tendencies are concurrently present in every perceptual process, although depending on the prevailing (internal and external) conditions they may be applied (a) in comparison to different reference distributions (i.e., internal or local reference), (b) to different aspects of the organization (e.g., color, shape, length, width, orientation), (c) with different strengths, and (d) <!--as a deviation-->from the stimulus to the percept (i.e., primary Prägnanz) or on the phenomenal level <!--, as a (potentially conscious) evaluation of the experienced closeness of an organization to a reference-->(i.e., secondary Prägnanz)[^c08_conclusion-1].
+<!--Under the prevailing conditions, external and internal conditions can be distinguished. External conditions are created in the receptor organs of the organism and entail "the excitations to which the light rays coming from the physical object give rise" [@koffka1935, p. 98]. When the external stimulation is weak (i.e., low visibility), for example due to brief presentation duration, low contrast, or small size, the (primary) Prägnanz tendencies will have more room to play their part. The internal conditions relate to more permanent (related to the structure of the nervous system, influenced by both inheritance and previous experience) or more temporary aspects of the organism's nervous system [e.g., energy level, needs, attitudes, interests, @koffka1935]. -->
+
+[^c08_conclusion-1]: The latter is probably related to the localization of the tendencies in the 'hierarchy' of the brain (i.e., 'lower-level' processes influenced more heavily by the input vs. 'higher-level' processes influenced more heavily by the perceiver).
+
+<!-- * "what we already know" = reference -> several references may be available -->
+
+<!-- * different aspects of stimulus to which tendencies may be applied -->
+
+<!-- * different tendencies may be at play at different levels of the hierarchy in the brain (primary and secondary Prägnanz) -->
+
+### Robustness and sensitivity
+
+The part on robustness and sensitivity dealt with how long-term internal representations of good Gestalts can influence how the incoming stimulation will be perceptually and psychologically experienced.
+While the repulsive 'anchor' effect has been found mostly in direct perceptual comparisons,<!--and may be more related to 'early', 'lower-level' perceptual processing^[I do not agree with this idea of 'lower-level' processing happening earlier in time, however, neither would the Gestaltists agree in my opinion.],--> the attractive 'magnet' effect showed in tasks with a larger memory component and more limited perceptual input [@quinn2000].
+Hence, under strong external conditions sensitivity will be larger close to Prägnanz steps, under weak external conditions Prägnanz steps will mainly show their robustness (i.e., the visual input will be perceived as more similar to the Prägnanz steps than it is in reality).
+
+In [Chapter @sec-refpoints], we explained how an attractive tendency towards a Prägnanz step can lead to a category boundary effect.
+The category boundary effect indicates that differences between stimuli belonging to the same category are perceived as smaller than differences between stimuli belonging to different categories, even when the objective similarity between the stimuli is the same.
+
+In an empirical study, we compared two types of morph stimuli on three different tasks: a categorization, a successive discrimination, and a similarity judgment task.
+For stimuli part of recognizable morph series, strong pre-existing internal reference regions were expected, leading to strong perceptual attraction towards these reference regions under limited viewing conditions (in this case, limited presentation duration).
+For stimuli part of non-recognizable morph series, we did not expect such strong reference points and hence less attraction.
+
+In the recognizable morph series, this attraction towards the internal reference points can explain the category boundary effect as follows.
+In within-category pairs, both stimuli are attracted towards the same internal reference, making the perceived difference between them smaller than the actual difference.
+In between-category pairs, stimuli are attracted towards different internal reference points, making the perceived difference between them larger than the actual difference.
+As a consequence, stimuli will be perceived as more similar in within-category pairs than in between-category pairs.
+How we view it this is not an effect of the category *boundary*, however, rather a consequence of attraction towards the internal reference regions on a dimension.
+
+The results of our study are congruent with the explanations above.
+We drew two main conclusions.
+Firstly, the overall category boundary effect in discrimination performance and similarity judgment was much stronger for recognizable than for non-recognizable morph series.
+As expected, recognizable morph series also showed stronger categorization than non-recognizable morph series.
+Hence, the stronger the categorization for a morph series, the stronger the overall category boundary effect in discrimination performance and similarity judgment.
+
+Secondly, for the recognizable morph series we saw a clear gradient in the results for the discrimination task, with discrimination performance gradually increasing the further the stimuli in the pair were from a reference point.
+The same gradual pattern was visible in the similarity judgment task, with stimuli being perceived as increasingly similar the closer they were to a reference point.
+Hence, for objectively equidistant stimulus pairs belonging to morph series that show evidence for categorization, the stimuli in the pair will be perceived as more similar and will be more difficult to discriminate the closer the stimuli in the pair are to one of the reference points.
+To accurately predict discrimination performance and similarity judgments, the distance from the reference points for each of the individual stimuli in the pair thus needs to be taken into account.
+In this study, 'distance from the reference points' can be equated to categorization strength, goodness of the experienced organization, or level of Prägnanz.
+
+<!-- being much worse around the reference pointsreplicated the category boundary effect in both discrimination sensitivity and similarity judgment, and provided evidence that the closer the individual stimuli in the pair are to one of the reference points, the more perceptually similar the stimuli are perceived to be and the worse discrimination becomes &mdash; even when keeping objective similarity between the stimuli in the pair equal. The distance from the reference points for each of the individual stimuli in the pair thus mattered for accurately predicting discrimination performance and similarity judgments. As @wertheimer1923 described, if we vary a component in systematic steps, psychologically not all steps will be equal. To the contrary, "particular salient steps [*Prägnanzstufen*] occur" [@wertheimer1923, p. 319, translated by Spillmann; @wertheimer2012]. Also in the categorization responses and reaction times, the influence of these Prägnanz steps was clear. -->
+
+<!-- has a noticeable impact on how the stimulus is perceived, categorized, and the attractive Prägnanz tendency towards these Prägnanz steps &mdash; when present &mdash; can have tangible consequences for how we perceive, categorize, and react to stimuli on that dimension. Although we did not find evidence for any clear directional asymmetries in within-category pairs &mdash; these could be predicted if assuming stronger attraction for the first compared to the second stimulus in a pair &mdash; this is probably   -->
+
+In Prägnanz terms, this study thus investigated attractive Prägnanz tendencies from the stimulation to the percept (i.e., primary Prägnanz) and on the phenomenal level (i.e., secondary Prägnanz)[^c08_conclusion-2], both in conditions under which a non-uniform internal reference distribution with Prägnanz steps is available (i.e., recognizable morph series) and in conditions under which a more uniform internal reference distribution is present (i.e., non-recognizable morph series).
+Both the presence of strong internal Prägnanz steps (i.e., type of morph series) and the Prägnanz level of the currently experienced organization (i.e., based on morph level, indicating closeness to Prägnanz step) were varied.
+In Rausch's [-@rausch1966] terminology, it considers the Prägnanz aspects of meaningfulness (7) and integrity (3), respectively.
+As stimuli were only presented for 300 milliseconds, the external conditions were weak, and primary Prägnanz tendencies could lead to deviations from the stimulus to the percept that were not directly noticeable by the observer.
+
+[^c08_conclusion-2]: As we asked for categorization, discrimination, and similarity judgment, and not for direct reports of their percept, we leave open the option for secondary Prägnanz tendencies on the phenomenal level.
+    That is, in addition to deviations from the stimulus to the percept, also a --- potentially conscious --- evaluation of the experienced closeness of the percept to the reference may influence the judgments asked for.
+
+Related to this theme on robustness and sensitivity, I conclude that *we use long-term internal representations of good Gestalts (i.e., Prägnanz steps) as reference points to clarify the incoming visual stimulation*.
+
+### Hysteresis and adaptation
+
+The part on hysteresis and adaptation dealt with how the immediate temporal context of a stimulus can influence how that stimulus will be perceived.
+While repulsive effects have been found for the immediate stimulus history,<!--and may be more related to 'early', 'lower-level' perceptual processing^[I do not agree with this idea of 'lower-level' processing happening earlier in time, however, neither would the Gestaltists agree in my opinion.],--> attractive effects have been found for the immediate perceptual history [e.g., @gepshtein2005; @schwiedrzik2014].
+<!--In addition, repulsive effects may be more dominant when strong previous stimulus, when the previous stimulus was less clearly visible (?) attractive effects may exceed repulsive ones.  -->
+
+In [Chapter @sec-rrdotlattices], we investigated whether individuals differ consistently in how they combine previous visual input and experience with current visual input in their perception, using a multistable dot lattice paradigm.
+
+The results of this Registered Report indicated that although individuals differed considerably in the size of their hysteresis and adaptation effects, almost everyone showed both effects in the expected direction.
+Furthermore, these differences in how strongly individuals were influenced by their stimulus history and perceptual history showed very stable across one to two weeks' time.
+Individual differences in hysteresis and adaptation were also strongly positively correlated.
+That is, individuals with a strong attractive effect of the previous percept, in general also showed a stronger repulsive effect of the previous stimulus evidence.
+Although not the main interest of this study, individuals also differed considerably in the direct effect of grouping by proximity [i.e., one of the traditional Gestalt laws of perceptual organization\; @wertheimer1923].
+In addition, the relation between short-term and long-term context effects was not straightforward.
+This was potentially due to the low stability of absolute orientation bias *strengths* for at least some participants.
+Individual differences in the *direction* of the absolute orientation biases (i.e., the absolute orientation region with the highest Prägnanz) stayed relatively consistent across time, however.
+Furthermore, as effects in the control task were present but considerably smaller than in the main experimental task, we could conclude that the attractive temporal context effect was partially perceptual and partially decisional.
+Also, the results hinted at potential individual differences in the nature of the attractive temporal context effect.
+
+In Prägnanz terms, this study thus investigated attractive and repulsive Prägnanz tendencies, mainly from the stimulation to the percept (i.e., primary Prägnanz)<!--, but potentially also on the phenomenal level (i.e., secondary Prägnanz)^[As we asked for categorization, discrimination, and similarity judgment, and not for direct reports of their percept, we leave open the option for secondary Prägnanz tendencies on the phenomenal level.]-->. The current stimulus was fixed, but the Prägnanz level of the previously experienced organization varied, both by manipulating the aspect ratio of the previous stimulus and by differences in how that stimulus was experienced. In Rausch's [-@rausch1966] terminology, the aspect ratio manipulation considers the Prägnanz aspect of integrity (3). The manipulation of perceptual and stimulus history in general may be seen as part of the by @wertheimer1923 described Gestalt principle of set \[*Einstellung*\].
+For the current stimulus, the external conditions were weak (presented for 300 milliseconds), but the immediately preceding stimulus was more clearly visible (presented for 800 milliseconds).
+Given the low visibility of the current stimulus, primary Prägnanz tendencies could lead to deviations from the stimulus to the percept that were not directly noticeable by the observer.
+
+<!-- The potential impact of the immediate temporal context on how we perceptually organize incoming stimulation is the focus of this theme in the thesis: **hysteresis** and **adaptation**.  -->
+
+<!-- Under this theme, I investigate the influence of short-term *temporal* context on visual perceptual organization.  -->
+
+To explain the co-occurring attractive and repulsive temporal context effects in multistable dot lattice perception, we developed an efficient Bayesian observer model that included a likelihood on the stimulus level and a prior on the perceptual level (cf. [Chapter @sec-effbayesianmodel]). While likelihood repulsion on the *stimulus* level could explain the repulsive context effect, *perceptual* prior attraction could explain the attractive temporal context effect. Furthermore, we were able to reproduce the strong positive correlation between individual differences in hysteresis and adaptation effects by assuming a strong correlation between updating speeds at the stimulus and the perceptual level. <!-- ADD IN DISCUSSION: updating speed or noise levels correlated across levels? --> <!--Within the capacity limits of the visual system, the more structurally complex stimulus will be experienced as more prägnant [@koenderink2018; cf. also the fifth Prägnanz aspect of @rausch1966, element richness].-->
+
+In a follow-up analysis (not part of this dissertation) using the categorization data from the study in [Chapter @sec-refpoints], we found evidence for attractive and repulsive temporal context effects in the data for the non-recognizable morph series, but not in the data for the recognizable morph series [@vangeert2023morphhystadaptreanalysis\; for an early presentation of this analysis at ECVP 2019, see this [poster](https://osf.io/8u4vf)].
+Hence, short-term attractive and repulsive temporal context effects seem to have a larger influence on perception when no strong internal reference points are available.
+<!-- That is, given that the previous percept was category A and the current stimulus was in favor of category B, the chance of perceiving the current stimulus as category B was lower when there was stronger evidence for category B in the *previous* stimulus. Similarly, given that the previous stimulus was perceived as category B and the current stimulus was in favor of category A, the chance of perceiving the current stimulus as category B was lower when there was stronger evidence for category B in the previous stimulus. -->
+
+In a follow-up study (not part of this dissertation), I zoomed in on attractive and repulsive temporal context effects in a categorization task using non-recognizable morph shapes, and explored potential individual differences in the size and direction of these temporal context effects [@vangeert2023morphhystadaptnonrec\; for an early presentation of this study at VSS 2021, see this [poster](https://osf.io/qvsp2) and corresponding [poster tour](https://osf.io/ckj6y)]. The non-recognizable morph series used were set 1 and set 2 from [Chapter @sec-refpoints], and the same categorization task procedure was used as in that study. Different from the dot lattice study reported in [Chapter @sec-rrdotlattices], not only the previous stimulus evidence and the previous percept varied, but also the current stimulus evidence. In this follow-up study, we found evidence for a clear attractive effect of the previous percept (i.e., hysteresis): keeping the current stimulus equal, this stimulus was more often perceived as part of category B when the previous stimulus was also perceived as part of category B. On the other hand, there were also indications of a repulsive effect of the previous stimulus evidence, but only when the current stimulus evidence was incongruent with the previous percept. When the current stimulus evidence was congruent with the previous percept, there was an attractive effect of the previous stimulus evidence. Put differently, sensitivity to the current stimulus evidence was higher when the previous stimulus was in accordance with the previous percept, and sensitivity was lower when the previous percept was a 'mistake'. Hence, when also the strength of the current stimulus evidence comes into play, the pattern of results may become more complex than was the case in the dot lattice study in [Chapter @sec-rrdotlattices], in which the current stimulus was always equally ambiguous [cf. also @gallagher2022].
+As a sidenote, @mao2022 proposed a hierarchical efficient Bayesian observer model precisely to be able to correctly predict the effects of different noise manipulations on previous and current stimulus.
+In the future, it may thus be worthwhile to also develop a hierarchical efficient Bayesian observer model that can explain the results structure for this follow-up study using non-recognizable morph shapes.
+<!-- add something on sensitivity interpretation of effect of previous stimulus? (opposite) adaptation effect ~ higher sensitivity to current stimulus level when previous stimulus in accordance with previous percept (and lower sensitivity when previous percept was a ‘mistake’) --> <!-- add something on hysteresis effect more consistent across combination of contexts and individuals
+adaptation effect more dependent on context (previous percept and current stimulus level) ???--> <!-- discuss work by Chetverikov on that feature distribution matters --> <!-- Different from the previously described study, this study cannot investigate the relation between the effect of the current stimulus and hysteresis and adaptation effects, as the second stimulus in this paradigm is always ambiguous.  -->
+
+With these additional studies in mind, it becomes clear that the attractive and repulsive temporal context effects, as reported in [Chapter @sec-rrdotlattices], may have special importance for perception (a) when no strong long-term internal reference points are available, and (b) when the current stimulus is ambiguous.
+
+Related to this theme on hysteresis and adaptation, I conclude that *the immediate temporal context* in which a perceiver receives the incoming stimulation *can have a strong influence on how that (ambiguous) stimulation is perceptually organized*, and individuals consistently differ in the extent to which they use this temporal context to clarify their percepts.
+Furthermore, an efficient Bayesian observer model can predict these co-occurring attractive and repulsive immediate temporal context effects using perceptual prior attraction and stimulus likelihood repulsion.
+
+### Simplification and complication
+
+The part on simplification and complication dealt with how the immediate spatial context of a stimulus can influence how that stimulus will be experienced and communicated.
+When a difference between a stimulus and its spatial context is visible and experienced as important, the organization of that stimulus will be repelled from the spatial context.
+When a difference between a stimulus and its spatial context is barely noticeable and/or experienced as clutter, the organization of that stimulus will be attracted to the spatial context.
+<!--Hence, repulsive effects may be more dominant under strong external conditions, under weak external conditions attractive effects may exceed any repulsive ones. -->
+
+In [Chapter @sec-simplcompl], we asked participants to draw a target figure in such a way that another participant would be able to recognize it from the presented alternative figures.
+We investigated whether the importance of a feature for discrimination of the target figure among the alternative figures influenced whether the feature was repelled from the spatial context (i.e., complication, sharpening) or rather attracted to the spatial context (i.e., simplification, leveling).
+Importance of a feature for discrimination was operationalized in different ways: (a) whether the alternative figures were qualitatively or only quantitatively different from the target (i.e., far or close context); (b) whether the range of variability for a feature across the alternatives was more narrow or wide; and (c) whether the target value was an extreme value on the feature dimension or fell in-between the values for the alternative figures.
+
+The study's results indicated that sharpening occurred more often for extreme feature values, for features exhibiting more variability, and for features of figures that were presented amongst alternative figures that were visually quite similar, than for non-extreme feature values, features exhibiting less variability, or features of figures presented amongst alternative figures that were totally different.
+In line with one of Metzger's [-@metzger1941] definitions of prägnant Gestalts (i.e., good Gestalts as those structures that most purely and compellingly represent an essence), the *essence* of a Gestalt may be context-dependent, and this will influence whether leveling or sharpening of a feature will lead to the best organization in the specific context.
+
+In Prägnanz terms, this study thus investigated attractive and repulsive Prägnanz tendencies, mainly on the phenomenal level (i.e., secondary Prägnanz), but potentially also from stimulus to percept (i.e., primary Prägnanz).
+The current stimulus was fixed, but the Prägnanz level of the currently experienced organization varied based on a manipulation of the spatial context in which the stimulus was presented.
+<!--In Rausch's [-@rausch1966] terminology, the context and variability manipulation considers the Prägnanz aspect of integrity (3)-->The manipulation of spatial context may be seen as part of the by @wertheimer1923 described Gestalt principle of set \[*Einstellung*\].
+In this study, the external conditions were rather strong (presented with high contrast for unlimited time, although at relatively small size), leaving less room for primary Prägnanz tendencies and deviations from the stimulus to the percept that were not directly noticeable by the observer, but leaving the possibility of (potentially conscious) secondary Prägnanz tendencies to play an important role.
+
+Related to this theme on simplification and complication, I conclude that *the immediate spatial context* in which a perceiver receives the incoming stimulation *can have a strong influence on whether attractive or repulsive Prägnanz tendencies will occur*, and consequently how that stimulation is psychologically experienced.
+<!-- In this study, we defined *leveling* as drawing the target's feature value as closer to the mean feature value (across all concurrently presented figures) than it actually was. *Sharpening* was defined as drawing the target's feature value as more different from the mean feature value than it was in reality.  -->
+
+<!-- The context will also influence which Prägnanz tendency will occur for a specific feature (i.e., leveling or sharpening). The results of this study are in line with recent work by Feldman (2021), who concluded that the improvement in perceptual discrimination of a feature is proportional to the informativeness of a feature in the specified context. Related to Metzger’s (1941) definition of Prägnanz, we can conclude that the essence of a Gestalt is context-dependent, and this will influence which tendency (i.e., leveling or sharpening) will lead to the best organization in the specified (task) context.  -->
+
+<!-- Close context increases sharpening, variability and extremeness increase identifiability -->
+
+<!-- * 'best' organization is not always the organization with the 'simplest' elements -->
+
+<!-- * cartoons in thesis -->
+
+<!-- * lead to better recognizability? also higher appreciation? -->
+
+<!-- * immediate spatial context can help to define the 'essence' -->
+
+<!-- * which characteristics will be simplified / complicated will depend on the spatial context -->
+
+### Order and complexity
+
+The part on order and complexity considered the relation between good perceptual and psychological organization and aesthetic appreciation.
+Order and complexity are not only important contributors to a better, more prägnant organization, they also relate to our experience of aesthetic appreciation [@vangeert2020]. My earlier research [@vangeert2021nlen; @vangeert2021zh] indicated that while order is almost always appreciated, appreciation of complexity is more variable across individuals and cultures.
+This research used non-parametrically controlled stimulus sets, however.
+Also other existing research had its limitations: it mainly focused on the separate influence of order and complexity on aesthetic appreciation, considered rather specific types of order (i.e., balance or symmetry), and/or ignored that order and complexity can show on multiple feature dimensions (e.g., color, shape, size, orientation).
+
+In [Chapter @sec-octatoolbox], I presented my answer to these limitations.
+With the Order & Complexity Toolbox for Aesthetics (OCTA), we provide an easy way to create reproducible and expandible stimulus sets, including both order and complexity manipulations on multiple feature dimensions.
+
+Two first empirical studies using OCTA (not part of this dissertation) brought additional evidence for the conclusion drawn above, but now with parametrically controlled stimulus sets: order is a more consistent and situation-independent factor in appreciation, while the level of complexity that is appreciated varies more heavily between individuals, feature dimensions, and experienced levels of order [@vangeert2023ratings; @vangeert2023prefcompl, for an early presentation of these studies, see this [oral presentation](https://osf.io/z5n2h) at TeaP 2022].
+
+For Prägnanz, some form of regularity is always required, whereas the level and type of complexity a viewer can handle differs between contexts and individuals.
+The same seems to be true for aesthetic appreciation: while order is always a positive contributor, the impact of complexity is more condition-dependent.
+
+Related to this theme on order and complexity, I conclude that *order and complexity are antagonistic but complementary factors that can both contribute to perceptual organization as well as aesthetic appreciation*.
+Furthermore, aesthetic appreciation may be related to the absolute level of Prägnanz height, but also to a relative increase in Prägnanz (i.e., the strength of the experienced Prägnanz tendency).
+
+## General considerations
+
+### Antagonistic but complementary attractive and repulsive Prägnanz tendencies
+
+In the parts on robustness and sensitivity, hysteresis and adaptation, simplification and complication, and order and complexity, every time a pair of concepts is introduced that are antagonistic but also complementary.
+On the one hand, they work against each other: in the first three pairs listed, the first concept represents attraction to a reference, and the second concerns repulsion from a reference.
+In a univariate situation, they are thus necessarily contradictory.
+In most situations, however, stimulation is multivariate, leaving room for both tendencies to work together towards the best psychological organization possible under the prevailing conditions.
+And especially because these contradictory tendencies can complement each other to reach a goal, it is important to study them together.
+
+The same is true for order and complexity.
+Although this concept pair is not directly linked to attractive and repulsive tendencies from a reference, it also concerns a balance between (a) organizing the input in such a way that we can better understand and (b) embracing the unique complexities of the newly experienced organization from which we can learn.
+Just like in the case of attractive and repulsive tendencies, it concerns partial opposites that can both contribute positively to a common goal --- regardless of whether it concerns perceptual organization or aesthetic appreciation.
+
+This focus on interacting tendencies indicates how important dynamics are in the Gestalt approach, and may remind readers of the approach of nonlinear dynamical systems theory.
+The dynamical systems approach describes how a stable balance is reached when arriving at attractor positions on a dimension [@wagemans2012b].
+The stronger these attractors, the higher their Prägnanz [@vanleeuwen1990].
+
+### Dependence of primary Prägnanz tendencies on the incoming stimulation
+
+Both in the part on robustness and sensitivity and in the part on hysteresis and adaptation, viewing conditions for the currently presented stimulus were limited (because of brief presentation duration).
+In [Chapter @sec-refpoints] the ambiguity of the current stimulus was manipulated, in [Chapter @sec-rrdotlattices] the current stimulus was always ambiguous and the ambiguity of the preceding one was manipulated. Because of the limited visibility of the current stimulus, primary Prägnanz tendencies (i.e., deviations from stimulus to percept) had more leeway. In [Chapter @sec-refpoints], attraction to an internal (not currently visible) reference dominated. In [Chapter @sec-rrdotlattices], attractive and repulsive tendencies could be distinguished as being related to the previous percept and the previous stimulus (which was clearly visible just before the current stimulus, as presentation duration was not limited), respectively.
+
+These results hint at a general pattern: primary *repulsive* tendencies may be more prominent for direct perceptual comparisons, in which the reference to which the input is compared is more visibly present (or has been shortly before).
+Primary *attractive* tendencies may be less dependent on a strong visibility of the reference, and also occur for references for which there is less perceptual basis (e.g., internal reference, or less visible preceding stimulus).
+This dissociation between attraction and repulsion may indicate that both act in separate cortical networks in the brain.
+Some evidence has already been gathered for this idea.
+@schwiedrzik2014 for example related hysteresis to a widespread network of higher-order visual and fronto-parietal areas, whereas repulsion was confined to 'early' visual areas.
+Also other researchers have found indications of this dissociation between attractive and repulsive context effects, with attractive effects being stronger in perceptually ambiguous stimuli, non-attended stimuli [@kiyonaga2017], for stable attributes [@taubert2016], and repulsive effects being stronger for non-ambiguous stimuli, attended stimuli, and for changeable attributes.
+
+I do not agree with this idea of 'lower-level' processing happening earlier in time than 'higher-level' processing, however [cf. also @hochstein2002], neither would the Gestaltists agree in my opinion.
+What it can indicate in my opinion, is different cortical networks in the brain, and future research can further explore this distinction.
+
+When it comes to secondary Prägnanz tendencies, these can occur even under very strong visibility of the current stimulus, as they do indicate deviations on the phenomenal level and not necessarily deviations from the stimulus to the percept.
+This is potentially why both attractive and repulsive tendencies could be found in [Chapter @sec-simplcompl].
+
+### Distinguishing low visibility, uncertainty in feature, and ambiguity in feature
+
+The research projects I undertook for my PhD show the importance of distinguishing reduced *visual* strength (i.e., Koffka's [-@koffka1935] weak external conditions, due to limited viewing conditions), reduced *featural* strength (i.e., related to uncertainty in a feature part of the stimulus), and *ambiguity* in how to organize incoming stimulation (i.e., multistability; cf. also 'The Prägnanz framework and perception as Bayesian inference').
+In an efficient Bayesian observer model, reduced visual strength is related to high internal sensory noise (i.e., leading to an asymmetric likelihood distribution in stimulus space), while reduced featural strength is related to high external stimulus noise (i.e., wider likelihood peaks in stimulus space).
+Ambiguity in a feature would show as multiple peaks in the likelihood, not wider peaks, hence not necessarily increasing external stimulus noise.
+Given that these different uncertainties can impact psychological organization differently, making these distinctions clear is strongly advisable in future research manipulating aspects of the stimulus.
+
+### An incomplete exploration
+
+The research I present in this dissertation does not provide a complete exploration of the ways in which Prägnanz may be used as an inspiration for current research.
+Importantly, that was also not the purpose of this project.
+What I do provide is some case studies, that illustrate some of the options, but certainly not all.
+I only looked at some stimulus manipulations, some Prägnanz aspects, some limitations on the viewing conditions.
+Prägnanz provides a framework that pays special attention to any constraints on generality: what the best overall organization will be depends on input, person, context, and all their interactions.
+The studies in this dissertation provide first steps in specifying some of these constraints on generality, but none of the specified constraints on generality is complete.
+By showing some examples across a wide range of different research topics, I hope to inspire future research that takes a more systematic approach in exploring several Prägnanz aspects, several options within each Prägnanz aspect, primary and secondary Prägnanz tendencies, and manipulations of internal and external conditions, as well as a further specification of these constraints on generality that make the Prägnanz framework worthwhile.
+Importantly, the effects of these constraints are in no sense random, we only need to organize all findings in a coherent whole to come to the knowledge of a system [cf. also @koffka1935].
+
+<!-- ### Relative contributions of input, person, context, and interactions -->
+
+Given that determining the best organization is dependent on input, person, context, and their interactions, one could try to get a better idea of which of these factors should be given most weight (i.e., input, person, context, or interactions).
+How strong each of these factors will be depends on the total combination of factors, however.
+As one example, in a series of studies on spontaneous perceptual dynamics when perceiving an ambiguous motion quartet, @boeykens2021 found that individual differences in perceptual bias can be strongly constrained by reducing the temporal distance between displays.
+When temporal distance between the displays was longer, individual differences became more influential.
+As another example, the follow-up analysis on attractive and repulsive immediate temporal context effects using morph stimuli [@vangeert2023morphhystadaptreanalysis] showed these context effects to be present only when no strong internal reference points were available.
+Based on the same reasoning, Gestalt psychologists described their Gestalt principles as *ceteris paribus* principles: a Gestalt principle is supposed to hold within the constraints of the prevailing (internal and external) conditions [@wagemans2018].
+When the prevailing conditions change, other Gestalt principles could come into play and overrule the Gestalt principle in question.
+Hence, systematic investigations of the *interactions* between principles are needed.
+<!-- to bring further insight in how these principles related to each other. -->
+
+### Veridicality and Prägnanz
+
+Whereas some researchers believed perception to be aimed directly at achieving a sufficiently veridical representation of the physical world --- and this is actually still the mainstream view in current vision science [@koenderink2015] --- the Gestalt theorists did not view veridicality as a direct aim of perception. There is a correspondence between experienced and physical world, but this correspondence results from the presence of similar natural, autochthonous principles guiding spontaneous self-organization in both the experienced and the physical world [@bischof1966; @huppe1984]. As the course of spontaneous self-organization depends on the properties of the organism in which the organizational process takes place, it is impossible to predict phenomenal experience from the stimulus conditions only [@huppe1984; @koffka1935]. This dependence of the natural laws on the organism, however, does not make perceptual organization of the visual field a matter of personal choice: a particular grouping and segregation is perceived beyond personal control [@wertheimer1923; @wertheimer2012].
+
+@koenderink2015 summarized the mainstream view as follows: they indicate that the world contains all structure, that science's task is to uncover that structure, and that perception is veridical to the extent that it represents that structure.
+Nevertheless, actually every individual adds structure to construct his/her own experienced reality ('esse est percipi'), and the higher goal of the organism is biological fitness, not veridicality ['verum factum est', @koenderink2015]. Koenderink's view is similar in some respects to the view of Gestalt theory, denying veridicality as a direct aim of perception. @koenderink2019 describes perception as an idiosyncratic user interface, which is --- through evolutionary tendencies --- optimized for utility, not veridicality. This utility perspective comes back in Koenderink's description of the two main aspects of Prägnanz [@koenderink2018], one related to the organism's capacity limit (i.e., 'structural complexity bottleneck'), and a second one related to biological fitness.
+That is, as long as new complexities can be processed and organized, they may contribute to Prägnanz and biological relevance.
+When they exceed the organism's capacity limit, they are not behaviorally useful in that context.
+
+### Behavioral relevance of Prägnanz
+
+<!-- BUT: -->
+
+<!-- whether Prägnanz as a process supports process and -->
+
+<!-- outcome efficiency depends on conditions , e.g., which task -->
+
+<!-- participants have to perform , and on level of specificity and -->
+
+<!-- flexibility of the priors -->
+
+Although the Prägnanz tendency indicates that we will always organize the incoming stimulation in the best, clearest way possible given the prevailing conditions, the best Gestalt will not always be the most behaviorally relevant way of organizing the stimulation without keeping these prevailing conditions in mind.
+What the 'best' organization is behaviorally, strongly depends on the task for example.
+I do believe that Prägnanz tendencies are useful in the long term, however.
+
+@koenderink2018 suggest a strong link between Prägnanz and biological relevance.
+More specifically, they posit the (potential) relevance to the organism's biological fitness (or the affinity to its optical user interface) as one of two main aspects part of Prägnanz[^c08_conclusion-3].
+They also refer to releasers (i.e., stimulus constellations that trigger a fixed behavioral pattern in a particular species) in ethology as extreme examples of good Gestalts [@koenderink2018]: these stimuli have a structure that represents their essence in the most pure and compelling way.
+Or more correctly, maybe not in the *most* pure and compelling way, but in a pure and compelling *enough* way.
+In ethology, also supernormal stimuli are discussed [@tinbergen1951]: non-natural stimuli that can have an even stronger effect than the natural releasers as they represent the essence even more purely and compellingly.
+<!--One example is herring gull chicks that prefer a highly artificial model of a mother gull with more red and more color contrast over wooden stick with a red spot --> In the specific case of supernormal stimuli, Prägnanz may thus show to be destructive in cases where it leads to unproductive behavior that may cause the death of the individual or extinction of the species.
+In the more common case of releasers, the effect of Prägnanz is clearly beneficial, however.
+
+[^c08_conclusion-3]: The other main aspect of Prägnanz in @koenderink2018 is the structural complexity bottleneck of visual systems.
+
+The same idea, Prägnanz as a double-edged sword, being mostly beneficial but sometimes also destructive, comes back in other situations.
+<!-- In general , the use of Gestalt laws , visual templates, and mental --> <!-- concepts in combination with the input supports both efficiency of process & efficiency of outcome --> More specific Prägnanz steps may lead to faster change detection [e.g., @archambault1999] and more specific target templates improve performance in visual search [e.g., @hout2015]. Congruency between typical and perceptual size differences can decrease reaction times in visual search [e.g., @riou2011]. Furthermore, representations can be highly accurate, even when local measurements are very noisy [@alvarez2008], and can increase the accuracy with which items are stored in visual working memory [@brady2011]. But on the other hand, the temporal context may bias memory for individual items [@brady2011], @kanizsa1979 discussed Prägnanz as a potential obstacle to problem solving [@legrenzi1994], and inflexible precise priors in individuals with Autism Spectrum Disorder may impede generalization and learning of broader high-level abstractions [HIPPEA, @vandecruys2014].
+
+So, 'what good is goodness' [@garner1974]? Although @garner1974 had a very specific view on Prägnanz (cf. [Chapter @sec-pragnanzreview]) --- with good patterns being invariant to as many rotations and reflections as possible, leading to a small subset size and high internal redundancy --- he specified more clearly in which ways goodness can influence perceptual and cognitive processing.
+Regardless of the task, he found an effect of goodness on both encoding and memory generation, while there was no conclusive evidence for an effect on speed of comparison [@garner1974].
+In addition, @goetschalckx2019 found that memorability was higher for distinctive images (i.e., more clearly different from an internal reference; better memory generation) and that images that could be categorized more accurately (i.e., more similar to an internal reference; easier encoding) when distinctiveness was controlled for.
+In that sense, both attractive and repulsive Prägnanz tendencies seemed to improve performance in a memory task in different ways.
+
+<!-- *not all Gestalts or percepts are prägnant for the same reason , and the underlying -->
+
+<!-- mechanisms are expected to differ between different types of prägnant Gestalts -->
+
+<!-- related to 'not all Gestalts are equal' Wagemans (2016) -->
+
+<!-- *"or in other words: perception" (Pieter Moors) -->
+
+### The Prägnanz framework and perception as Bayesian inference
+
+Here I dig deeper in the connections I see between Gestalt and Bayesian views on perception, specifically focusing on the efficient Bayesian observer model as presented by @wei2015.
+Typically, 'simplicity' and 'likelihood' have been presented as contrasting principles, while overlap in ideas and predictions following from these principles seems to have been largely ignored.
+Therefore, I find it important to stress that there are important parallels and similarities to draw, and that both views on perception can support each other in many ways.
+Given that both Bayesian and Gestalt psychological views posit a connection to regularities in the real world --- be it directly by proposing veridicality or indirectly by proposing parallellism --- it is understandable that both views will lead to similar results in many cases.
+
+The core of a Bayesian view on perception is the combination of current sensory evidence (resulting in a *likelihood*) and prior expectations about its frequency of occurrence (i.e., a *prior* probability).
+Also in Prägnanz, both external (stimulus-dependent) and internal (viewer-dependent) conditions codetermine the organization that will be experienced.
+
+A core idea of the efficient Bayesian observer model is that neural resources are limited, and therefore *efficient coding* will occur, optimizing sensory representations relative to the stimulus statistics of the natural environment [@wei2015]. In other words, encoding precision of feature values will be variable in line with their frequency of occurrence in the natural environment. For this idea, @wei2015 referred back to @attneave1954 and his work on redundancy in visual perception. In this paper, @attneave1954 defined a good Gestalt as a figure with a high degree of internal redundancy. Although I do not agree with how @attneave1954 equated Prägnanz with a minimum principle, the efficient coding idea in general certainly represents an important aspect of Prägnanz. As mentioned in [Chapter @sec-pragnanzreview], @kohler1920 focused on the equivalence of the Prägnanz tendency to the physical tendency towards minimal structural energy, with minimal structural energy being attained when in a stable, stationary state. @koffka1935 also described the effect of the energy level of an organism on which Prägnanz tendencies will occur, and @metzger1941 discussed how individual differences in for example comprehension capacity and energy level may influence whether conflicting Gestalt factors will lead to an unclear percept or a richer organization. The idea of a constraint on encoding resources also comes back as one aspect of Koenderink's [-@koenderink2018] description of Prägnanz (i.e., a structural complexity bottleneck).
+This upper boundary on the level of structural complexity that can be encoded is somehow similar to the upper boundary put on encoding capacity in the efficient Bayesian observer model [@wei2015].
+@noel2021 also found empirical evidence for differences in visual encoding capacity, operationalized using Fisher information.
+Whereas Gestalt theory thus specified the tendency towards minimal structural energy, the efficient Bayesian observer model provides a more specific approach to implement this tendency.
+However, in the Bayesian view it does not necessarily concern *structural* complexity, and Gestalt theory would probably say the coding is optimized in relation to the organism rather than to the stimulus statistics in the natural environment (see below).
+
+In the efficient Bayesian observer model [@wei2015], two types of noise are distinguished, with differential consequences for perception. High *internal* sensory noise [i.e., uncertainty in encoding and processing, reduced visual strength in @huang2015 and @huang2022, e.g., due to brief presentation time] leads to an asymmetric likelihood distribution in the stimulus space and potentially biases away from the peak of the prior distribution. When @koffka1935 referred to weak external conditions (i.e., low visibility, due to, e.g., brief presentation, low contrast, small size), he referred to conditions that are similar to those mentioned to lead to high internal sensory noise. High *external* stimulus noise [i.e., uncertainty in a specific stimulus feature, reduced featural strength in @huang2015 and @huang2022] only widens the likelihood distribution and leads to a stronger attractive influence of the prior distribution. <!-- Outside of the context of Bayesian efficient observer models, Huang [-@huang2015; -@huang2022] found that visual strength positively predicted discriminability and featural strength positively predicted grouping tasks. As a consequence, low sensory noise (related to visual strength) may predict higher perceived complexity, and low stimulus noise (related to featural strength) may predict higher perceived order.  -->
+
+From the efficient Bayesian observer model proposed by @wei2015, @wei2017 derived a lawful relation between perceptual bias and discriminability: perceptual bias is proportional to the slope of the square of the discrimination threshold.
+This relation implies that the perceptual bias will be zero for locations on the dimensions for which discrimination sensitivity is maximal or minimal, while the bias will be largest for locations on the dimensions where the discrimination sensitivity changes most quickly [@wei2017].
+In Prägnanz terms: Prägnanz tendencies will be absent at internal reference points (i.e., where discrimination is maximal) and exactly in between two reference points (i.e., where discrimination sensitivity is minimal), while the largest Prägnanz tendencies will happen in between those two extremes (i.e., closer to one of the reference points than the other).
+
+Nevertheless, the presented Prägnanz framework is not just a rephrasing of perception as Bayesian inference; important differences remain.
+One of the main distinctions I see is the way in which Prägnanz steps and Prägnanz functions --- or priors in Bayesian terms --- are formed.
+Bayesian inference bets strongly on 'previous experience'.
+Gestalt theory is not in contrast to any influence from learning or previous experience, rather to the contrary.
+For example, @wertheimer1923 explicitly described the Gestalt factor of objective set [*Einstellung*], referring to the influence of the immediate temporal of spatial context on perception, as a strong one that needs to be considered very carefully in experiments. Furthermore, also familiarity or past experience --- here meant as only based on arbitrary habit or drill, not related to the content or any aspect of the specific configuration --- is mentioned as a separate Gestalt principle [@wertheimer1923]. In addition, @koffka1935 makes note of the fact that the structure of the human nervous system is not only influenced by innate factors but also by previous experience. The main difference here between Gestalt theory and Bayesian inference is that in Gestalt theory, 'previous experience' is not viewed as a satisfying explanation for all questions about human perceptual organization, and emphasizes the importance of more general (biologically useful, utility-related) principles of organization next to the influences of previous experience. If one would want to attribute all Gestalt principles to prior experience, one must be able to show concretely based on which prior experience these principles are based, and also that there is no basis in prior experience for alternative principles and organizations [@wertheimer1923].
+Put differently, previous experience should not be used as a magical one-fits-all solution either.
+In any case, how exactly internal representations are formed and used as a reference to compare to the incoming stimulation, is an interesting area for further research, regardless of whether one wants to study it from a Gestalt or a Bayesian perspective.
+
+In my opinion, Gestalt theory thus provides a broader range of influencing factors than Bayesian inference.
+In the end you need to come to a 'prior distribution', which is easy when only one dimension is varied, but more difficult when multiple interacting factors are at play.
+Gestalt theory gives a broader insight in different ways in which reference regions and prior probabilities could arise.
+Experienced organizations have many facets, and in many cases the 'prior' or 'internal reference' does not concern a single one-dimensional probability distribution.
+Gestalt psychology raised many factors (i.e., different Gestalt laws, different Prägnanz aspects related to both structure and meaning) that could influence this multivariate prior, with the potential effects of previous experience as one of them.
+I believe that it is not about how many times a specific stimulus value has been presented, but more about the extent to which a value is probable given all presented stimulus values on that dimension [cf. ensemble and distribution learning, e.g., @corbett2023; @khayat2019].
+Also, new Prägnanz steps are formed when they are no longer seen as a disruption of an existing Prägnanz step and transform in a derived one, with its own right of existence (when it becomes *useful* to form a new category, which is related to the function of a percept in the organism's life world, behavioral context and action tendencies of the organism).
+In other words, does a certain organization differ enough from the pre-existing reference point that it requires differential action/experience of the organism?
+Also utility could play a role here: for instance, perceiving a wolf as a dog has more detrimental consequences than perceiving a dog as a wolf, and therefore, perception can take these utility functions into account in its perceptual organizational principles.
+Even previous experience itself can entail many factors (e.g., longer- and shorter-term temporal context, concurrent spatial context, also different features of the context can be taken into account), and it is not specified how the Bayesian perspective disentangles those or how they are weighted.
+
+It has to be said that when it comes to quantifying their vision, models of Bayesian inference have been further elaborated than those of Gestalt.
+On the other hand, Prägnanz does not necessarily concern probabilities in the real world, although the subjective probabilities that Prägnanz does take into account may be related to them.
+Bayesian perspectives often start from real-world probabilities, but as [Chapter @sec-rrdotlattices] indicates, also perceptual interpretations of the previously presented stimulation need to be taken into account.
+Furthermore, the subjective probability may be different based on other internal conditions, like the interest in the occurrence of a certain experienced organization.
+Therefore, I believe that the Bayesian modeling perspective could become a more fruitful approach to perception, by taking a broader perspective on factors influencing probability (i.e., not only aspects the stimulus) based on the Prägnanz framework.
+
+Compared to the typical Bayesian framework, Gestalt psychology is also different in that not only attractive tendencies (i.e., *towards* a reference), but also repulsive tendencies (i.e., *away from* a reference) can occur.
+This difference is resolved when using an efficient Bayesian observer model [@wei2015], which does allow for both attraction towards and repulsion from a prior peak [@wei2015; cf. also [Chapter @sec-effbayesianmodel] and @hahn2022].
+
+<!-- energy/attention/vigilance level organism ~capacity limit for embracing complexity; updating speed individual (correlated across levels?) -->
+
+<!-- Perception as collecting data, generating a plot, testing plot against data (related to Bayesian view) -->
+
+<!-- It seems a priori likely that inhabitants of very different ecologies and (for generations!) different life styles, say hunters in the rain forest and farmers on arid mesas, will have different repertoires of Gestalts. Gestalts are most likely an adaptation to ecological statistics -->
+
+<!-- - difference = how reference points come about: not just frequency of occurrence (how it fits in organism plays a role); depending on level of hierarchy? -->
+
+<!-- - Bayes: experience, frequency of occurrence: only frequency matters -->
+
+<!-- Gestalt: Gestalt laws of organization -> not everything can be related equally easily -->
+
+<!--         goal: minimal structural energy -->
+
+<!--         HOW? efficient encoding -->
+
+<!-- ## A Bayesian perspective on Prägnanz -->
+
+<!-- What also follows from the efficient Bayesian observer model, is that errors are not uniformly distributed. -->
+
+<!-- * Bayesian model -->
+
+<!-- - different types of manipulations (external noise, amplitude only, ...) -->
+
+<!-- - KL divergence: compare two probability distributions -->
+
+<!-- - magnitude repulsive bias ~steepness prior ; correlation hyst-adapt!!!!! -->
+
+<!-- - perceived complexity ~ efficient encoding? -->
+
+<!-- Individual differences in: -->
+
+<!-- * Available priors (Gestalt laws, visual templates, and mental concepts), -->
+
+<!-- how they are constructed, and how they are updated -->
+
+<!-- * Sensitivity to input -->
+
+<!-- * Weights given to different priors and inputs -->
+
+<!-- * MAo & Stocker: different hierarchical levels on which same tendency towards minimal structural energy happens -->
+
+## Future directions
+
+### Further specifying the prevailing conditions
+
+The Prägnanz principle entails that we will always organize the incoming stimulation in the best way possible given the prevailing conditions.
+Furthermore, both simplification and complication tendencies can occur, and also here, which tendency will occur will depend on the prevailing conditions.
+Therefore, one important goal for future research is further specifying these prevailing conditions.
+Which factors certainly need to be taken into account to determine which tendencies can be expected?
+In my own work, I investigated some specific combinations of factors, and touched upon the importance of the visibility of the external stimulus, the strength of the internal reference points, the immediate temporal and spatial context, and the energy level of the organism.
+Nevertheless, further research should aim for a more systematic analysis of the factors that may influence which tendencies will occur or how they will show.
+In addition to further investigating and specifying the prevailing conditions to take into account, also relating these conditions to different types of uncertainty --- internal sensory noise (related to limited visibility), external stimulus noise (related to uncertainty in a stimulus feature), and multistability in a feature --- seems a promising avenue to obtain a more complete understanding of the impact of different factors on diverse Prägnanz tendencies.
+Relevant in this context is also the work of Huang [-@huang2015; -@huang2022], who next to featural strength and visual strength also defines spatial strength as a general factor in visual processing (although ambiguity is not taken into account in Huang's framework).
+One way to approach this systematic specification, is to conduct studies with a large set of manipulations and tasks for one and the same stimulus type, and later aim to generalize the findings for this stimulus type to other stimuli.
+This generalization will not always occur, however.
+
+<!-- Prägnanz, clarity, or goodness of organization can be related to the availability of a prior, the availability of the input, and the congruence between prior and input. -->
+
+### Cross-fertilization across fields through conceptual integration
+
+In research on perception and cognition, many different terms are used for rather similar effects.
+It is not always clear whether it concerns effects or processes that are actually identical, or only similar on a superficial level.
+For example, this is a non-exhaustive list of terms used to indicate attractive changes in perception: attractive effects, serial dependencies, serial effects, sequential effects, history effects, priming, integration, recency bias, perceptual stability, facilitation, stabilization, attraction, assimilation, contraction, magnet effect, robustness, simplification, leveling, tension-reducing tendencies, minimum simplicity, central tendency bias, categorization.
+For repulsive effects on perception, the following terms are in use: contrastive effects, repulsion, adaptation, habituation, contrast, perceptual warping, differentiation, sensitivity, anchor effect, complication, articulation, sharpening.
+I think a rationalization in the number of useful theoretical concepts, and thereby clarifying the relationships between these terms, will largely benefit the research community, as in that way also communication and cross-fertilization across research fields using different terminologies becomes more feasible.
+
+### Enrich interaction across fields through quantitative modeling
+Next to qualitative clarification in the concepts we employ as one way to enrich communication across fields, another avenue I see is the development of general quantitative modeling approaches than can be applied across diverse sets of tasks and paradigms. One such promising modeling approach is the category of efficient Bayesian observer models [@wei2015; @wei2017; @mao2022; @ni2023; @hahn2022], provided that a broader view is taken on the factors influencing probability than is typically done (cf. the section on 'The Prägnanz framework and perception as Bayesian inference'). Recent extensions of the original efficient Bayesian observer model formulation have already broadened its original field of application extensively [@mao2022; @ni2023; @hahn2022]. For the future, it is important to provide accessible introductions to the modeling approach, to use the model as a starting point for better understanding similarities and differences in psychological processes underlying task behavior across research fields, and to show the model's value across an even wider variety of tasks, paradigms, and research fields. Especially multidimensional extensions (e.g., for tasks in which more than one stimulus feature is varied) will prove important to further extend the model's field of application. As part of my postdoctoral project, I will aim to develop a hierarchical efficient Bayesian observer model, with the goal of advancing theoretical understanding of universality and diversity across conditions (i.e., stimuli, individuals, contexts) in perception and appreciation, after first establishing robust similarities and differences across conditions that the model should be able to explain^[For more information, please contact [Eline Van Geert](mailto:eline.vangeert@kuleuven.be).]. 
+
+### How are Prägnanz steps formed?
+
+One important point for further research is clarifying how Prägnanz steps (i.e., internal reference regions), and by extension Prägnanz functions --- or prior distributions in Bayesian terms --- are formed.
+Can the formation of these Prägnanz distributions be reduced to past experience alone, or is there more to it?
+Given that this aspect is one of the crucial points of disagreement between Gestalt and Bayesian views, concrete research on how these templates are formed, and how they temporally change, is valuable for better understanding the perceptual process in general.
+
+### Relation between Prägnanz and appreciation
+
+This dissertation suggests two different ways in which Prägnanz and appreciation can be related.
+On the one hand, appreciation can be associated with the *absolute* level of Prägnanz (i.e., Prägnanz height), on the other hand it can be associated with the *relative* increase in Prägnanz experienced (i.e., strength of the experienced Prägnanz tendency).
+Both routes towards appreciation may co-exist, however.
+In their pleasure-interest model of aesthetic liking, Graf and Landwehr [-@graf2015; -@graf2017] proposed such a view encompassing both perspectives.
+Further uncovering the relative importance of both routes under diverse conditions, and also investigating different Prägnanz aspects and their relation to aesthetics, seem interesting ways forward for the future.
+
+<!-- In my own postdoctoral project, I plan to focus on universality and diversity... -->
+
+## Reflections on my approach
+
+In my doctoral research, I aimed to combine a strong theoretical basis and a wish for theoretical integration with conducting open and reproducible research.
+On the open, reproducible research practices side, I created open source software (i.e., OCTA); practiced reproducible reporting for all manuscripts included in this dissertation as well as the dissertation as a whole (using papaja, R Markdown, and Quarto); provided open data, materials, and code (on the Open Science Framework); used Bayesian statistics; wrote one manuscript as a Registered Report; provided interactive graphs where deemed useful; and posted preprints to allow early and open access to my manuscripts.
+Although I found this way of working sometimes challenging, and I am still learning and improving my workflow, I strongly believe that these practices are worthwhile to enable other researchers to better and more completely understand and evaluate my work, and to use my data, materials, and/or analysis approach in future research projects.
+Furthermore, I hope that by applying these practices, I can inspire other researchers to try out some of these practices themselves.
+Moreover, not only others can benefit from this approach: when data requests or other questions related to my earlier research come, or when I want to reuse my own data, materials, or code, this openness will also make it easier for my future self.
+
+In addition to this focus on openness and reproducibility, I also find it important to start my work from a theoretical basis when possible.
+In this dissertation, the Gestalt theoretical concept of Prägnanz provides this overall framework.
+Rather than focusing on theory testing, I focused on using this theoretical framework as a tool for developing new empirical research.
+Theory can thus inspire which questions are worth answering, and can also provide a tool for integrating research findings that seem diverse at first sight.
+Especially this theoretical integration is often lacking in current research, although the problem was already known in earlier decades.
+Newell [-@newell1973, p. 16] put it this way: "We never seem in the experimental literature to put the results of all the experiments together." <!-- @newell1973 also provided three approaches to come to this theoretical integration: (a) construct complete processing models rather than partial ones; (b) analyze a single complex task and do all of it; (c) stay with the diverse collection of small experimental tasks, but construct one single program or system to perform them all. --> In this dissertation, I aimed to provide some first steps in the direction of theoretical integration, in diverse ways. Firstly, I aimed to bring the study of attractive and repulsive effects together, as well as the study of order and complexity. Also, I aimed to bring together effects studied in different fields, like longer-term effects based on categorization and more short-term immediate context effects. Secondly, I tested the generalizability of at least some findings in the dissertation across tasks, across stimuli, across individuals, and/or across time. Thirdly, I aimed to provide a contribution to extending the efficient Bayesian observer model into a processing model that can include and predict many different effects. One other way to stimulate theoretical integration that was not part of this dissertation, is systematically testing different manipulations on one single task and stimulus type, and only then generalizing to other tasks and stimulus types [@newell1973, cf. 'Future directions'].
+
+<!-- Putting different effects together:  -->
+
+<!-- Time-order effect and directional asymmetries -->
+
+<!-- Prototype effects, norm-based adaptation, reference bias, contraction bias, central tendency of judgment, … -->
+
+<!-- History effects -->
+
+<!-- A lot of them ~ reference points, priors ( and potentially a range)?; this in turn ~ patterns of activity on neuronal level (population coding) -->
+
+<!-- **Other way to put it all together: ** -->
+
+<!-- “Analyze a complex task: accept a single complex task and do all of it.” (Newell, 1973) -->
+
+<!-- Continue with dot lattices paradigm and test several hypotheses on this paradigm (based on literature review) -->
+
+<!-- E.g.: -->
+
+<!-- Long-term, mid-term, and short-term effects of previous experience -->
+
+<!-- Factors influencing balance between hysteresis and adaptation (e.g., varying duration first and second lattice; ambiguity first and second lattice, …) -->
+
+## Concluding remarks
+
+I hope that, with this doctoral dissertation, I was able to show that Gestalt psychology, and in my case the concept of Prägnanz in particular, can support and guide the generation of new research questions in the field of perceptual organization, aesthetic appreciation, and beyond.
+Prägnanz was really meant as a general concept, not specifically tied to simple stimuli or human visual perception.
+This generality does not necessarily imply vagueness, rather it implies multifacetedness.
+And similarly, multifacetedness does not imply randomness, but rather a strong dependence on internal (organism-dependent) and external (input-dependent) conditions.
+To come to clearer as well as aesthetically appreciated psychological organizations, tendencies are at work that are both antagonistic and complementary: although they tend to decrease each other's influence, they can also work together towards a better psychological organization.
+What the optimal balance of both tendencies entails exactly will depend on the input the individual receives, the individual in question, as well as the context in which the individual receives the input.
+Further specifying how input, person, context, and all their interactions combine in influencing which Prägnanz tendencies will occur requires further research.
+This dissertation at least provides some case studies of how the Prägnanz framework can inspire concrete research into the influences of these conditions on human visual perception and aesthetic appreciation.
+Moreover, it aims to serve as an example of how Prägnanz can support the integration of research findings across diverse fields of study into one coherent framework, and thereby bring us one step closer to understanding the human psychological system [cf. also @koffka1935].
+
+Not only in our perception, but also in our role as researchers, we are balancing new results and findings with our already existing worldview.
+As a consequence, some may find this dissertation too qualitative and dreamy because of its reference to Prägnanz, others may find the methods too simplistic and linear to match complex Gestalt theoretical ideas.
+Different researchers may have different ideas of how science should be conducted, but at least I hope that this dissertation may have provided some new external stimulation, and hopefully it can be well integrated into the readers' knowledge system and lead to a prägnant Gestalt.
+
+<!-- Things look as they do, not only because of the visual input an individual receives, but also because of the way in which the viewer organizes the input in a specific context. The law of Prägnanz states that psychological organization will always be as 'good' as possible given the prevailing circumstances. What does it mean for a psychological organization to be 'good', however, and how do viewers clarify the incoming visual stimuli to achieve the best possible percept?  -->
+
+<!-- A 'good' psychological organization will contain at least some form of unity or regularity, and will become better when it is autonomous, complete, simple of structure, element rich, expressive, and/or meaningful. Prägnanz thus not only deal with purely figural aspects, but also with how purely and compellingly the phenomenal structure embodies an essence. Moreover, it comprises aspects related to both order and complexity (cf. [Chapter @sec-pragnanzreview]).  -->
+
+<!-- To achieve the best or clearest overall organization possible, human perceivers use *internal representations of good Gestalts as reference points* to clarify the visual input. Whereas sometimes these reference points lead to increased *sensitivity to change*, they can also act as *robust* magnets, decreasing perceptual distance between neighboring stimuli. In a first empirical study, we show how the presence of strong internal reference points can explain differences in categorization, discrimination, and similarity judgments across a series of figures gradually transforming from one recognizable shape to another (cf. [Chapter @sec-refpoints]).  -->
+
+<!-- If no strong pre-existing reference points are available that are similar enough to the incoming visual stimuli, the *immediate context* can play a more extensive role in disambiguating the visual input. In a Registered Report using multistable dot lattices as stimuli, we confirmed differences in how individuals combine previous input and experience with current input in their perception, and showed stability of these individual differences over one to two weeks' time (cf. [Chapter @sec-rrdotlattices]). Furthermore, we developed an efficient encoding – Bayesian decoding model that can predict both the *attractive and repulsive* immediate temporal context effects found in this task (cf. [Chapter @sec-effbayesianmodel]). -->
+
+<!-- *How* will the internal reference points or the immediate context be used to clarify the incoming visual stimuli and arrive at a clearer, more prägnant percept? In every perceptual event, both simplification and complication will occur, albeit to a different extent depending on the strength of the internal (related to the viewer) and external (related to the visual input) conditions. Whereas unnecessary details, differentiating the visual input from the point of comparison, will be leveled or removed, important characteristics distinguishing the input from the reference will be emphasized. As we can conclude from our research, however, *which* characteristics will be either superfluous or essential, and as a consequence which characteristics will be either *simplified or complicated*, will partially depend on the context in which the stimulus is presented (cf. [Chapter @sec-simplcompl]). -->
+
+<!-- *Order and complexity* are not only important aspects of Prägnanz, they also contribute to our experience of aesthetic appreciation. To improve reproducibility of research assessing the relation between order, complexity, and aesthetic appreciation in the visual modality, we developed the Order & Complexity Toolbox for Aesthetics (OCTA), a Python package and online application focused on creating multi-element displays varying on different order and complexity dimensions (e.g., shape, color, size of elements). Although primarily focused on aesthetics, OCTA can also be used in research on perceptual organization (cf. [Chapter @sec-octatoolbox]). Some first empirical studies using OCTA stimuli (not part of this dissertation) teach us that whereas order is almost never disfavored, the appreciation of complexity is more context-dependent. This relates closely to the core of Prägnanz: as some form of regularity is always required, how much intricacy a viewer can handle differs between contexts and individuals. -->
+
+<!-- In sum, to clarify and aesthetically evaluate visual stimuli, tendencies are at work that are both antagonistic and complementary: although they tend to decrease each other's influence, they also work together towards a better perceptual organization. What the optimal balance of both tendencies entails exactly will depend on the input the individual receives, the individual in question, as well as the context in which the individual receives the input. -->
+
+\clearpage \thispagestyle{empty} \stopthumb
+
+\renewcommand\chaptername{}

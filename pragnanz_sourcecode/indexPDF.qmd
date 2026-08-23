@@ -1,0 +1,13 @@
+
+::: {.content-visible when-format="pdf"}
+# Prägnanz in visual perception and aesthetic appreciation {.unlisted .unnumbered} 
+\thispagestyle{empty}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+:::
+
+\clearpage \thispagestyle{empty}
+
+\mainmatter
+\enableboldchapterintoc
+
+\clearpage \thispagestyle{empty}

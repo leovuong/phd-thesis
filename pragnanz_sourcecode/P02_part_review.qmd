@@ -1,0 +1,25 @@
+# What is Prägnanz? {#sec-partpragnanzreview}
+
+::: {.content-visible when-format="pdf"}
+\thispagestyle{empty}
+\setstretch{1.0}
+\vspace{-14mm}
+\textcolor{gray}{\hspace*{13cm}\small{\copyright \ \ Joris Snaet}} 
+
+\noindent
+\begin{center}\textbf{How 'good' an organization is does not only depend on figural aspects, \\ but also on how \textit{meaningful} a specific organization is to us.}
+\end{center}
+\setstretch{1.5}
+
+\clearpage \thispagestyle{empty}
+:::
+
+::: {.content-visible when-format="html"}
+<center> 
+<img style = "margin-bottom:-60px; width:100%;" src="chapterfigs/2.jpg">
+
+<span style = "margin-left: 600px; margin-top: 0px; font-size: 11pt;">&copy; Joris Snaet</span>
+</br><span style = "margin-top: -50px;"><b>How 'good' an organization is does not only depend on figural aspects,</br>but also on how *meaningful* a specific organization is to us.</b></span>
+</center>
+:::
+

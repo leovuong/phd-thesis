@@ -1,0 +1,26 @@
+# Hysteresis and adaptation {#sec-parthystadapt}
+
+::: {.content-visible when-format="pdf"}
+\thispagestyle{empty}
+\setstretch{1.0}
+\vspace{-14mm}
+\textcolor{gray}{\hspace*{13cm}\small{\copyright \ \ Joris Snaet}} 
+
+\noindent
+\begin{center}
+\textbf{Also the \textit{immediate context} in which we experience the incoming visual \\ stimulation can influence how we organize this stimulation.}
+\end{center}
+\setstretch{1.5}
+
+\clearpage \thispagestyle{empty}
+:::
+
+::: {.content-visible when-format="html"}
+<center> 
+<img style = "margin-bottom:-60px; width:100%;" src="chapterfigs/4.jpg">
+
+<span style = "margin-left: 600px; margin-top: 0px; font-size: 11pt;">&copy; Joris Snaet</span>
+</br><span style = "margin-top: -50px;"><b>Also the *immediate context* in which we experience the incoming visual</br>stimulation can influence how we organize this stimulation.</b></span>
+</center>
+:::
+

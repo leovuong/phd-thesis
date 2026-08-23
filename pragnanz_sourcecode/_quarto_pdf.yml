@@ -1,0 +1,61 @@
+project:
+  type: book
+
+book:
+  output-file: "doctoralthesis_EVG"
+  logo: figs/examplefig.png
+  page-footer:
+    left: "Copyright 2023, Eline Van Geert"
+  repo-url: https://github.com/
+  downloads: [pdf]
+  sharing: [twitter]
+  chapters:
+    - index.qmd
+    - part: part_introduction.qmd
+      chapters: 
+        - intro.qmd
+    - part: part_review.qmd
+      chapters: 
+        - review.qmd
+    - part: part_robustsens.qmd
+      chapters: 
+        - refpoints.qmd
+    - part: part_hystadapt.qmd
+      chapters: 
+        - rrdotlattices.qmd
+    - part: part_ordcompl.qmd
+      chapters: 
+        - octatoolbox.qmd
+    - part: part_simplcompl.qmd
+      chapters: 
+        - simplcompl.qmd
+    - part: part_conclusion.qmd
+      chapters: 
+        - conclusion.qmd
+  appendices: 
+    - references.qmd
+    - dissemination.qmd
+    - app_review.qmd
+    - app_refpoints.qmd
+    - app_rrdotlattices.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    cover-image: figs/examplefig.png
+  pdf:
+    pdf-engine: pdflatex
+    documentclass: book
+    classoption: notitlepage
+    papersize: a4paper
+    geometry: margin=1in
+    include-before-body: 
+      - beforebody.tex
+    include-in-header: 
+      - preamble_pdf.tex
+
+
+editor: source
+
