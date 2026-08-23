@@ -1,0 +1,476 @@
+---
+title: Supplementary Code
+format: 
+  pdf:
+    documentclass: article
+    always_allow_html: yes
+    fig-pos: 'b'
+    number-sections: true
+    highlight-style: github
+    editor: visual
+    geometry:
+      - inner=1cm
+      - outer=1cm
+      - top=1cm
+      - bottom=1cm
+    mainfont: Times New Roman
+    colorlinks: true
+    keep-tex: true
+    include-in-header: 
+      - text: | 
+          \usepackage{titling}
+          \setlength{\droptitle}{-2cm}
+          \usepackage{titlesec}
+          \newcommand{\firstsectionspacing}{\titlespacing*{\section}{0pt}{-1cm}{0.5cm}}
+          \newcommand{\resetsectionspacing}{\titlespacing*{\section}{0pt}{1cm}{0.5cm}} 
+---
+
+\firstsectionspacing
+
+# Package quality check - Table S1
+
+```{r quality check table s1}
+#| warning: false
+library(packagemetrics)
+library(dplyr)
+library(mice)
+library(ImputeRobust)
+library(countimp)
+mi_packages <- package_list_metrics(c("mice", "ImputeRobust", "countimp"))
+glimpse(mi_packages)
+```
+
+\resetsectionspacing
+
+# Multiple imputation for derived covariates
+
+In this section, we impute missing BMI from missing weight and height using the three options illustrated in our manuscript. We use the boys dataset from the *mice* package, which contains data on the growth of Dutch boys, with 748 rows and 9 variables, including BMI, weight, and height, which were missing. More information about the dataset can be found by using the command ?boys.
+
+```{r load the necessary libraries}
+#| echo: false
+#| warning: false
+
+library(mice)
+library(tidyverse)
+library(nlmixr2)
+library(devtools)
+source_url('https://raw.githubusercontent.com/R-miss-tastic/website/master/static/how-to/generate/amputation.R')
+
+```
+
+## Impute, then transform
+
+We impute any missing height and weight data, and append BMI to the imputed data afterward. BMI is not a predictor in the imputation model in this case.
+
+```{r impute transform}
+#| warning: false
+#| eval: false
+
+# load the necessary library
+library(mice)
+
+# First, remove BMI from the imputation model
+set.seed(123)
+imp0 <- mice(boys, maxit = 0)
+matrix <- imp0$predictorMatrix
+matrix[,"bmi"] <- 0
+
+# Second, impute height and weight, then derive BMI
+imp <- mice(boys, print = FALSE, predictorMatrix = matrix)
+long <- mice::complete(imp, "long", include = TRUE) # include = TRUE appends the 
+# observed boys dataset into the "long" imputed dataset
+long$bmi <- with(long, wgt / (hgt/100)^2)
+```
+
+## Transform, then impute
+
+We include BMI in the imputation model, and impute BMI as just another variable here.
+
+```{r transform impute}
+#| warning: false
+#| eval: false
+# Impute height, weight and BMI altogether
+set.seed(123)
+imp <- mice(boys, print = FALSE)
+long <- mice::complete(imp, "long", include = TRUE) 
+```
+
+## Passive imputation
+
+With this approach, we include BMI in the imputation model and additionally specify dependencies among weight, height, and BMI to ensure their relationship is not distorted.
+
+```{r passive imp}
+#| warning: false
+#| eval: false
+# Specify dependencies among weight, height, and BMI before imputation
+set.seed(123)
+meth <- make.method(boys)
+meth["bmi"] <- "~I(wgt / (hgt/100)^2)"
+pred <- make.predictorMatrix(boys)
+pred[c("wgt", "hgt"), "bmi"] <- 0
+imp.pas <- mice(boys, meth = meth, pred = pred,
+                print = FALSE)
+long.pas <- mice::complete(imp.pas, "long", include = TRUE)
+```
+
+# Warfarin case study - multiple imputation and median imputation
+
+The code below demonstrates how we performed multiple imputation for the 6.25% missing body weight scenario.
+
+```{r multiple imputation 6.25%}
+#| warning: false
+#| eval: false
+# Load libraries ---------------------------------------------------
+
+library(mice)
+library(tidyverse)
+library(nlmixr2)
+library(devtools)
+source_url('https://raw.githubusercontent.com/R-miss-tastic/website/master/static/how-to/generate/amputation.R')
+
+# Load data ---------------------------------------------------
+
+# set seed for reproducibility
+set.seed(42)
+
+warfarin_pk <- read_csv("warfarin_pk.csv")
+
+warfarin_pk_baseline <- warfarin_pk |> filter(TIME == 0)
+
+# center WT around 70kg
+warfarin_pk <- warfarin_pk |> 
+  mutate(lnWT = log(WT / 70))
+
+# Create nlmixr2 model objects -------------------------------------------------
+
+## Full model ----
+complete.model.war.1cpt.ode <- function(){
+  ini({
+    tka <- -0.654
+    tcl <- -1.98
+    tv <- 2.09
+    wteff_cl <- 0.695
+    wteff_v <- 0.792
+    eta.cl ~ 0.0545
+    eta.v ~ 0.0279
+    prop.err <- 0.000468
+    add.err <- 1.34
+  })
+  model({
+    ka <- exp(tka)
+    cl <- exp(tcl + wteff_cl * lnWT + eta.cl)
+    v <- exp(tv + wteff_v * lnWT + eta.v)
+    d/dt(depot) = -ka * depot
+    d/dt(cent) = ka * depot - cl/v * cent
+    cp = cent/v
+    cp ~ prop(prop.err) + add(add.err)
+  })
+}
+
+## Base model ----
+base.model.war.1cpt.ode <- function(){
+  ini({
+    tka <- -0.654
+    tcl <- -1.98
+    tv <- 2.09
+    eta.cl ~ 0.0545
+    eta.v ~ 0.0279
+    prop.err <- 0.000468
+    add.err <- 1.34
+  })
+  model({
+    ka <- exp(tka)
+    cl <- exp(tcl + eta.cl)
+    v <- exp(tv + eta.v)
+    d/dt(depot) = -ka * depot
+    d/dt(cent) = ka * depot - cl/v * cent
+    cp = cent/v
+    cp ~ prop(prop.err) + add(add.err)
+  })
+}
+
+# Extract PK parameters for mutliple imputation -----------------------
+
+# fit the base model to the complete data
+base.model.estimate <- nlmixr(base.model.war.1cpt.ode,
+                              warfarin_pk, 
+                              est = "focei",
+                              control = list(print = 0),
+                              foceiControl = list(outerOpt = "bobyqa",
+                                                  maxInnerIterations = 500))
+
+# extract unique individual PK paramters
+base.individual.estimate <- base.model.estimate$dataMergeFull |>
+  na.omit() |> 
+  select(cl, v) |> 
+  unique()
+
+# reset row numbers to start from 1
+row.names(base.individual.estimate) <- 1:nrow(base.individual.estimate)
+
+# add ID column, bring to the front
+base.individual.estimate <- base.individual.estimate |> 
+  mutate(ID = row_number()) |>
+  relocate(ID, .before = cl)
+
+# Create 30 datasets with 6.25% WT missing -------------------------------------
+
+## Identify eligible seeds ---------------------------------------------------
+# The goal here is to indentify 30 seeds that produce 6.25% missing WT
+
+# Initialize variables
+nseed <- c(1:30) # We want 30 seeds in total
+seeds_with_sum_2 <- c() # a vector to save all eligible seeds
+counter <- 1 # a variable to identify eligible seeds
+
+# Repeat the process
+while (length(seeds_with_sum_2) < length(nseed)) {
+  
+  warfarin_miss <- produce_NA(warfarin_pk_baseline, 
+                                    mechanism = "MAR", 
+                                    perc.missing = 0.0625,
+                                    idx.incomplete = c(0, 0, 0, 0, 0, 0, 1, 0, 0),
+                                    # create missing WT from observed age and sex
+                                    idx.covariates = c(0, 0, 0, 0, 0, 0, 0, 1, 1),  
+                                    weights.covariates = c(0, 0, 0, 0, 0, 0, 0, 1/2, 1/2),
+                                    logit.model = "RIGHT",
+                                    seed = counter)
+  
+  # extract the generated incomplete dataset
+  warfarin_incomp <- warfarin_miss$data.incomp
+  
+  # extract the eligible seeds
+  if (sum(is.na(warfarin_incomp$WT)) == 2) { #6.25% WT missing corresponds to 2 patients
+    # if a seed results in 6.25% WT missing, save that seed to the seeds_with_sum_2 vector
+    seeds_with_sum_2 <- c(seeds_with_sum_2, counter) 
+  }
+    # otherwise, increase counter by 1
+  counter <- counter + 1
+}
+# The resulting seeds_with_sum_2 should contain 30 eligible seeds
+
+## Generate missing datasets ------------------------------------------------
+# The next step is to plug in the seeds to have 30 different datasets with 6.25% WT missing. 
+# Here we selected the first seed for demonstration purposes.
+
+# impute only using the baseline WT
+warfarin_miss <- produce_NA(warfarin_pk_baseline,
+                            mechanism = "MAR",
+                            perc.missing = 0.0625,
+                            idx.incomplete = c(0, 0, 0, 0, 0, 0, 1, 0, 0),
+                            idx.covariates = c(0, 0, 0, 0, 0, 0, 0, 1, 1),
+                            weights.covariates = c(0, 0, 0, 0, 0, 0, 0, 1/2, 1/2),
+                            logit.model = "RIGHT",
+                            seed = seeds_with_sum_2[1]) # plug in the first seed from above
+
+# extract the generated incomplete dataset
+warfarin_incomp <- warfarin_miss$data.incomp
+
+# match the missing WT to the long format
+warfarin_incomp_long <- warfarin_pk
+warfarin_incomp_long$WT <- ifelse(warfarin_incomp_long$ID %in% warfarin_incomp$ID,
+                                  warfarin_incomp$WT[match(warfarin_incomp_long$ID,                      
+                                                           warfarin_incomp$ID)],
+                                  warfarin_incomp_long$WT)
+
+# Multiple imputation - 1st seed ----------------------------------------
+
+## PK parameters as predictors -------------------
+
+# merge warfarin_incomp to base.individual.estimate for multiple imputation
+warfarin_mi <- base.individual.estimate  |> 
+  left_join(warfarin_incomp |> select(ID, WT, SEX, AGE), by = "ID")
+
+# change the imputation method to pmm to avoid negative imputed WT
+imp0 <- mice(warfarin_mi, maxit = 0)
+meth <- imp0$method
+meth["WT"] <- "pmm"
+
+# do not use ID to impute WT
+predictorMatrix <- imp0$predictorMatrix
+predictorMatrix[,"ID"] <- 0
+
+# set the number of iterations and imputations
+maxit <- 20
+nimp <- 20 # 20 imputations for 6.25% case
+
+# identify all IDs with missing WT
+missing_wt_ids <- warfarin_incomp |>
+  filter(is.na(WT)) |>
+  pull(ID)
+
+# for each missing dataset, we performed multiple imputation with 30 different seeds
+for (i in seq_len(30)) {
+
+imputed_data <- mice(data = warfarin_mi,
+                     method = meth,
+                     predictorMatrix = predictorMatrix,
+                     maxit = maxit, 
+                     m = nimp, 
+                     printFlag  =  FALSE,
+                     seed = nseed[i]) # seeds are set from 1 to 30
+
+# each multiple imputation consists of 20 imputations
+for (j in seq_len(nimp)) {
+  # extract each multiply imputed dataset
+  dat_MI <- complete(imputed_data, j)
+  
+  # extract the imputed WT
+    dat_MI_filtered <- dat_MI |>
+      filter(ID %in% missing_wt_ids)
+    
+  # fill the imputed WT to the full missing dataset
+    dat_MI <- warfarin_incomp_long |>
+      mutate(WT = ifelse(ID %in% missing_wt_ids,
+                         dat_MI_filtered$WT[match(ID, 
+                         dat_MI_filtered$ID)], 
+                         WT),
+             lnWT = log(WT / 70)) # also add the centered WT
+  
+  
+  # fit the full model to the multiply imputed dataset and
+  # assign the fixed parameter estimates to an output file
+    assign(paste0("fit.war.mi", sprintf("%02d", j), ".seed",
+                  sprintf("%02d", i), ".6.25.", sprintf("%02d", 1)),
+           nlmixr(complete.model.war.1cpt.ode,
+                dat_MI, 
+                est = "focei",
+                control = list(print = 0),
+                foceiControl = list(outerOpt = "bobyqa",
+                                    maxInnerIterations = 500))$parFixed)
+  }
+}
+
+## Time and concentrations as predictors -------------------
+
+imp0 <- mice(warfarin_incomp_long, maxit = 0)
+
+# method pmm for WT
+meth <- imp0$method
+meth["WT"] <- "pmm"
+
+# remove redundant variables from the predictor matrix
+predictorMatrix <- imp0$predictorMatrix
+predictorMatrix[,"EVID"] <- 0
+predictorMatrix[,"ID"] <- 0
+maxit <- 20
+# predictors include: time+conc+amt+sex+age
+
+missing_wt_ids <- warfarin_incomp %>%
+  filter(is.na(WT)) %>%
+  pull(ID)
+
+# for each missing dataset, we performed multiple imputation with 30 different seeds
+for (i in seq_len(30)) {
+
+imputed_data <- mice(data = warfarin_incomp_long,
+                     method = meth,
+                     predictorMatrix = predictorMatrix,
+                     maxit = maxit, 
+                     m = nimp, 
+                     printFlag  =  FALSE,
+                     seed = nseed[i]) # seeds are set from 1 to 30
+
+# each multiple imputation consists of 20 imputations
+for (j in seq_len(nimp)) {
+  # extract each multiply imputed dataset
+  dat_MI <- complete(imputed_data, j)
+  
+  # average WT per ID
+    average_wt_MI <- dat_MI %>%
+      filter(ID %in% missing_wt_ids) %>%
+      group_by(ID) %>%
+      summarize(avg_WT = mean(WT, na.rm = TRUE))
+    
+    dat_MI <- dat_MI %>%
+      left_join(average_wt_MI, by = "ID") %>%
+      mutate(WT = ifelse(ID %in% missing_wt_ids, avg_WT, WT),
+             lnWT = log(WT / 70)) %>%
+      select(-avg_WT)
+  
+  # fit the full model to the multiply imputed dataset and
+  # assign the fixed parameter estimates to an output file
+    assign(paste0("fit.war.mi", sprintf("%02d", j), ".seed",
+                  sprintf("%02d", i), ".6.25.", sprintf("%02d", 1)),
+           nlmixr(complete.model.war.1cpt.ode,
+                dat_MI, 
+                est = "focei",
+                control = list(print = 0),
+                foceiControl = list(outerOpt = "bobyqa",
+                                    maxInnerIterations = 500))$parFixed)
+  }
+}
+
+## Extract the parameter estimate datasets ------------------
+
+# create lists to store output datasets
+combined_data_list_mi_converged <- list()
+combined_data_list_mi_unconverged  <- list()
+
+# loop over all the output datasets
+for (i in seq_len(30)) {
+for (j in seq_len(nimp)) {
+  dataset_name <- paste0("fit.war.mi", sprintf("%02d", j), 
+                         ".seed", sprintf("%02d", i), ".6.25.", 
+                         sprintf("%02d", 1))
+  
+  if (exists(dataset_name) && !is.null(get(dataset_name))) {
+    data <- get(dataset_name)
+    
+    # if there's a SE column, the model converged
+    if ("SE" %in% colnames(data)) {
+      extracted_data <- data[1:5, ] |>
+        mutate(imputation = j,
+               later_seed = i,
+               initial_seed = 1,
+               type = "MI",
+               converged = "Yes")
+      
+      combined_data_list_mi_converged[[length(combined_data_list_mi_converged) + 1]] <- extracted_data
+      
+    # if there's no SE column, the model did not converge
+    } else {
+      extracted_data <- data[1:5, ] |>
+        mutate(imputation = j,
+               later_seed = i,
+               initial_seed = 1,
+               type = "MI",
+               converged = "No")
+      
+      combined_data_list_mi_unconverged[[length(combined_data_list_mi_unconverged) + 1]] <- extracted_data
+      }
+    }
+  }
+}
+
+# combine all the converged and unconverged datasets
+merged.war.mi.seed01.30.6.25.01.converged <- do.call(rbind, combined_data_list_mi_converged)
+merged.war.mi.seed01.30.6.25.01.unconverged <- do.call(rbind, combined_data_list_mi_unconverged)
+
+# Median imputation ----------------------------------------
+# Here we also used the first missing dataset for demonstration purposes.
+
+# extract the observed median value then use it for imputation
+median_WT <- median(warfarin_incomp$WT, na.rm = TRUE)
+
+warfarin_median <- warfarin_incomp_long |> 
+  mutate(WT = ifelse(is.na(WT), median_WT, WT))
+# warfarin_incomp_long was created above
+
+# center WT around 70kg
+warfarin_median$lnWT <- log(warfarin_median$WT/70)
+
+# fit the full model to the median imputed dataset
+# assign the fixed parameter estimates to an output file
+assign(paste0("fit.war.median.6.25.", sprintf("%02d", 01)),
+       nlmixr(complete.model.war.1cpt.ode,
+                warfarin_median, 
+                est = "focei",
+                control = list(print = 0))$parFixed)
+```
+
+# Session details
+
+```{r session detail}
+getS3method("print","sessionInfo")(sessionInfo()[-7])
+```

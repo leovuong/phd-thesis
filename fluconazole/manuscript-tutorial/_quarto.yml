@@ -1,0 +1,32 @@
+project:
+  type: manuscript
+  render:
+    - "*.qmd" 
+    - "!supplementary/index.qmd"
+
+execute:
+  freeze: false
+
+notebook-links: false
+
+bibliography: references.bib
+number-sections: true
+
+format:
+  elsevier-pdf:
+    keep-tex: true
+    output-file: "Manuscript.pdf"
+    journal:
+      name: International Journal of Antimicrobial Agents
+    include-in-header:
+      - text: |
+          \usepackage{booktabs}
+          \usepackage{threeparttable}
+          \usepackage{tabularx}
+          \usepackage{caption}
+          \captionsetup{
+            justification=centering,
+            singlelinecheck=false
+          }
+          \captionsetup[figure]{font=footnotesize, justification=raggedright, singlelinecheck=false}
+          \usepackage{adjustbox}

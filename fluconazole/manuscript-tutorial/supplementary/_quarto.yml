@@ -1,0 +1,17 @@
+project:
+  type: manuscript
+
+execute:
+  freeze: false
+
+notebook-links: false
+
+number-sections: true
+
+format:
+  elsevier-pdf:
+    keep-tex: true
+    frontmatter: false
+    output-file: "Supplementary.pdf"
+    journal:
+      name: International Journal of Antimicrobial Agents
