@@ -1,0 +1,366 @@
+---
+title: A fluconazole population pharmacokinetics study to improve target attainment in critically ill patients
+author:
+  - name: My-Luong Vuong
+    orcid: 0000-0001-9203-6745
+    corresponding: false
+    email: myluong.vuong@kuleuven.be
+    roles:
+      - Conceptualization
+      - Methodology
+      - Software
+      - Formal analysis
+      - Investigation
+      - Resources
+      - Data curation
+      - Writing – original draft
+      - Writing – review & editing
+      - Visualization
+      - Validation
+      - Funding acquisition
+    equal-contributor: true
+    affiliations:
+      - ref: kul
+  - name: Omar Elkayal
+    orcid: 0000-0001-5708-9497
+    corresponding: false
+    email: omarelkayal@hotmail.com
+    roles:
+      - Conceptualization
+      - Methodology
+      - Investigation
+      - Writing – review & editing
+    equal-contributor: true
+    affiliations:
+      - ref: kul
+  - name: Ruth Van Daele
+    orcid: 0000-0002-8353-2103
+    corresponding: false
+    roles: 
+      - Conceptualization
+      - Investigation
+      - Data curation
+      - Writing – review & editing
+    affiliations:
+      - ref: kul
+      - ref: uhl-pharma
+  - name: Jan-Willem C. Alffenaar
+    orcid: 0000-0001-6703-0288
+    corresponding: false
+    roles:
+      - Investigation
+      - Resources
+      - Writing – review & editing
+    affiliations:
+      - ref: sydney-uni
+      - ref: westmead-pharmacy
+      - ref: sydney-id
+  - name: Sophie L. Stocker
+    orcid: 0000-0002-2114-587X
+    corresponding: false
+    roles:
+      - Resources
+      - Writing – review & editing
+    affiliations:
+      - ref: sydney-uni
+      - ref: sydney-id
+      - ref: sydney-nsw
+      - ref: vincent-pharma
+  - name: Jason A. Roberts
+    orcid: 0000-0001-6218-435X
+    corresponding: false
+    roles:
+      - Resources
+      - Writing – review & editing
+    affiliations:
+      - ref: queensland-uni
+      - ref: women-hosp
+      - ref: nime
+  - name: Yves Debaveye
+    orcid: 0000-0003-1784-8297
+    corresponding: false
+    roles:
+      - Resources
+      - Writing – review & editing
+    affiliations:
+      - ref: kul-molecular
+      - ref: uhl-icu
+  - name: Joost Wauters
+    orcid: 0000-0002-5983-3897
+    corresponding: false
+    roles:
+      - Resources
+      - Writing – review & editing
+    affiliations:
+      - ref: kul-micro
+      - ref: uhl-icu
+  - name: Beatrijs Mertens
+    orcid: 0000-0002-1501-3045
+    corresponding: false
+    roles:
+      - Resources
+      - Writing – review & editing
+    affiliations:
+      - ref: kul
+      - ref: uhl-pharma
+  - name: Jasper M. Boonstra
+    orcid: 0009-0006-5957-7244
+    corresponding: false
+    roles:
+      - Resources
+      - Writing – review & editing
+    affiliations:
+      - ref: groningen
+  - name: Indy Sandaradura
+    orcid: 0000-0002-9457-8262
+    corresponding: false
+    roles:
+      - Resources
+      - Writing – review & editing
+    affiliations:
+      - ref: westmead-id
+      - ref: sydney-westmead
+      - ref: westmead-patho
+  - name: Deborah J.E. Marriott
+    corresponding: false
+    roles:
+      - Resources
+      - Writing – review & editing
+    affiliations:
+      - ref: unsw-sydney
+      - ref: vincent-id
+  - name: Roger J. Brüggemann
+    orcid: 0000-0002-7618-725X
+    corresponding: false
+    roles:
+      - Resources
+      - Writing – review & editing
+    affiliations:
+      - ref: radboud-pharma
+      - ref: radboud-myco
+  - name: Jeroen A. Schouten
+    orcid: 0000-0001-9118-4420
+    corresponding: false
+    roles:
+      - Resources
+      - Writing – review & editing
+    affiliations:
+      - ref: radboud-icu
+  - name: Raoul Bergner
+    orcid: 0000-0002-7965-1273
+    corresponding: false
+    roles:
+      - Resources
+      - Writing – review & editing
+    affiliations:
+      - ref: lwf
+  - name: Steven Buijk
+    corresponding: false
+    roles:
+      - Resources
+      - Writing – review & editing
+    affiliations:
+      - ref: ijssel
+  - name: Isabel Spriet  
+    orcid: 0000-0001-6342-0676
+    corresponding: false
+    email: isabel.spriet@uzleuven.be
+    roles:
+      - Conceptualization
+      - Methodology
+      - Investigation
+      - Resources
+      - Writing – review & editing
+      - Funding acquisition
+    affiliations:
+      - ref: uhl-pharma
+  - name: Erwin Dreesen  
+    orcid: 0000-0002-0785-2930
+    corresponding: true
+    email: erwin.dreesen@kuleuven.be
+    roles:
+      - Conceptualization
+      - Methodology
+      - Investigation
+      - Resources
+      - Writing – review & editing
+      - Funding acquisition
+    affiliations:
+      - ref: kul
+affiliations:
+  - id: kul
+    name: KU Leuven
+    department: Department of Pharmaceutical and Pharmacological Sciences
+    city: Leuven
+    country: Belgium
+  - id: uhl-pharma
+    name: University Hospitals Leuven
+    department: Pharmacy Department
+    city: Leuven
+    country: Belgium
+  - id: sydney-uni
+    name: The University of Sydney
+    department: School of Pharmacy, Faculty of Medicine and Health
+    city: Sydney
+    country: Australia
+  - id: westmead-pharmacy
+    name: Westmead Hospital
+    department: Pharmacy Department
+    city: Sydney
+    country: Australia
+  - id: sydney-id
+    name: The University of Sydney
+    department: Institute for Infectious Diseases (Sydney ID)
+    city: Sydney
+    country: Australia
+  - id: sydney-nsw
+    name: University of New South Wales
+    department: School of Clinical Medicine, Faculty of Medicine and Health
+    city: Sydney
+    country: Australia
+  - id: vincent-pharma
+    name: St. Vincent's Hospital
+    department: Department of Clinical Pharmacology and Toxicology
+    city: Sydney
+    country: Australia
+  - id: queensland-uni
+    name: The University of Queensland
+    department: University of Queensland Centre for Clinical Research (UQCCR)
+    city: Brisbane
+    country: Australia
+  - id: women-hosp
+    name: Royal Brisbane and Women’s Hospital
+    department: Departments of Pharmacy and Intensive Care Medicine
+    city: Brisbane
+    country: Australia
+  - id: nime
+    name: University of Montpellier
+    department: Division of Anaesthesiology Critical Care Emergency and Pain Medicine, Nîmes University Hospital
+    city: Nîmes
+    country: France
+  - id: kul-molecular
+    name: KU Leuven
+    department: Department of Cellular and Molecular Medicine
+    city: Leuven
+    country: Belgium
+  - id: uhl-icu
+    name: University Hospitals Leuven
+    department: Medical Intensive Care Unit
+    city: Leuven
+    country: Belgium
+  - id: kul-micro
+    name: KU Leuven
+    department: Department of Microbiology, Immunology and Transplantation
+    city: Leuven
+    country: Belgium
+  - id: groningen
+    name: University of Groningen
+    department: Department of Clinical Pharmacy and Pharmacology, University Medical Centre Groningen
+    city: Groningen
+    country: The Netherlands
+  - id: westmead-id
+    name: Westmead Hospital
+    department: Centre for Infectious Diseases and Microbiology
+    city: Sydney
+    country: Australia
+  - id: sydney-westmead
+    name: The University of Sydney
+    department: Faculty of Medicine and Health, Westmead Clinical School
+    city: Sydney
+    country: Australia
+  - id: westmead-patho
+    name: Westmead Hospital
+    department: Institute of Clinical Pathology and Medical Research, New South Wales Health Pathology
+    city: Sydney
+    country: Australia
+  - id: unsw-sydney
+    name: UNSW Sydney
+    department: School of Clinical Medicine, St Vincent's Healthcare Clinical Campus, Faculty of Medicine and Health
+    city: Sydney
+    country: Australia
+  - id: vincent-id
+    name: St. Vincent's Hospital
+    department: Clinical Microbiology and Infectious Diseases Department
+    city: Sydney
+    country: Australia
+  - id: radboud-pharma
+    name: Radboud university medical centre
+    department: Radboud Institute for Medical Innovations, Department of Pharmacy
+    city: Nijmegen
+    country: The Netherlands
+  - id: radboud-myco
+    name: Radboud university medical center/CWZ hospital
+    department: Centre of Expertise in Mycology
+    city: Nijmegen
+    country: The Netherlands
+  - id: radboud-icu
+    name: Canisius Wilhelmina Hospital
+    department: Department of Intensive Care
+    city: Nijmegen
+    country: The Netherlands
+  - id: lwf
+    name: Ludwigshafen Medical Centre
+    department: Division of Rheumatology and Nephrology, Department of Medicine A
+    city: Ludwigshafen
+    country: Germany
+  - id: ijssel
+    name: Department of Surgery
+    department: IJsseland Hospital
+    city: Capelle aan den Ijssel
+    country: Germany
+
+crossref:
+  custom:
+    - kind: float
+      key: figs
+      latex-env: suppfig
+      reference-prefix: "Fig S"
+      caption-prefix: "Figure S"
+      space-before-numbering: false
+    - kind: float
+      key: tbls
+      latex-env: supptab
+      reference-prefix: "Table S"
+      caption-prefix: "Table S"
+      space-before-numbering: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+#| warning: false
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(here)
+library(flextable)
+library(ftExtra)
+library(equatags)
+```
+
+```{=latex}
+\begin{landscape}
+
+\section*{Supplementary Figures}
+\addcontentsline{toc}{section}{Supplementary Figures}
+\phantomsection
+
+\vspace{1em}
+\begin{suppfig}
+
+\includegraphics[width=7.01in,height=4.96in]{../../checklist-ijaa/Artwork/figures+captions/supp/figs1-obs_vs_imp_violin.png}
+
+\caption{Violin plot showing the distribution of 10 imputed sets of serum creatinine values and the observed one.}
+
+\end{suppfig}
+\end{landscape}
+```
+
+::: landscape
+::: {#figs-fluco-mi-scr-density}
+![](../../checklist-ijaa/Artwork/figures+captions/supp/figs2-density_plot.png){fig-align="left" width="8.18in" height="5.79in"}
+
+Density plot showing the distribution of 10 imputed sets of serum creatinine values and the observed one.
+:::
+:::
+
+

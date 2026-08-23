@@ -1,0 +1,769 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+    \setmainfont[]{Times New Roman}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[inner=1cm,outer=1cm,top=1cm,bottom=1cm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.33,0.33}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.42,0.45,0.49}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.84,0.23,0.29}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.36,0.77}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.84,0.23,0.29}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.01,0.18,0.38}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.42,0.45,0.49}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.42,0.45,0.49}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.36,0.77}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.84,0.23,0.29}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.84,0.23,0.29}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.36,0.77}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.42,0.45,0.49}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.33,0.33}{\underline{#1}}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.84,0.23,0.29}{\textbf{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.36,0.77}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.44,0.26,0.76}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.01,0.18,0.38}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.42,0.45,0.49}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.84,0.23,0.29}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.14,0.16,0.18}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.14,0.16,0.18}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.44,0.26,0.76}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.84,0.23,0.29}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.42,0.45,0.49}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.36,0.77}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.01,0.18,0.38}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.01,0.18,0.38}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.89,0.38,0.04}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.01,0.18,0.38}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{1.00,0.33,0.33}{#1}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{titling}
+\setlength{\droptitle}{-2cm}
+\usepackage{titlesec}
+\newcommand{\firstsectionspacing}{\titlespacing*{\section}{0pt}{-1cm}{0.5cm}}
+\newcommand{\resetsectionspacing}{\titlespacing*{\section}{0pt}{1cm}{0.5cm}}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Supplementary Code},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Supplementary Code}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+
+\firstsectionspacing
+
+\section{Package quality check - Table
+S1}\label{package-quality-check---table-s1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(packagemetrics)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(mice)}
+\FunctionTok{library}\NormalTok{(ImputeRobust)}
+\FunctionTok{library}\NormalTok{(countimp)}
+\NormalTok{mi\_packages }\OtherTok{\textless{}{-}} \FunctionTok{package\_list\_metrics}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"mice"}\NormalTok{, }\StringTok{"ImputeRobust"}\NormalTok{, }\StringTok{"countimp"}\NormalTok{))}
+\FunctionTok{glimpse}\NormalTok{(mi\_packages)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Rows: 3
+Columns: 18
+$ package            <chr> "mice", "ImputeRobust", "countimp"
+$ published          <chr> "2024-11-27", "2018-11-30", NA
+$ title              <chr> "Multivariate Imputation by Chained Equations", "Ro~
+$ depends_count      <int> 1, 3, NA
+$ suggests_count     <int> 16, NA, NA
+$ tidyverse_happy    <lgl> TRUE, TRUE, NA
+$ has_vignette_build <lgl> FALSE, FALSE, NA
+$ has_tests          <lgl> TRUE, FALSE, NA
+$ reverse_count      <dbl> 67, 0, NA
+$ dl_last_month      <dbl> 69079, 282, NA
+$ ci                 <chr> "NONE", NA, NA
+$ test_coverage      <chr> "NONE", NA, NA
+$ stars              <chr> "457", NA, NA
+$ forks              <chr> "109", NA, NA
+$ last_commit        <dbl> 2.4, NA, NA
+$ last_issue_closed  <dbl> NA, NA, NA
+$ contributors       <dbl> 34, NA, NA
+$ watchers           <lgl> NA, NA, NA
+\end{verbatim}
+
+\resetsectionspacing
+
+\section{Multiple imputation for derived
+covariates}\label{multiple-imputation-for-derived-covariates}
+
+In this section, we impute missing BMI from missing weight and height
+using the three options illustrated in our manuscript. We use the boys
+dataset from the \emph{mice} package, which contains data on the growth
+of Dutch boys, with 748 rows and 9 variables, including BMI, weight, and
+height, which were missing. More information about the dataset can be
+found by using the command ?boys.
+
+\subsection{Impute, then transform}\label{impute-then-transform}
+
+We impute any missing height and weight data, and append BMI to the
+imputed data afterward. BMI is not a predictor in the imputation model
+in this case.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# load the necessary library}
+\FunctionTok{library}\NormalTok{(mice)}
+
+\CommentTok{\# First, remove BMI from the imputation model}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{imp0 }\OtherTok{\textless{}{-}} \FunctionTok{mice}\NormalTok{(boys, }\AttributeTok{maxit =} \DecValTok{0}\NormalTok{)}
+\NormalTok{matrix }\OtherTok{\textless{}{-}}\NormalTok{ imp0}\SpecialCharTok{$}\NormalTok{predictorMatrix}
+\NormalTok{matrix[,}\StringTok{"bmi"}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{0}
+
+\CommentTok{\# Second, impute height and weight, then derive BMI}
+\NormalTok{imp }\OtherTok{\textless{}{-}} \FunctionTok{mice}\NormalTok{(boys, }\AttributeTok{print =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{predictorMatrix =}\NormalTok{ matrix)}
+\NormalTok{long }\OtherTok{\textless{}{-}}\NormalTok{ mice}\SpecialCharTok{::}\FunctionTok{complete}\NormalTok{(imp, }\StringTok{"long"}\NormalTok{, }\AttributeTok{include =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# include = TRUE appends the }
+\CommentTok{\# observed boys dataset into the "long" imputed dataset}
+\NormalTok{long}\SpecialCharTok{$}\NormalTok{bmi }\OtherTok{\textless{}{-}} \FunctionTok{with}\NormalTok{(long, wgt }\SpecialCharTok{/}\NormalTok{ (hgt}\SpecialCharTok{/}\DecValTok{100}\NormalTok{)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Transform, then impute}\label{transform-then-impute}
+
+We include BMI in the imputation model, and impute BMI as just another
+variable here.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Impute height, weight and BMI altogether}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{imp }\OtherTok{\textless{}{-}} \FunctionTok{mice}\NormalTok{(boys, }\AttributeTok{print =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{long }\OtherTok{\textless{}{-}}\NormalTok{ mice}\SpecialCharTok{::}\FunctionTok{complete}\NormalTok{(imp, }\StringTok{"long"}\NormalTok{, }\AttributeTok{include =} \ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Passive imputation}\label{passive-imputation}
+
+With this approach, we include BMI in the imputation model and
+additionally specify dependencies among weight, height, and BMI to
+ensure their relationship is not distorted.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Specify dependencies among weight, height, and BMI before imputation}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{meth }\OtherTok{\textless{}{-}} \FunctionTok{make.method}\NormalTok{(boys)}
+\NormalTok{meth[}\StringTok{"bmi"}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"\textasciitilde{}I(wgt / (hgt/100)\^{}2)"}
+\NormalTok{pred }\OtherTok{\textless{}{-}} \FunctionTok{make.predictorMatrix}\NormalTok{(boys)}
+\NormalTok{pred[}\FunctionTok{c}\NormalTok{(}\StringTok{"wgt"}\NormalTok{, }\StringTok{"hgt"}\NormalTok{), }\StringTok{"bmi"}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{imp.pas }\OtherTok{\textless{}{-}} \FunctionTok{mice}\NormalTok{(boys, }\AttributeTok{meth =}\NormalTok{ meth, }\AttributeTok{pred =}\NormalTok{ pred,}
+                \AttributeTok{print =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{long.pas }\OtherTok{\textless{}{-}}\NormalTok{ mice}\SpecialCharTok{::}\FunctionTok{complete}\NormalTok{(imp.pas, }\StringTok{"long"}\NormalTok{, }\AttributeTok{include =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Warfarin case study - multiple imputation and median
+imputation}\label{warfarin-case-study---multiple-imputation-and-median-imputation}
+
+The code below demonstrates how we performed multiple imputation for the
+6.25\% missing body weight scenario.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load libraries {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\FunctionTok{library}\NormalTok{(mice)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(nlmixr2)}
+\FunctionTok{library}\NormalTok{(devtools)}
+\FunctionTok{source\_url}\NormalTok{(}\StringTok{\textquotesingle{}https://raw.githubusercontent.com/R{-}miss{-}tastic/website/master/static/how{-}to/generate/amputation.R\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\# Load data {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\CommentTok{\# set seed for reproducibility}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{42}\NormalTok{)}
+
+\NormalTok{warfarin\_pk }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"warfarin\_pk.csv"}\NormalTok{)}
+
+\NormalTok{warfarin\_pk\_baseline }\OtherTok{\textless{}{-}}\NormalTok{ warfarin\_pk }\SpecialCharTok{|\textgreater{}} \FunctionTok{filter}\NormalTok{(TIME }\SpecialCharTok{==} \DecValTok{0}\NormalTok{)}
+
+\CommentTok{\# center WT around 70kg}
+\NormalTok{warfarin\_pk }\OtherTok{\textless{}{-}}\NormalTok{ warfarin\_pk }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{lnWT =} \FunctionTok{log}\NormalTok{(WT }\SpecialCharTok{/} \DecValTok{70}\NormalTok{))}
+
+\CommentTok{\# Create nlmixr2 model objects {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\DocumentationTok{\#\# Full model {-}{-}{-}{-}}
+\NormalTok{complete.model.war}\FloatTok{.1}\NormalTok{cpt.ode }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{()\{}
+  \FunctionTok{ini}\NormalTok{(\{}
+\NormalTok{    tka }\OtherTok{\textless{}{-}} \SpecialCharTok{{-}}\FloatTok{0.654}
+\NormalTok{    tcl }\OtherTok{\textless{}{-}} \SpecialCharTok{{-}}\FloatTok{1.98}
+\NormalTok{    tv }\OtherTok{\textless{}{-}} \FloatTok{2.09}
+\NormalTok{    wteff\_cl }\OtherTok{\textless{}{-}} \FloatTok{0.695}
+\NormalTok{    wteff\_v }\OtherTok{\textless{}{-}} \FloatTok{0.792}
+\NormalTok{    eta.cl }\SpecialCharTok{\textasciitilde{}} \FloatTok{0.0545}
+\NormalTok{    eta.v }\SpecialCharTok{\textasciitilde{}} \FloatTok{0.0279}
+\NormalTok{    prop.err }\OtherTok{\textless{}{-}} \FloatTok{0.000468}
+\NormalTok{    add.err }\OtherTok{\textless{}{-}} \FloatTok{1.34}
+\NormalTok{  \})}
+  \FunctionTok{model}\NormalTok{(\{}
+\NormalTok{    ka }\OtherTok{\textless{}{-}} \FunctionTok{exp}\NormalTok{(tka)}
+\NormalTok{    cl }\OtherTok{\textless{}{-}} \FunctionTok{exp}\NormalTok{(tcl }\SpecialCharTok{+}\NormalTok{ wteff\_cl }\SpecialCharTok{*}\NormalTok{ lnWT }\SpecialCharTok{+}\NormalTok{ eta.cl)}
+\NormalTok{    v }\OtherTok{\textless{}{-}} \FunctionTok{exp}\NormalTok{(tv }\SpecialCharTok{+}\NormalTok{ wteff\_v }\SpecialCharTok{*}\NormalTok{ lnWT }\SpecialCharTok{+}\NormalTok{ eta.v)}
+\NormalTok{    d}\SpecialCharTok{/}\FunctionTok{dt}\NormalTok{(depot) }\OtherTok{=} \SpecialCharTok{{-}}\NormalTok{ka }\SpecialCharTok{*}\NormalTok{ depot}
+\NormalTok{    d}\SpecialCharTok{/}\FunctionTok{dt}\NormalTok{(cent) }\OtherTok{=}\NormalTok{ ka }\SpecialCharTok{*}\NormalTok{ depot }\SpecialCharTok{{-}}\NormalTok{ cl}\SpecialCharTok{/}\NormalTok{v }\SpecialCharTok{*}\NormalTok{ cent}
+\NormalTok{    cp }\OtherTok{=}\NormalTok{ cent}\SpecialCharTok{/}\NormalTok{v}
+\NormalTok{    cp }\SpecialCharTok{\textasciitilde{}} \FunctionTok{prop}\NormalTok{(prop.err) }\SpecialCharTok{+} \FunctionTok{add}\NormalTok{(add.err)}
+\NormalTok{  \})}
+\NormalTok{\}}
+
+\DocumentationTok{\#\# Base model {-}{-}{-}{-}}
+\NormalTok{base.model.war}\FloatTok{.1}\NormalTok{cpt.ode }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{()\{}
+  \FunctionTok{ini}\NormalTok{(\{}
+\NormalTok{    tka }\OtherTok{\textless{}{-}} \SpecialCharTok{{-}}\FloatTok{0.654}
+\NormalTok{    tcl }\OtherTok{\textless{}{-}} \SpecialCharTok{{-}}\FloatTok{1.98}
+\NormalTok{    tv }\OtherTok{\textless{}{-}} \FloatTok{2.09}
+\NormalTok{    eta.cl }\SpecialCharTok{\textasciitilde{}} \FloatTok{0.0545}
+\NormalTok{    eta.v }\SpecialCharTok{\textasciitilde{}} \FloatTok{0.0279}
+\NormalTok{    prop.err }\OtherTok{\textless{}{-}} \FloatTok{0.000468}
+\NormalTok{    add.err }\OtherTok{\textless{}{-}} \FloatTok{1.34}
+\NormalTok{  \})}
+  \FunctionTok{model}\NormalTok{(\{}
+\NormalTok{    ka }\OtherTok{\textless{}{-}} \FunctionTok{exp}\NormalTok{(tka)}
+\NormalTok{    cl }\OtherTok{\textless{}{-}} \FunctionTok{exp}\NormalTok{(tcl }\SpecialCharTok{+}\NormalTok{ eta.cl)}
+\NormalTok{    v }\OtherTok{\textless{}{-}} \FunctionTok{exp}\NormalTok{(tv }\SpecialCharTok{+}\NormalTok{ eta.v)}
+\NormalTok{    d}\SpecialCharTok{/}\FunctionTok{dt}\NormalTok{(depot) }\OtherTok{=} \SpecialCharTok{{-}}\NormalTok{ka }\SpecialCharTok{*}\NormalTok{ depot}
+\NormalTok{    d}\SpecialCharTok{/}\FunctionTok{dt}\NormalTok{(cent) }\OtherTok{=}\NormalTok{ ka }\SpecialCharTok{*}\NormalTok{ depot }\SpecialCharTok{{-}}\NormalTok{ cl}\SpecialCharTok{/}\NormalTok{v }\SpecialCharTok{*}\NormalTok{ cent}
+\NormalTok{    cp }\OtherTok{=}\NormalTok{ cent}\SpecialCharTok{/}\NormalTok{v}
+\NormalTok{    cp }\SpecialCharTok{\textasciitilde{}} \FunctionTok{prop}\NormalTok{(prop.err) }\SpecialCharTok{+} \FunctionTok{add}\NormalTok{(add.err)}
+\NormalTok{  \})}
+\NormalTok{\}}
+
+\CommentTok{\# Extract PK parameters for mutliple imputation {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\CommentTok{\# fit the base model to the complete data}
+\NormalTok{base.model.estimate }\OtherTok{\textless{}{-}} \FunctionTok{nlmixr}\NormalTok{(base.model.war}\FloatTok{.1}\NormalTok{cpt.ode,}
+\NormalTok{                              warfarin\_pk, }
+                              \AttributeTok{est =} \StringTok{"focei"}\NormalTok{,}
+                              \AttributeTok{control =} \FunctionTok{list}\NormalTok{(}\AttributeTok{print =} \DecValTok{0}\NormalTok{),}
+                              \AttributeTok{foceiControl =} \FunctionTok{list}\NormalTok{(}\AttributeTok{outerOpt =} \StringTok{"bobyqa"}\NormalTok{,}
+                                                  \AttributeTok{maxInnerIterations =} \DecValTok{500}\NormalTok{))}
+
+\CommentTok{\# extract unique individual PK paramters}
+\NormalTok{base.individual.estimate }\OtherTok{\textless{}{-}}\NormalTok{ base.model.estimate}\SpecialCharTok{$}\NormalTok{dataMergeFull }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{na.omit}\NormalTok{() }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(cl, v) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{unique}\NormalTok{()}
+
+\CommentTok{\# reset row numbers to start from 1}
+\FunctionTok{row.names}\NormalTok{(base.individual.estimate) }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(base.individual.estimate)}
+
+\CommentTok{\# add ID column, bring to the front}
+\NormalTok{base.individual.estimate }\OtherTok{\textless{}{-}}\NormalTok{ base.individual.estimate }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{ID =} \FunctionTok{row\_number}\NormalTok{()) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{relocate}\NormalTok{(ID, }\AttributeTok{.before =}\NormalTok{ cl)}
+
+\CommentTok{\# Create 30 datasets with 6.25\% WT missing {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\DocumentationTok{\#\# Identify eligible seeds {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# The goal here is to indentify 30 seeds that produce 6.25\% missing WT}
+
+\CommentTok{\# Initialize variables}
+\NormalTok{nseed }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{30}\NormalTok{) }\CommentTok{\# We want 30 seeds in total}
+\NormalTok{seeds\_with\_sum\_2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{() }\CommentTok{\# a vector to save all eligible seeds}
+\NormalTok{counter }\OtherTok{\textless{}{-}} \DecValTok{1} \CommentTok{\# a variable to identify eligible seeds}
+
+\CommentTok{\# Repeat the process}
+\ControlFlowTok{while}\NormalTok{ (}\FunctionTok{length}\NormalTok{(seeds\_with\_sum\_2) }\SpecialCharTok{\textless{}} \FunctionTok{length}\NormalTok{(nseed)) \{}
+  
+\NormalTok{  warfarin\_miss }\OtherTok{\textless{}{-}} \FunctionTok{produce\_NA}\NormalTok{(warfarin\_pk\_baseline, }
+                                    \AttributeTok{mechanism =} \StringTok{"MAR"}\NormalTok{, }
+                                    \AttributeTok{perc.missing =} \FloatTok{0.0625}\NormalTok{,}
+                                    \AttributeTok{idx.incomplete =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+                                    \CommentTok{\# create missing WT from observed age and sex}
+                                    \AttributeTok{idx.covariates =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),  }
+                                    \AttributeTok{weights.covariates =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\SpecialCharTok{/}\DecValTok{2}\NormalTok{, }\DecValTok{1}\SpecialCharTok{/}\DecValTok{2}\NormalTok{),}
+                                    \AttributeTok{logit.model =} \StringTok{"RIGHT"}\NormalTok{,}
+                                    \AttributeTok{seed =}\NormalTok{ counter)}
+  
+  \CommentTok{\# extract the generated incomplete dataset}
+\NormalTok{  warfarin\_incomp }\OtherTok{\textless{}{-}}\NormalTok{ warfarin\_miss}\SpecialCharTok{$}\NormalTok{data.incomp}
+  
+  \CommentTok{\# extract the eligible seeds}
+  \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(warfarin\_incomp}\SpecialCharTok{$}\NormalTok{WT)) }\SpecialCharTok{==} \DecValTok{2}\NormalTok{) \{ }\CommentTok{\#6.25\% WT missing corresponds to 2 patients}
+    \CommentTok{\# if a seed results in 6.25\% WT missing, save that seed to the seeds\_with\_sum\_2 vector}
+\NormalTok{    seeds\_with\_sum\_2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(seeds\_with\_sum\_2, counter) }
+\NormalTok{  \}}
+    \CommentTok{\# otherwise, increase counter by 1}
+\NormalTok{  counter }\OtherTok{\textless{}{-}}\NormalTok{ counter }\SpecialCharTok{+} \DecValTok{1}
+\NormalTok{\}}
+\CommentTok{\# The resulting seeds\_with\_sum\_2 should contain 30 eligible seeds}
+
+\DocumentationTok{\#\# Generate missing datasets {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# The next step is to plug in the seeds to have 30 different datasets with 6.25\% WT missing. }
+\CommentTok{\# Here we selected the first seed for demonstration purposes.}
+
+\CommentTok{\# impute only using the baseline WT}
+\NormalTok{warfarin\_miss }\OtherTok{\textless{}{-}} \FunctionTok{produce\_NA}\NormalTok{(warfarin\_pk\_baseline,}
+                            \AttributeTok{mechanism =} \StringTok{"MAR"}\NormalTok{,}
+                            \AttributeTok{perc.missing =} \FloatTok{0.0625}\NormalTok{,}
+                            \AttributeTok{idx.incomplete =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+                            \AttributeTok{idx.covariates =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+                            \AttributeTok{weights.covariates =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\SpecialCharTok{/}\DecValTok{2}\NormalTok{, }\DecValTok{1}\SpecialCharTok{/}\DecValTok{2}\NormalTok{),}
+                            \AttributeTok{logit.model =} \StringTok{"RIGHT"}\NormalTok{,}
+                            \AttributeTok{seed =}\NormalTok{ seeds\_with\_sum\_2[}\DecValTok{1}\NormalTok{]) }\CommentTok{\# plug in the first seed from above}
+
+\CommentTok{\# extract the generated incomplete dataset}
+\NormalTok{warfarin\_incomp }\OtherTok{\textless{}{-}}\NormalTok{ warfarin\_miss}\SpecialCharTok{$}\NormalTok{data.incomp}
+
+\CommentTok{\# match the missing WT to the long format}
+\NormalTok{warfarin\_incomp\_long }\OtherTok{\textless{}{-}}\NormalTok{ warfarin\_pk}
+\NormalTok{warfarin\_incomp\_long}\SpecialCharTok{$}\NormalTok{WT }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(warfarin\_incomp\_long}\SpecialCharTok{$}\NormalTok{ID }\SpecialCharTok{\%in\%}\NormalTok{ warfarin\_incomp}\SpecialCharTok{$}\NormalTok{ID,}
+\NormalTok{                                  warfarin\_incomp}\SpecialCharTok{$}\NormalTok{WT[}\FunctionTok{match}\NormalTok{(warfarin\_incomp\_long}\SpecialCharTok{$}\NormalTok{ID,                      }
+\NormalTok{                                                           warfarin\_incomp}\SpecialCharTok{$}\NormalTok{ID)],}
+\NormalTok{                                  warfarin\_incomp\_long}\SpecialCharTok{$}\NormalTok{WT)}
+
+\CommentTok{\# Multiple imputation {-} 1st seed {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\DocumentationTok{\#\# PK parameters as predictors {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\CommentTok{\# merge warfarin\_incomp to base.individual.estimate for multiple imputation}
+\NormalTok{warfarin\_mi }\OtherTok{\textless{}{-}}\NormalTok{ base.individual.estimate  }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{left\_join}\NormalTok{(warfarin\_incomp }\SpecialCharTok{|\textgreater{}} \FunctionTok{select}\NormalTok{(ID, WT, SEX, AGE), }\AttributeTok{by =} \StringTok{"ID"}\NormalTok{)}
+
+\CommentTok{\# change the imputation method to pmm to avoid negative imputed WT}
+\NormalTok{imp0 }\OtherTok{\textless{}{-}} \FunctionTok{mice}\NormalTok{(warfarin\_mi, }\AttributeTok{maxit =} \DecValTok{0}\NormalTok{)}
+\NormalTok{meth }\OtherTok{\textless{}{-}}\NormalTok{ imp0}\SpecialCharTok{$}\NormalTok{method}
+\NormalTok{meth[}\StringTok{"WT"}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"pmm"}
+
+\CommentTok{\# do not use ID to impute WT}
+\NormalTok{predictorMatrix }\OtherTok{\textless{}{-}}\NormalTok{ imp0}\SpecialCharTok{$}\NormalTok{predictorMatrix}
+\NormalTok{predictorMatrix[,}\StringTok{"ID"}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{0}
+
+\CommentTok{\# set the number of iterations and imputations}
+\NormalTok{maxit }\OtherTok{\textless{}{-}} \DecValTok{20}
+\NormalTok{nimp }\OtherTok{\textless{}{-}} \DecValTok{20} \CommentTok{\# 20 imputations for 6.25\% case}
+
+\CommentTok{\# identify all IDs with missing WT}
+\NormalTok{missing\_wt\_ids }\OtherTok{\textless{}{-}}\NormalTok{ warfarin\_incomp }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{filter}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(WT)) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{pull}\NormalTok{(ID)}
+
+\CommentTok{\# for each missing dataset, we performed multiple imputation with 30 different seeds}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \FunctionTok{seq\_len}\NormalTok{(}\DecValTok{30}\NormalTok{)) \{}
+
+\NormalTok{imputed\_data }\OtherTok{\textless{}{-}} \FunctionTok{mice}\NormalTok{(}\AttributeTok{data =}\NormalTok{ warfarin\_mi,}
+                     \AttributeTok{method =}\NormalTok{ meth,}
+                     \AttributeTok{predictorMatrix =}\NormalTok{ predictorMatrix,}
+                     \AttributeTok{maxit =}\NormalTok{ maxit, }
+                     \AttributeTok{m =}\NormalTok{ nimp, }
+                     \AttributeTok{printFlag  =}  \ConstantTok{FALSE}\NormalTok{,}
+                     \AttributeTok{seed =}\NormalTok{ nseed[i]) }\CommentTok{\# seeds are set from 1 to 30}
+
+\CommentTok{\# each multiple imputation consists of 20 imputations}
+\ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \FunctionTok{seq\_len}\NormalTok{(nimp)) \{}
+  \CommentTok{\# extract each multiply imputed dataset}
+\NormalTok{  dat\_MI }\OtherTok{\textless{}{-}} \FunctionTok{complete}\NormalTok{(imputed\_data, j)}
+  
+  \CommentTok{\# extract the imputed WT}
+\NormalTok{    dat\_MI\_filtered }\OtherTok{\textless{}{-}}\NormalTok{ dat\_MI }\SpecialCharTok{|\textgreater{}}
+      \FunctionTok{filter}\NormalTok{(ID }\SpecialCharTok{\%in\%}\NormalTok{ missing\_wt\_ids)}
+    
+  \CommentTok{\# fill the imputed WT to the full missing dataset}
+\NormalTok{    dat\_MI }\OtherTok{\textless{}{-}}\NormalTok{ warfarin\_incomp\_long }\SpecialCharTok{|\textgreater{}}
+      \FunctionTok{mutate}\NormalTok{(}\AttributeTok{WT =} \FunctionTok{ifelse}\NormalTok{(ID }\SpecialCharTok{\%in\%}\NormalTok{ missing\_wt\_ids,}
+\NormalTok{                         dat\_MI\_filtered}\SpecialCharTok{$}\NormalTok{WT[}\FunctionTok{match}\NormalTok{(ID, }
+\NormalTok{                         dat\_MI\_filtered}\SpecialCharTok{$}\NormalTok{ID)], }
+\NormalTok{                         WT),}
+             \AttributeTok{lnWT =} \FunctionTok{log}\NormalTok{(WT }\SpecialCharTok{/} \DecValTok{70}\NormalTok{)) }\CommentTok{\# also add the centered WT}
+  
+  
+  \CommentTok{\# fit the full model to the multiply imputed dataset and}
+  \CommentTok{\# assign the fixed parameter estimates to an output file}
+    \FunctionTok{assign}\NormalTok{(}\FunctionTok{paste0}\NormalTok{(}\StringTok{"fit.war.mi"}\NormalTok{, }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%02d"}\NormalTok{, j), }\StringTok{".seed"}\NormalTok{,}
+                  \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%02d"}\NormalTok{, i), }\StringTok{".6.25."}\NormalTok{, }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%02d"}\NormalTok{, }\DecValTok{1}\NormalTok{)),}
+           \FunctionTok{nlmixr}\NormalTok{(complete.model.war}\FloatTok{.1}\NormalTok{cpt.ode,}
+\NormalTok{                dat\_MI, }
+                \AttributeTok{est =} \StringTok{"focei"}\NormalTok{,}
+                \AttributeTok{control =} \FunctionTok{list}\NormalTok{(}\AttributeTok{print =} \DecValTok{0}\NormalTok{),}
+                \AttributeTok{foceiControl =} \FunctionTok{list}\NormalTok{(}\AttributeTok{outerOpt =} \StringTok{"bobyqa"}\NormalTok{,}
+                                    \AttributeTok{maxInnerIterations =} \DecValTok{500}\NormalTok{))}\SpecialCharTok{$}\NormalTok{parFixed)}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\DocumentationTok{\#\# Time and concentrations as predictors {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\NormalTok{imp0 }\OtherTok{\textless{}{-}} \FunctionTok{mice}\NormalTok{(warfarin\_incomp\_long, }\AttributeTok{maxit =} \DecValTok{0}\NormalTok{)}
+
+\CommentTok{\# method pmm for WT}
+\NormalTok{meth }\OtherTok{\textless{}{-}}\NormalTok{ imp0}\SpecialCharTok{$}\NormalTok{method}
+\NormalTok{meth[}\StringTok{"WT"}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"pmm"}
+
+\CommentTok{\# remove redundant variables from the predictor matrix}
+\NormalTok{predictorMatrix }\OtherTok{\textless{}{-}}\NormalTok{ imp0}\SpecialCharTok{$}\NormalTok{predictorMatrix}
+\NormalTok{predictorMatrix[,}\StringTok{"EVID"}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{predictorMatrix[,}\StringTok{"ID"}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{maxit }\OtherTok{\textless{}{-}} \DecValTok{20}
+\CommentTok{\# predictors include: time+conc+amt+sex+age}
+
+\NormalTok{missing\_wt\_ids }\OtherTok{\textless{}{-}}\NormalTok{ warfarin\_incomp }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(WT)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pull}\NormalTok{(ID)}
+
+\CommentTok{\# for each missing dataset, we performed multiple imputation with 30 different seeds}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \FunctionTok{seq\_len}\NormalTok{(}\DecValTok{30}\NormalTok{)) \{}
+
+\NormalTok{imputed\_data }\OtherTok{\textless{}{-}} \FunctionTok{mice}\NormalTok{(}\AttributeTok{data =}\NormalTok{ warfarin\_incomp\_long,}
+                     \AttributeTok{method =}\NormalTok{ meth,}
+                     \AttributeTok{predictorMatrix =}\NormalTok{ predictorMatrix,}
+                     \AttributeTok{maxit =}\NormalTok{ maxit, }
+                     \AttributeTok{m =}\NormalTok{ nimp, }
+                     \AttributeTok{printFlag  =}  \ConstantTok{FALSE}\NormalTok{,}
+                     \AttributeTok{seed =}\NormalTok{ nseed[i]) }\CommentTok{\# seeds are set from 1 to 30}
+
+\CommentTok{\# each multiple imputation consists of 20 imputations}
+\ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \FunctionTok{seq\_len}\NormalTok{(nimp)) \{}
+  \CommentTok{\# extract each multiply imputed dataset}
+\NormalTok{  dat\_MI }\OtherTok{\textless{}{-}} \FunctionTok{complete}\NormalTok{(imputed\_data, j)}
+  
+  \CommentTok{\# average WT per ID}
+\NormalTok{    average\_wt\_MI }\OtherTok{\textless{}{-}}\NormalTok{ dat\_MI }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{filter}\NormalTok{(ID }\SpecialCharTok{\%in\%}\NormalTok{ missing\_wt\_ids) }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{group\_by}\NormalTok{(ID) }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{summarize}\NormalTok{(}\AttributeTok{avg\_WT =} \FunctionTok{mean}\NormalTok{(WT, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+    
+\NormalTok{    dat\_MI }\OtherTok{\textless{}{-}}\NormalTok{ dat\_MI }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{left\_join}\NormalTok{(average\_wt\_MI, }\AttributeTok{by =} \StringTok{"ID"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{mutate}\NormalTok{(}\AttributeTok{WT =} \FunctionTok{ifelse}\NormalTok{(ID }\SpecialCharTok{\%in\%}\NormalTok{ missing\_wt\_ids, avg\_WT, WT),}
+             \AttributeTok{lnWT =} \FunctionTok{log}\NormalTok{(WT }\SpecialCharTok{/} \DecValTok{70}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{avg\_WT)}
+  
+  \CommentTok{\# fit the full model to the multiply imputed dataset and}
+  \CommentTok{\# assign the fixed parameter estimates to an output file}
+    \FunctionTok{assign}\NormalTok{(}\FunctionTok{paste0}\NormalTok{(}\StringTok{"fit.war.mi"}\NormalTok{, }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%02d"}\NormalTok{, j), }\StringTok{".seed"}\NormalTok{,}
+                  \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%02d"}\NormalTok{, i), }\StringTok{".6.25."}\NormalTok{, }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%02d"}\NormalTok{, }\DecValTok{1}\NormalTok{)),}
+           \FunctionTok{nlmixr}\NormalTok{(complete.model.war}\FloatTok{.1}\NormalTok{cpt.ode,}
+\NormalTok{                dat\_MI, }
+                \AttributeTok{est =} \StringTok{"focei"}\NormalTok{,}
+                \AttributeTok{control =} \FunctionTok{list}\NormalTok{(}\AttributeTok{print =} \DecValTok{0}\NormalTok{),}
+                \AttributeTok{foceiControl =} \FunctionTok{list}\NormalTok{(}\AttributeTok{outerOpt =} \StringTok{"bobyqa"}\NormalTok{,}
+                                    \AttributeTok{maxInnerIterations =} \DecValTok{500}\NormalTok{))}\SpecialCharTok{$}\NormalTok{parFixed)}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\DocumentationTok{\#\# Extract the parameter estimate datasets {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\CommentTok{\# create lists to store output datasets}
+\NormalTok{combined\_data\_list\_mi\_converged }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+\NormalTok{combined\_data\_list\_mi\_unconverged  }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+
+\CommentTok{\# loop over all the output datasets}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \FunctionTok{seq\_len}\NormalTok{(}\DecValTok{30}\NormalTok{)) \{}
+\ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \FunctionTok{seq\_len}\NormalTok{(nimp)) \{}
+\NormalTok{  dataset\_name }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{"fit.war.mi"}\NormalTok{, }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%02d"}\NormalTok{, j), }
+                         \StringTok{".seed"}\NormalTok{, }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%02d"}\NormalTok{, i), }\StringTok{".6.25."}\NormalTok{, }
+                         \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%02d"}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+  
+  \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{exists}\NormalTok{(dataset\_name) }\SpecialCharTok{\&\&} \SpecialCharTok{!}\FunctionTok{is.null}\NormalTok{(}\FunctionTok{get}\NormalTok{(dataset\_name))) \{}
+\NormalTok{    data }\OtherTok{\textless{}{-}} \FunctionTok{get}\NormalTok{(dataset\_name)}
+    
+    \CommentTok{\# if there\textquotesingle{}s a SE column, the model converged}
+    \ControlFlowTok{if}\NormalTok{ (}\StringTok{"SE"} \SpecialCharTok{\%in\%} \FunctionTok{colnames}\NormalTok{(data)) \{}
+\NormalTok{      extracted\_data }\OtherTok{\textless{}{-}}\NormalTok{ data[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, ] }\SpecialCharTok{|\textgreater{}}
+        \FunctionTok{mutate}\NormalTok{(}\AttributeTok{imputation =}\NormalTok{ j,}
+               \AttributeTok{later\_seed =}\NormalTok{ i,}
+               \AttributeTok{initial\_seed =} \DecValTok{1}\NormalTok{,}
+               \AttributeTok{type =} \StringTok{"MI"}\NormalTok{,}
+               \AttributeTok{converged =} \StringTok{"Yes"}\NormalTok{)}
+      
+\NormalTok{      combined\_data\_list\_mi\_converged[[}\FunctionTok{length}\NormalTok{(combined\_data\_list\_mi\_converged) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{]] }\OtherTok{\textless{}{-}}\NormalTok{ extracted\_data}
+      
+    \CommentTok{\# if there\textquotesingle{}s no SE column, the model did not converge}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{      extracted\_data }\OtherTok{\textless{}{-}}\NormalTok{ data[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, ] }\SpecialCharTok{|\textgreater{}}
+        \FunctionTok{mutate}\NormalTok{(}\AttributeTok{imputation =}\NormalTok{ j,}
+               \AttributeTok{later\_seed =}\NormalTok{ i,}
+               \AttributeTok{initial\_seed =} \DecValTok{1}\NormalTok{,}
+               \AttributeTok{type =} \StringTok{"MI"}\NormalTok{,}
+               \AttributeTok{converged =} \StringTok{"No"}\NormalTok{)}
+      
+\NormalTok{      combined\_data\_list\_mi\_unconverged[[}\FunctionTok{length}\NormalTok{(combined\_data\_list\_mi\_unconverged) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{]] }\OtherTok{\textless{}{-}}\NormalTok{ extracted\_data}
+\NormalTok{      \}}
+\NormalTok{    \}}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\CommentTok{\# combine all the converged and unconverged datasets}
+\NormalTok{merged.war.mi.seed01.}\DecValTok{30}\NormalTok{.}\DecValTok{6}\NormalTok{.}\DecValTok{25}\NormalTok{.}\FloatTok{01.}\NormalTok{converged }\OtherTok{\textless{}{-}} \FunctionTok{do.call}\NormalTok{(rbind, combined\_data\_list\_mi\_converged)}
+\NormalTok{merged.war.mi.seed01.}\DecValTok{30}\NormalTok{.}\DecValTok{6}\NormalTok{.}\DecValTok{25}\NormalTok{.}\FloatTok{01.}\NormalTok{unconverged }\OtherTok{\textless{}{-}} \FunctionTok{do.call}\NormalTok{(rbind, combined\_data\_list\_mi\_unconverged)}
+
+\CommentTok{\# Median imputation {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# Here we also used the first missing dataset for demonstration purposes.}
+
+\CommentTok{\# extract the observed median value then use it for imputation}
+\NormalTok{median\_WT }\OtherTok{\textless{}{-}} \FunctionTok{median}\NormalTok{(warfarin\_incomp}\SpecialCharTok{$}\NormalTok{WT, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+
+\NormalTok{warfarin\_median }\OtherTok{\textless{}{-}}\NormalTok{ warfarin\_incomp\_long }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{WT =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(WT), median\_WT, WT))}
+\CommentTok{\# warfarin\_incomp\_long was created above}
+
+\CommentTok{\# center WT around 70kg}
+\NormalTok{warfarin\_median}\SpecialCharTok{$}\NormalTok{lnWT }\OtherTok{\textless{}{-}} \FunctionTok{log}\NormalTok{(warfarin\_median}\SpecialCharTok{$}\NormalTok{WT}\SpecialCharTok{/}\DecValTok{70}\NormalTok{)}
+
+\CommentTok{\# fit the full model to the median imputed dataset}
+\CommentTok{\# assign the fixed parameter estimates to an output file}
+\FunctionTok{assign}\NormalTok{(}\FunctionTok{paste0}\NormalTok{(}\StringTok{"fit.war.median.6.25."}\NormalTok{, }\FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%02d"}\NormalTok{, }\DecValTok{01}\NormalTok{)),}
+       \FunctionTok{nlmixr}\NormalTok{(complete.model.war}\FloatTok{.1}\NormalTok{cpt.ode,}
+\NormalTok{                warfarin\_median, }
+                \AttributeTok{est =} \StringTok{"focei"}\NormalTok{,}
+                \AttributeTok{control =} \FunctionTok{list}\NormalTok{(}\AttributeTok{print =} \DecValTok{0}\NormalTok{))}\SpecialCharTok{$}\NormalTok{parFixed)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Session details}\label{session-details}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{getS3method}\NormalTok{(}\StringTok{"print"}\NormalTok{,}\StringTok{"sessionInfo"}\NormalTok{)(}\FunctionTok{sessionInfo}\NormalTok{()[}\SpecialCharTok{{-}}\DecValTok{7}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+R version 4.3.1 (2023-06-16 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 11 x64 (build 22631)
+
+Matrix products: default
+
+
+Random number generation:
+ RNG:     
+ Normal:  
+ Sample:  
+ 
+locale:
+[1] LC_COLLATE=English_United Kingdom.utf8 
+[2] LC_CTYPE=English_United Kingdom.utf8   
+[3] LC_MONETARY=English_United Kingdom.utf8
+[4] LC_NUMERIC=C                           
+[5] LC_TIME=English_United Kingdom.utf8    
+
+time zone: Europe/Brussels
+tzcode source: internal
+
+attached base packages:
+[1] parallel  splines   stats     graphics  grDevices utils     datasets 
+[8] methods   base     
+
+other attached packages:
+ [1] gdata_3.0.0               devtools_2.4.5           
+ [3] usethis_3.0.0             nlmixr2_3.0.1            
+ [5] nlmixr2data_2.0.9         lubridate_1.9.3          
+ [7] forcats_1.0.0             stringr_1.5.1            
+ [9] purrr_1.0.2               readr_2.1.5              
+[11] tidyr_1.3.0               tibble_3.2.1             
+[13] ggplot2_3.5.1             tidyverse_2.0.0          
+[15] countimp_2.0.7            pscl_1.5.9               
+[17] MASS_7.3-60               aster_1.1-3              
+[19] glmmTMB_1.1.10            ImputeRobust_1.3-1       
+[21] gamlss_5.4-22             nlme_3.1-165             
+[23] gamlss.dist_6.1-1         gamlss.data_6.0-6        
+[25] mice_3.16.0               dplyr_1.1.3              
+[27] packagemetrics_0.0.1.9001
+
+loaded via a namespace (and not attached):
+  [1] sys_3.4.2           rstudioapi_0.16.0   jsonlite_1.8.7     
+  [4] shape_1.4.6.1       magrittr_2.0.3      lotri_0.4.3        
+  [7] jomo_2.7-6          nloptr_2.1.1        rmarkdown_2.27     
+ [10] fs_1.6.3            PreciseSums_0.6     vctrs_0.6.3        
+ [13] memoise_2.0.1       minqa_1.2.7         janitor_2.2.1      
+ [16] htmltools_0.5.8.1   curl_5.1.0          broom_1.0.6        
+ [19] rxode2et_2.0.13     mitml_0.4-5         htmlwidgets_1.6.4  
+ [22] cachem_1.1.0        TMB_1.9.16          mime_0.12          
+ [25] lifecycle_1.0.4     iterators_1.0.14    pkgconfig_2.0.3    
+ [28] Matrix_1.6-4        R6_2.5.1            fastmap_1.2.0      
+ [31] shiny_1.9.1         rbibutils_2.3       snakecase_0.11.1   
+ [34] digest_0.6.33       selectr_0.4-2       numDeriv_2016.8-1.1
+ [37] colorspace_2.1-0    ps_1.7.5            pkgload_1.4.0      
+ [40] extremevalues_2.4.1 fansi_1.0.4         timechange_0.2.0   
+ [43] httr_1.4.7          mgcv_1.9-1          compiler_4.3.1     
+ [46] remotes_2.5.0       withr_3.0.1         backports_1.5.0    
+ [49] qs_0.26.3           pkgbuild_1.4.4      pan_1.9            
+ [52] nlmixr2plot_2.0.9   n1qn1_6.0.1-11      sessioninfo_1.2.2  
+ [55] gtools_3.9.5        dparser_1.3.1-11    tools_4.3.1        
+ [58] chromote_0.4.0      trust_0.1-8         httpuv_1.6.12      
+ [61] rxode2random_2.1.1  nnet_7.3-19         glue_1.6.2         
+ [64] lbfgsb3c_2024-3.4   promises_1.2.1      grid_4.3.1         
+ [67] checkmate_2.3.2     rxode2_2.1.3        generics_0.1.3     
+ [70] gtable_0.3.5        tzdb_0.4.0          websocket_1.4.2    
+ [73] data.table_1.15.4   RApiSerialize_0.1.3 hms_1.1.3          
+ [76] xml2_1.3.6          stringfish_0.16.0   utf8_1.2.3         
+ [79] foreach_1.5.2       pillar_1.9.0        later_1.3.1        
+ [82] lattice_0.22-6      survival_3.7-0      tidyselect_1.2.1   
+ [85] miniUI_0.1.1.1      knitr_1.48          symengine_0.2.6    
+ [88] reformulas_0.4.0    cranlogs_2.1.1      xfun_0.46          
+ [91] stringi_1.7.12      yaml_2.3.7          boot_1.3-28.1      
+ [94] evaluate_0.24.0     codetools_0.2-19    nlmixr2est_2.2.2   
+ [97] cli_3.6.1           RcppParallel_5.1.8  rpart_4.1.23       
+[100] xtable_1.8-4        Rdpack_2.6.2        munsell_0.5.1      
+[103] processx_3.8.3      Rcpp_1.0.11         ellipsis_0.3.2     
+[106] profvis_0.3.8       urlchecker_1.0.1    lme4_1.1-35.5      
+[109] glmnet_4.1-8        scales_1.3.0        rxode2parse_2.0.19 
+[112] rlang_1.1.1         rvest_1.0.4        
+\end{verbatim}
+
+
+
+
+\end{document}
