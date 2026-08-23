@@ -1,0 +1,53 @@
+Title
+- no Abbreviation in it
+- upper case each word or sentence case (be consistent choose one)
+
+Font 
+Text -size 10
+Figure text -size 8
+
+Standard text settings: 
+Arial 10 justify 
+1.5 lines line spacing
+spacing before 12 pt
+spacing after 0 pt 
+
+Margin
+3 cm on the outside 
+4 cm on the inside
+- show margin line (File > Options > Advanced > Under show document content -> tick Show text boundaries)
+- with this setting of margins, figure width should be set max. 14 cm.
+
+Figure
+- have text that refer to each figure not just figure
+- figure text should be smaller font size than text.
+- put "." after Figure number
+- Figures should be standalone, so don’t assume abbreviations are known. 
+- Every abbreviation in a figure and its legend should be explained.
+- automatically add figure number (References > Under Captions->Insert caption), and to add figure with number in text (References > Under Captions->Cross-reference)
+  : To update all fields (Ctrl+A, then F9)
+
+List of abbreviation
+- put the special symbols at the end of the list
+- no plurals, only singular (e.g., AUC and not AUCs)
+
+Writing style
+- British or American english
+
+Checklist 
+- add page number before printing
+- update page number in TOC
+- check for double space (ctrl + f -> "  ")
+- check ordering of table and figure number
+- et al, a priori, a posteriori in the text should be in italics
+- abbrviation: abbrviate again in every new chapters (optinal)
+- shift+enter to put sentence on the same line
+- check text alignment 
+
+
+
+
+
+
+
+
