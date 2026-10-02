@@ -1,0 +1,74 @@
+17. Submission of Thesis Manuscript - (4th year)
+ 
+
+Only after completion of the doctoral research and the PhD training programme (=once your e-portfolio has been approved), you can send out your manuscript.
+
+Take a look at the e-lecture on Writing the PhD thesis for useful information.
+
+The supervisor should ensure that if a publication is included in a thesis, the contribution of the PhD researcher is clearly, and in detail, indicated. This is particularly important when a publication is used in more than one thesis (e.g. joint first author publication), because the same contribution can be claimed only once.
+
+You also need to submit the similarity report (in pdf) of your Turnitin assignment. Find the instructions in the Turnitin manual for PhD researchers.
+
+Outline of the manuscript (in A4 reading format)
+
+Following formulas are accepted as mentioned in the doctorate regulations:
+
+Formula 1: original, full text
+The thesis manuscript consists of a full text with illustrations following the traditional construction (introduction, objectives of the research, methodology & materials, results, discussion and global conclusions, abstract and list of references (no more than 200 references allowed). The length of the thesis manuscript is limited to 150 pages including illustrations and list of references.
+Formula 2: compilation of research articles
+
+The thesis manuscript consists of:
+general introduction limited to 30 pages
+objectives of the research
+At least 2 chapters written in the form of a research article. At least 1 of these chapters should have previously been published (or have been accepted for publication) in an international peer-reviewed journal (no review article). If unpublished parts of the study are being included into the manuscript then these have to be written in the form of an article to be published. The supervisor should ensure that if a publication is included in a thesis, the contribution of the PhD researcher is clearly, and in detail, indicated. This is particularly important when a publication is used in more than one thesis (e.g. joint first author publication), because the same contribution can be claimed only once.
+A concluding discussion (at least 5 pages)
+A scientific abstract (summary) of the research
+A list of references (no more than 100 references allowed) with regard to the introduction and the concluding discussion
+Additional formal remarks for both formulas
+The text needs to be written in Dutch or in English.
+The first page of the thesis manuscript has a mandatory format. Joint/double degree PhD researchers use a specific format: first page of the manuscript for joint or double degrees.
+You are free to design the cover of your thesis book.  This Word template is optional to use. There is no LaTex template available.
+The thesis manuscript needs to be in A4 reading format. The default format for the final thesis booklet is 160x240 mm. See also FAQ
+The manuscript includes a short description of the professional career of the PhD researcher listing the published articles.
+'Acknowledgements, Personal Contribution and Conflict of Interest Statements', to be put at the end of your thesis. As well as being an examination document, a thesis manuscript is an official scientific publication. As such, it is essential that it contains an appropriate acknowledgement, personal contributions and conflict of interest statement. This is consistent with the KU Leuven guidelines on fair and honest scientific conduct (https://www.kuleuven.be/english/research/integrity/Checklist).
+NEW: A statement of the Use of generative AI needs to be added to your thesis. Whether or not you have used generative AI tools, you need to
+state that the text is your own (unless otherwise specified) and that generative AI tools have only been used in accordance with the guidelines of KU Leuven. If you have used generative AI, you also need to state how you have used it and that you have reviewed and edited the content as needed and that you take full responsibility for the content of the thesis. More background info: how to be transparent about the use of GenAI (English) or Hoe ben je transparant over het gebruik van GenAI (Dutch)
+NEW (this will become mandatory from submissions starting 01/01/2026): Your thesis manuscript must include a popularized summary in Dutch, written for a broad audience. In addition, you may, if you wish, include a scientific and/or popularized summary in your native language.
+The Dutch popularized summary must be delivered as a ready-to-use one-pager. To help you prepare this one-pager effectively, Doctoral School provides secured access to the Scicomwiz course.  This course consists of a a webinar, an accompanying workbook and a list of synonyms for scientific terminology. It offers the essential tools for writing a one-pager that communicates your research clearly and engagingly to the general public. You can access this course via Toledo - PhD Biomedical Sciences - Skills Development – Scicomwiz course.
+The aim of this requirement is to support you in making your research accessible beyond the academic world and to enhance its societal impact.
+If the thesis manuscript is a compilation of several accepted articles, the number of 150 pages can exceptionally be exceeded. If these articles have not been submitted, the length of the manuscript is limited to 150 pages.
+Assessment of the manuscript
+
+The jury members are requested to send their written comments within 3 weeks (5 weeks during holiday recess, but jury members can ask to prolong this period) after receiving the manuscript, the jury members will send their written comments to the Chair of the Examining Committee.
+The chair compiles a synthesis of the comments received and provides the PhD researcher and supervisor with a copy of the individual comments. If you do not receive the comments within the allocated time, you can contact the chair or your file administrator but NOT the jury members.
+If a member of the Examining Committee has indicated a wish to review the revised version, you need to respond to them (with the chair and the supervisor(s) in CC), including a revised version and a separate rebuttal letter with replies to the questions and a summary of changes made. Thereafter the jury member should inform the chair whether they are satisfied with the feedback of the PhD researcher.
+Once this is done, the chair sends an e-mail to the PhD researcher(with the supervisor(s) and members of the Examining Committee in CC) giving the permission for printing and defence (= imprimatur). Please make sure to forward the e-mail to the Doctoral School (phd.gbiomed@kuleuven.be) when you receive the finale imprimatur.
+At the latest 2 weeks before the defence the PhD researcher sends a PDF of the final thesis and a separate letter summarizing the changes made to all jury members and supervisors. 
+What do I submit?
+
+Let your supervisor and co-supervisor(s) sign the letter from supervisor (Tip: Digitally requesting signatures)
+
+Send your thesis manuscript directly to the examining committee (internal and external jury members + Chair of the Supervisory Committee), via email and/or in hard copy according to the preferences of the jury members. You can use this text as accompanying letter/email, so your jury members receive all the necessary info. Please put the general PhD mailbox in CC so that your jury members will receive the info concerning the evaluation procedure and the deadline in a timely manner.
+Simultaneously upload the letter from supervisor with approval of thesis manuscript and confirming the names of at least 2 external experts via KU Loket application 'PhD Progress' - milestone 'Thesis Manuscript' and click on 'Submit'.
+Do not upload the manuscript, only the letter.
+Share with your file administrator via WeTransfer, Belnet FileSender (or Dropbox): Similarity report of your thesis (digital version, no print version)
+Important: As long as the requested document has not been uploaded via KU Loket 'PhD Progress', the manuscript is not considered to be officially sent out by the PhD researcher! After uploading the letter and emailing the manuscript to the examining committee, the doctoral school will email the instructions and deadline for reviewing the thesis to all members of the examining committee. You will receive a confirmation email with the review deadline and more details about the assessment procedure. The deadline for review will be calculated on the most recent date (if you choose to upload the letter at a different time than sending the manuscript, it will be calculated on what we received last). Therefore, it is of utmost importance to do the uploading of the letter from the supervisor at the same time as sending out the manuscript. This is your responsibility! If you do not find the milestone 'thesis manuscript' in KU Loket, contact your file administrator.
+
+Where do I submit?
+
+To all members of the examining committee: thesis manuscript, via email and/or hard copy
+KU Loket application PhD Progress: letter from supervisor 
+To the file administrator:  Similarity report of your thesis  via WeTransfer, Belnet FileSender (or Dropbox) (digital version, no print version)
+When should I submit?
+
+In the 4th year:
+
+at least 6 months after approval of the final doctoral plan
+minimum 10 weeks before the provisional date of the public defence
+be aware that the doctoral school cannot guarantee that 10 weeks will suffice, so we strongly recommend to leave more time! In case the Examining Committee demands a major revision of the manuscript, the defence will need to be postponed.
+take into account 3-4 weeks for manuscript revision, (minimum 5-6 weeks if holiday period is included  (Christmas, Easter, July & August),  however jury members can ask for a longer review period), so in that case there needs to be minimum 12 weeks between submission and defence
+Conditions for submission
+
+PhD training (e-portfolio) fully approved
+
+More details can be found here: https://gbiomed.kuleuven.be/english/phd/PhD_Researchers/practical_manual_phdffw.html#17.Thesis_Manuscript_FFW
